@@ -1,0 +1,78 @@
+/* based on http://purecss.io/layouts/tucked-menu-vertical/ */
+
+.tucked-vertical-menu-wrapper {
+    background-color: #daa520;
+}
+
+.animated.tucked-vertical-menu-wrapper {
+            transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+}
+
+.tucked-vertical-menu-wrapper a {
+    color: #2055da;
+}
+
+.tucked-vertical-menu-wrapper .pure-menu-link:hover,
+.tucked-vertical-menu-wrapper .pure-menu-link:focus {
+    background-color: #e1b74c;
+}
+
+.tucked-vertical-menu-toggle {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.tucked-vertical-menu-toggle .bar {
+    background-color: white;
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 100px;
+    position: absolute;
+    top: 18px;
+    right: 7px;
+}
+.animated .tucked-vertical-menu-toggle .bar {
+            transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.tucked-vertical-menu-toggle.x .bar {
+            transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.tucked-vertical-menu-toggle .bar:first-child {
+            transform: translateY(-6px);
+    -webkit-transform: translateY(-6px);
+}
+
+.tucked-vertical-menu-toggle.x .bar:first-child {
+            transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.tucked-vertical-menu-wrapper .pure-menu-horizontal {
+    white-space: normal;
+}
+
+@media (max-width: 720px) {
+
+    .tucked-vertical-menu-toggle {
+        display: block;
+    }
+
+    .tucked-vertical-menu-wrapper {
+        height: 2em;
+        overflow: hidden;
+    }
+
+    .tucked-vertical-menu-wrapper .pure-menu-horizontal .pure-menu-list {
+        display: none;
+    }
+}

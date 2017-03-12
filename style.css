@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    background: #daa520;
+}
+
+#center {
+    width: 940px;
+    margin: 1em auto;
+    background: white;
+    -webkit-box-shadow: 0 8px 44px 4px #000000;
+    -moz-box-shadow: 0 8px 44px 4px #000000;
+    box-shadow: 0 8px 44px 4px #000000;
+}
+
+header {
+    height: 507px;
+    background-size: 940px 507px;
+    background-image: url("header01.jpg");
+    cursor: pointer;
+}
+
+section {
+    margin: 1em;
+}
+
+footer {
+    padding: 1em;
+    background: #daa520;
+}
