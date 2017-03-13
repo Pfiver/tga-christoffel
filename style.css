@@ -4,7 +4,7 @@ body {
 }
 
 #center {
-    width: 940px;
+    max-width: 940px;
     margin: 1em auto;
     background: white;
     -webkit-box-shadow: 0 8px 44px 4px #000000;
@@ -15,7 +15,7 @@ body {
 header {
     height: 507px;
     background-size: 940px 507px;
-    background-image: url("header01.jpg");
+    background-image: url(header01.jpg);
     cursor: pointer;
 }
 
@@ -26,4 +26,33 @@ section {
 footer {
     padding: 1em;
     background: #daa520;
+}
+
+@media (max-width: 940px) {
+    #center {
+        margin: 0;
+    }
+}
+
+@media (max-width: 720px) {
+    header {
+        display: none !important;
+    }
+    body {
+        background: white;
+    }
+    #center {
+        background: -moz-linear-gradient(   top,       rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%), url(header01.jpg);
+        background: -webkit-gradient(       linear, left top, left bottom,
+                                                       color-stop(0%, rgba(255,255,255,0.7)),
+                                                       color-stop(100%, rgba(255,255,255,0.7))),              url(header01.jpg);
+        background: -webkit-linear-gradient(top,       rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%), url(header01.jpg);
+        background: -o-linear-gradient(     top,       rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%), url(header01.jpg);
+        background: -ms-linear-gradient(    top,       rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%), url(header01.jpg);
+        background: linear-gradient(        to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%), url(header01.jpg);
+
+        background-size: 940px 507px;
+        background-repeat: no-repeat;
+        background-position: top;
+    }
 }
