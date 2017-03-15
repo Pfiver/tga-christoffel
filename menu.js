@@ -43,8 +43,10 @@ window.addEventListener("load", function() {
     style.type = 'text/css';
     document.querySelector('head').appendChild(style);
     function initStyle() {
-        style.appendChild(document.createTextNode('.tucked-vertical-menu-wrapper.open {'
-            + 'height: ' + menu.firstElementChild.firstElementChild.clientHeight + 'px;}'));
+        var h = parseInt(window.getComputedStyle(menu.firstElementChild.firstElementChild.firstElementChild, null).getPropertyValue('padding-top'), 10);
+        var ch = menu.firstElementChild.firstElementChild.firstElementChild.clientHeight;
+        var nh = (ch - h) * 5;
+        style.appendChild(document.createTextNode('.tucked-vertical-menu-wrapper.open {height:' + nh + 'px;}'));
     }
     initStyle();
 

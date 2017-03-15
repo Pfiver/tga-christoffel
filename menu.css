@@ -10,7 +10,7 @@
 }
 
 .tucked-vertical-menu-wrapper a {
-    color: #2055da;
+    color: #1944ae;
 }
 
 .tucked-vertical-menu-wrapper .pure-menu-link:hover,
@@ -19,10 +19,10 @@
 }
 
 .tucked-vertical-menu-toggle {
-    width: 34px;
-    height: 34px;
+    width: 3em;
+    height: 3em;
     position: absolute;
-    top: 0;
+    top: 0.5em;
     right: 0;
     display: none;
 }
@@ -61,6 +61,19 @@
     white-space: normal;
 }
 
+.pure-menu-link {
+    transition-duration: 0.5s;
+    padding: 1em;
+}
+.open .pure-menu-link {
+    padding: .5em 1em;;
+}
+
+@media (min-width: 721px) {
+    .pure-menu-link {
+        padding: 1em;
+    }
+}
 @media (max-width: 720px) {
 
     .tucked-vertical-menu-toggle {
@@ -68,7 +81,7 @@
     }
 
     .tucked-vertical-menu-wrapper {
-        height: 2em;
+        height: 3em;
         overflow: hidden;
     }
 

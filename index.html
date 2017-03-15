@@ -7,34 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="menu.css"/>
     <link rel="stylesheet" href="bower_components/pure/pure-min.css" />
     <link rel="stylesheet" href="bower_components/pure/grids-responsive-min.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="menu.css"/>
 </head>
 <body>
 <div id="center">
 
-    <header>
+    <header onclick="document.location='index.html'">
+        <h1><span>Tga Christoffel, Sur</span><span>Willkommen</span><span>Bainvis</span></h1>
     </header>
 
     <nav class="tucked-vertical-menu-wrapper pure-g" id="menu">
         <div class="pure-u-1">
             <div class="pure-menu pure-menu-horizontal tucked-vertical-menu-can-transform">
 
-                <li class="pure-menu-item"><a href="haus" class="pure-menu-link">Haus</a></li>
+                <a href="haus.html" class="pure-menu-item pure-menu-link">Haus</a>
 
                 <ul class="pure-menu-list">
 
-                    <li class="pure-menu-item"><a href="preise" class="pure-menu-link">Preise</a></li>
-                    <li class="pure-menu-item"><a href="anfahrt" class="pure-menu-link">Anfahrt</a></li>
-                    <li class="pure-menu-item"><a href="aktivitaeten" class="pure-menu-link">Aktivitäten</a></li>
+                    <li class="pure-menu-item"><a href="preise.html" class="pure-menu-link">Preise</a></li>
+                    <li class="pure-menu-item"><a href="anfahrt.html" class="pure-menu-link">Anfahrt</a></li>
+                    <li class="pure-menu-item"><a href="aktivitaeten.html" class="pure-menu-link">Aktivitäten</a></li>
                 </ul>
 
                 <ul class="pure-menu-list right-aligned">
 
-                    <li class="pure-menu-item"><a href="reservation" class="pure-menu-link">Reservation</a></li>
+                    <li class="pure-menu-item"><a href="reservation.html" class="pure-menu-link">Reservation</a></li>
 
                 </ul>
 
@@ -64,7 +65,12 @@
     </section>
 
     <footer>
-        Fusszeile....
+        <div class="left">
+            <span><a href="mailto:ferien@tga-christoffel.ch">ferien@tga-christoffel.ch</a></span
+            ><span><a href="tel:+41791234567">+41 79 123 45 67</a></span>
+        </div>
+        <div class="right">© Barbara Gschwind, Luzern</div>
+        <div style="clear: both;"></div>
     </footer>
 
     <script src="script.js"></script>
