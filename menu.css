@@ -1,21 +1,8 @@
 /* based on http://purecss.io/layouts/tucked-menu-vertical/ */
 
-.tucked-vertical-menu-wrapper {
-    background-color: #daa520;
-}
-
 .animated.tucked-vertical-menu-wrapper {
             transition: height 0.5s;
     -webkit-transition: height 0.5s;
-}
-
-.tucked-vertical-menu-wrapper a {
-    color: #1944ae;
-}
-
-.tucked-vertical-menu-wrapper .pure-menu-link:hover,
-.tucked-vertical-menu-wrapper .pure-menu-link:focus {
-    background-color: #e1b74c;
 }
 
 .tucked-vertical-menu-toggle {

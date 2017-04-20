@@ -1,20 +1,15 @@
 body {
     margin: 0;
-    background: #daa520;
 }
 
 a {
     text-decoration: none;
-    color: #2055da;
 }
 
 #center {
     max-width: 940px;
     margin: 1em auto;
     background: white;
-    -webkit-box-shadow: 0 8px 44px 4px #000000;
-    -moz-box-shadow: 0 8px 44px 4px #000000;
-    box-shadow: 0 8px 44px 4px #000000;
 }
 
 header {
@@ -28,8 +23,6 @@ header {
 }
 
 header h1 {
-    color: #e1b74c;
-    text-shadow: 2px 2px #000000;
     position: absolute;
     bottom: 0;
     left: 0.5em;
@@ -54,28 +47,12 @@ footer div span:last-child {
     padding: 0 0 0 0.5em;
 }
 
-header span:not(:first-child) {
-    border-left: 1px solid #daa520;
-}
-header span:not(:last-child) {
-    border-right: 1px solid #daa520;
-}
-
-footer div span:not(:first-child) {
-    /*border-left: 1px solid #1944ae;*/
-}
-footer div span:not(:last-child) {
-    border-right: 1px solid #1944ae;
-}
-
 section {
     margin: 1em;
 }
 
 footer {
     padding: 0.5em 1em;
-    color: #1944ae;
-    background: #daa520;
     position: relative;
 }
 
@@ -85,6 +62,12 @@ footer .left {
 
 footer .right {
     float: right;
+}
+
+footer:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 @media (max-width: 940px) {

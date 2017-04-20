@@ -1,0 +1,72 @@
+@primary: white;
+@complement: difference(@primary, white);
+
+@background: @primary;
+
+@link-text: @complement;
+
+@menu: @primary;
+@menu-text: darken(@complement, 10%, relative);
+@menu-focus: lighten(@primary, 10%, relative);
+
+@header-text: lighten(@primary, 10%, relative);
+@header-text-shadow: black;
+@header-text-shadow-shape: 2px 2px;
+
+@footer: @primary;
+@footer-text: darken(@complement, 10%, relative);
+
+@page-shadow: black;
+@page-shadow-shape: 8px 8px;
+
+
+body {
+  background: @background;
+}
+
+a {
+  color: @link-text;
+}
+
+#center {
+  -webkit-box-shadow: @page-shadow-shape @page-shadow;
+  -moz-box-shadow: @page-shadow-shape @page-shadow;
+  box-shadow: @page-shadow-shape @page-shadow;
+}
+
+header h1 {
+  color: @header-text;
+  text-shadow: @header-text-shadow-shape @header-text-shadow;
+}
+
+header span:not(:first-child) {
+  border-left: 1px solid @header-text;
+}
+header span:not(:last-child) {
+  border-right: 1px solid @header-text;
+}
+
+.tucked-vertical-menu-wrapper {
+  background-color: @menu;
+}
+
+.tucked-vertical-menu-wrapper a {
+  color: @menu-text;
+}
+
+.tucked-vertical-menu-wrapper .pure-menu-link:hover,
+.tucked-vertical-menu-wrapper .pure-menu-link:focus {
+  background-color: @menu-focus;
+}
+
+footer div span:not(:first-child) {
+  /*border-left: 1px solid @footer-bar;*/
+}
+footer div span:not(:last-child) {
+  border-right: 1px solid @footer-text;
+}
+
+footer {
+  color: @footer-text;
+  background: @footer;
+}

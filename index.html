@@ -10,13 +10,28 @@
     <link rel="stylesheet" href="bower_components/pure/pure-min.css" />
     <link rel="stylesheet" href="bower_components/pure/grids-responsive-min.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="node_modules/rc-color-picker/dist/rc-color-picker.min.css" />
+    <style type="text/css">
+        .rc-color-picker-wrap { vertical-align: middle; }
+        .rc-color-picker-panel-wrap:nth-child(3),
+        .rc-color-picker-panel-wrap-preview { display: none; }
+        .rc-color-picker-panel-wrap > * { right: 0; }
+        .rc-color-picker-trigger {
+            height: 10px; border: 0; box-shadow: 0 0 0 1px #909090; }
+    </style>
+
+    <link rel="stylesheet/less" href="colors_fonts_shadows.less"/>
+
     <link rel="stylesheet" href="style.css"/>
+
     <link rel="stylesheet" href="menu.css"/>
+
 </head>
 <body>
 <div id="center">
 
-    <header onclick="document.location='index.html'">
+    <header onclick="document.location.href='#index.html'">
         <h1><span>Tga Christoffel, Sur</span><span>Willkommen</span><span>Bainvis</span></h1>
     </header>
 
@@ -24,18 +39,18 @@
         <div class="pure-u-1">
             <div class="pure-menu pure-menu-horizontal tucked-vertical-menu-can-transform">
 
-                <a href="haus.html" class="pure-menu-item pure-menu-link">Haus</a>
+                <a href="#haus.html" class="pure-menu-item pure-menu-link">Haus</a>
 
                 <ul class="pure-menu-list">
 
-                    <li class="pure-menu-item"><a href="haus.html" class="pure-menu-link">Preise</a></li>
-                    <li class="pure-menu-item"><a href="haus.html" class="pure-menu-link">Anfahrt</a></li>
-                    <li class="pure-menu-item"><a href="haus.html" class="pure-menu-link">Aktivitäten</a></li>
+                    <li class="pure-menu-item"><a href="#preise.html" class="pure-menu-link">Preise</a></li>
+                    <li class="pure-menu-item"><a href="#anfahrt.html" class="pure-menu-link">Anfahrt</a></li>
+                    <li class="pure-menu-item"><a href="#aktivitaeten.html" class="pure-menu-link">Aktivitäten</a></li>
                 </ul>
 
                 <ul class="pure-menu-list right-aligned">
 
-                    <li class="pure-menu-item"><a href="haus.html" class="pure-menu-link">Reservation</a></li>
+                    <li class="pure-menu-item"><a href="#reservation.html" class="pure-menu-link">Reservation</a></li>
 
                 </ul>
 
@@ -70,12 +85,11 @@
             ><span><a href="tel:+41791234567">+41 79 123 45 67</a></span>
         </div>
         <div class="right">© Barbara Gschwind, Luzern</div>
-        <div style="clear: both;"></div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="menu.js"></script>
-
 </div>
+
+<script src="bundle.js"></script>
+
 </body>
 </html>
