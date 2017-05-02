@@ -5,37 +5,73 @@ import Less from "less/lib/less-browser";
 
 console.log("OK");
 
-var less = new Less(window, { onReady: false });
+const less = new Less(window, {onReady: false, useFileCache: true});
 
-var get_style_vars = function (colorChooser, buttons) {
-    return [
-        {
-            var: '@primary',
-            name: "Primär-Farbe",
-            control: colorChooser()
-        },
-        {
-            var: '@page-shadow',
-            name: "Seiten-Schatten-Farbe",
-            control: buttons([
-                'fade(black, 50%)',
-                'fade(black, 12%)',
-                'white',
-                'fade(white, 50%)',
-                'fade(white, 12%)',
-                '@complement',
-                'fade(@complement, 50%)',
-                'fade(@complement, 12%)'
-            ])
-        }
-    ];
-};
+const custom_vars = {};
 
-var custom_vars = {
-    // TODO: auto-init
-    '@primary': '#daa520',
-    '@page-shadow': 'black'
-};
+const alternative_vars = ((colorChooser, buttons) => [
+    {
+        name: "Primär-Farbe",
+        var: '@primary',
+        value: "#ffffff",
+        control: colorChooser()
+    },
+    {
+        name: "Header-Text-Schatten-Form",
+        var: '@header-text-shadow-shape',
+        value: "0 0",
+        control: buttons([
+            "2px 2px",
+            "8px 8px 8px"
+        ])
+    },
+    {
+        name: "Header-Text-Schatten-Farbe",
+        var: '@header-text-shadow',
+        value: "#000000",
+        control: buttons([
+            "fade(black, 50%)",
+            "fade(black, 12%)",
+            "white",
+            "fade(white, 50%)",
+            "fade(white, 12%)",
+            "@complement",
+            "fade(@complement, 50%)",
+            "fade(@complement, 12%)"
+        ])
+    },
+    {
+        name: "Seiten-Schatten-Form",
+        var: '@page-shadow-shape',
+        value: "0 0",
+        control: buttons([
+            "8px 8px",
+            "0 8px 44px 4px"
+        ])
+    },
+    {
+        name: "Seiten-Schatten-Farbe",
+        var: '@page-shadow',
+        value: "#000000",
+        control: buttons([
+            "fade(black, 50%)",
+            "fade(black, 12%)",
+            "white",
+            "fade(white, 50%)",
+            "fade(white, 12%)",
+            "@complement",
+            "fade(@complement, 50%)",
+            "fade(@complement, 12%)"
+        ])
+    }
+])(
+    () => function () {
+        return mkColorChooser(this);
+    }
+    , variants => function () {
+        return mkVarDropdown(this, variants);
+    }
+);
 
 function update(var_, val) {
     if (typeof var_ !== 'undefined') {
@@ -47,102 +83,52 @@ function update(var_, val) {
     }).join("\n");
 }
 
-var style_vars = get_style_vars(
-    function () {
-        return function () {
-            return mkColorChooser(this.var, this.name);
-        }
-    },
-    function (variants) {
-        return function () {
-            return mkModBtns(this.var, this.name, variants);
-        }
-    }
-);
-
-function throttle(fn, threshhold, scope) {
-    threshhold || (threshhold = 250);
-    var last,
-        deferTimer;
-    return function () {
-        var context = scope || this;
-
-        var now = +new Date,
-            args = arguments;
-        if (last && now < last + threshhold) {
-            // // hold on to it
-            // clearTimeout(deferTimer);
-            // deferTimer = setTimeout(function () {
-            //     last = now;
-            //     fn.apply(context, args);
-            // }, threshhold);
-        } else {
-            last = now;
-            fn.apply(context, args);
-        }
-    };
-}
-
-function toHexByte(zeroToHundred) {
-    return (Math.min(Math.floor(zeroToHundred / 100 * 256), 255) + 0x100).toString(16).substring(1, 3);
-}
-
-function mkColorChooser(var_, name) {
-    // var elm = document.createElement('input');
-    // elm.setAttribute('type', 'color');
-    // elm.oninput = function() {
-    //     console.log(elm.value);
-    //     update(var_, elm.value);
-    // };
-    var elm = document.createElement('span');
+function mkColorChooser(var_) {
+    custom_vars[var_.var] = var_.value;
+    const elm = document.createElement('span');
     elm.style.vertAlign = 'center';
     ReactDOM.render(React.createElement(ColorPicker, {
-        mode: 'RGB', onChange: function (val) {
-            console.log(val.color + toHexByte(val.alpha));
-            throttle(update)(var_, val.color);
-            // update(var_, val.color);
+        color: var_.value,
+        mode: 'RGB', onChange: val => {
+            const newVal = `hsva(${val.hsv.h}, ${val.hsv.s}%, ${val.hsv.v}%, ${val.alpha/100})`;
+            console.log(`${var_.var}: ${newVal}`);
+            update(var_.var, newVal);
         }
     }), elm);
     return elm;
 }
 
-function mkModBtns(v, i) {
-    var elm = document.createElement('button');
-    elm.onclick = function () {
-        if (i < 0) {
-            delete custom_vars[v];
-            mixin({});
-        }
-        else {
-            var o = {};
-            o[v] = style_variants[v][i];
-            mixin(o);
-        }
-    };
-    elm.innerHTML = i + 1;
+function mkVarDropdown(var_, variants) {
+    custom_vars[var_.var] = var_.value;
+    const elm = document.createElement('select');
+    [var_.value].concat(variants).forEach(val => {
+        const el = document.createElement('option');
+        el.setAttribute("value", val);
+        el.innerHTML = val;
+        elm.appendChild(el);
+    });
+    elm.onchange = e => update(var_.var, elm.options[elm.selectedIndex].value);
     return elm;
 }
 
-var current_customizations;
+let current_customizations;
 
 document.body.appendChild(function () {
-    var elm = document.createElement('div');
+    const elm = document.createElement('div');
 
-    style_vars.forEach(function (v) {
-
+    alternative_vars.forEach(function (v) {
         elm.appendChild(document.createTextNode(v.name + ": "));
         elm.appendChild(v.control());
         elm.appendChild(document.createElement('br'));
-
     });
 
     elm.appendChild(function () {
-        var elm = document.createElement('div');
+        const elm = document.createElement('div');
         elm.appendChild(document.createTextNode("Momentane Konfiguration: "));
-        var code = document.createElement('code');
+        const code = document.createElement('code');
         code.style.display = 'inline-block';
         code.style.verticalAlign = 'top';
-        var pre = document.createElement('pre');
+        const pre = document.createElement('pre');
         pre.style.backgroundColor = 'lightgrey';
         pre.style.margin = '0';
         current_customizations = pre;
@@ -157,5 +143,4 @@ document.body.appendChild(function () {
 }());
 
 less.registerStylesheets()
-    .then(() => less.refresh(true))
-    .then(() => update());
+    .then(() => less.refresh(true, custom_vars)).then(() => update());

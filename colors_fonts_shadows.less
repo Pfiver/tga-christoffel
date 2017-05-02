@@ -1,4 +1,11 @@
-@primary: white;
+// paste variables
+@primary: #ffffff;
+@header-text-shadow: #000000;
+@header-text-shadow-shape: 0 0;
+@page-shadow: #000000;
+@page-shadow-shape: 0 0;
+// end paste variables
+
 @complement: difference(@primary, white);
 
 @background: @primary;
@@ -10,14 +17,9 @@
 @menu-focus: lighten(@primary, 10%, relative);
 
 @header-text: lighten(@primary, 10%, relative);
-@header-text-shadow: black;
-@header-text-shadow-shape: 2px 2px;
 
 @footer: @primary;
 @footer-text: darken(@complement, 10%, relative);
-
-@page-shadow: black;
-@page-shadow-shape: 8px 8px;
 
 
 body {

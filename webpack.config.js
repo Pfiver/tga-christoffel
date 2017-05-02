@@ -35,6 +35,7 @@ module.exports = {
         ]
     },
     plugins: [
+
         // new (require('webpack-closure-compiler'))({
         //     compiler: {
         //     //     language_in: 'ECMASCRIPT6',
@@ -42,6 +43,12 @@ module.exports = {
         //     //     compilation_level: 'ADVANCED'
         //     },
         //     // concurrency: 3,
+        // })
+
+        // new (require('webpack')).DefinePlugin({
+        //     'process.env': {
+        //         'NODE_ENV': JSON.stringify('production')
+        //     }
         // })
     ]
 };
