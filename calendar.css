@@ -1,0 +1,268 @@
+/* from https://shop.savognin.ch/Savognin/b3/css/ttportal-2.5.8-b3.css */
+
+/* @group LODGING CALENDAR ______________________________ */
+/* @lastmodified 2014-08-13 */
+/* @author ast */
+
+.table-calendar {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.table-calendar td {
+    font-size: 12px;
+    line-height: 1.3;
+    text-align: center;
+    width: 14.2%;
+}
+
+.table-calendar thead > tr > th,
+.table-calendar thead > tr > td,
+.table-calendar tbody > tr > th,
+.table-calendar tbody > tr > td,
+.table-calendar tfoot > tr > th,
+.table-calendar tfoot > tr > td {
+    border: 1px solid #fff;
+    line-height: 20px;
+    margin: 0;
+    padding: 0.1em 0.4em;
+    vertical-align: top;
+    width: 14.2857%;
+}
+
+.datepicker-days .table-condensed thead > tr > th,
+.datepicker-days .table-condensed thead > tr > td,
+.datepicker-days .table-condensed tbody > tr > th,
+.datepicker-days .table-condensed tbody > tr > td,
+.datepicker-days .table-condensed tfoot > tr > th,
+.datepicker-days .table-condensed tfoot > tr > td {
+    border: 1px solid #fff;
+    line-height: 20px;
+    margin: 0;
+    padding: 0.1em 0.4em;
+    vertical-align: top;
+    width: 14.2857%;
+}
+
+.table-calendar .prev-month .day, .table-calendar .next-month .day {
+    color: #bbb;
+}
+
+.table-calendar td .day {
+    display: block;
+    float: right;
+    font-size: 85%;
+    font-weight: normal;
+    margin: 0;
+}
+
+.table-calendar td.free, .table-condensed td.free {
+    background: #95c966;
+    color: #fff;
+}
+
+.table-calendar td.freeGo, .table-condensed td.freeGo {
+    background: #288c1d;
+    color: #fff;
+}
+
+.table-calendar td.busy, .table-condensed td.busy {
+    background: #d5d5d5;
+    color: #fff;
+}
+
+.table-calendar td.onDemand, .table-condensed td.onDemand {
+    background: #95c966;
+    color: #fff;
+}
+
+.table-calendar td.onDemandGo, .table-condensed td.onDemandGo {
+    background: #288c1d;
+    color: #fff;
+}
+
+.table-calendar td.free-busy, .table-condensed td.free-busy {
+    color: #fff;
+    background: #95c966; /* Old browsers, IE6-8 fallback */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-45deg, #95c966 50%, #d5d5d5 50%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#95c966), color-stop(50%,#d5d5d5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, #95c966 50%,#d5d5d5 50%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #95c966 50%,#d5d5d5 50%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #95c966 50%,#d5d5d5 50%); /* IE10+ */
+    background: linear-gradient(135deg, #95c966 50%,#d5d5d5 50%); /* W3C */
+}
+
+.table-calendar td.free-busy-arrival, .table-condensed td.free-busy-arrival {
+    color: #fff;
+    background: #288c1d; /* Old browsers, IE6-8 fallback */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-45deg, #288c1d 50%, #d5d5d5 50%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#288c1d), color-stop(50%,#d5d5d5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, #288c1d 50%,#d5d5d5 50%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #288c1d 50%,#d5d5d5 50%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #288c1d 50%,#d5d5d5 50%); /* IE10+ */
+    background: linear-gradient(135deg, #288c1d 50%,#d5d5d5 50%); /* W3C */
+}
+
+.table-calendar td.busy-free, .table-condensed td.busy-free {
+    color: #fff;
+    background: #d5d5d5; /* Old browsers, IE6-8 fallback */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-45deg, #d5d5d5 50%, #95c966 50%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#d5d5d5), color-stop(50%,#95c966)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, #d5d5d5 50%,#95c966 50%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #d5d5d5 50%,#95c966 50%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #d5d5d5 50%,#95c966 50%); /* IE10+ */
+    background: linear-gradient(135deg, #d5d5d5 50%,#95c966 50%); /* W3C */
+}
+
+.table-calendar td.busy-free-arrival, .table-condensed td.busy-free-arrival {
+    color: #fff;
+    background: #d5d5d5; /* Old browsers, IE6-8 fallback */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-45deg, #d5d5d5 50%, #288c1d 50%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#d5d5d5), color-stop(50%,#288c1d)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, #d5d5d5 50%,#288c1d 50%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #d5d5d5 50%,#288c1d 50%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #d5d5d5 50%,#288c1d 50%); /* IE10+ */
+    background: linear-gradient(135deg, #d5d5d5 50%,#288c1d 50%); /* W3C */
+}
+
+.table-calendar tbody td {
+    /*background: #d5d5d5;*/
+    color: #fff;
+    font-weight: bold;
+}
+
+.table-calendar tbody td strong {
+    color: #fff;
+    font-size: 14px;
+}
+
+.js .table-calendar .freeGo,
+.js .table-calendar .free {
+    cursor: pointer;
+}
+
+.js .table-calendar .free:hover,
+.js .table-calendar .free:focus,
+.js .table-calendar .freeGo:hover,
+.js .table-calendar .freeGo:focus{
+    outline: 1px dotted #333;
+}
+
+.table-calendar.table-bordered > thead > tr > th,
+.table-calendar.table-bordered > tbody > tr > th,
+.table-calendar.table-bordered > tfoot > tr > th,
+.table-calendar.table-bordered > thead > tr > td,
+.table-calendar.table-bordered > tbody > tr > td,
+.table-calendar.table-bordered > tfoot > tr > td {
+    border-color: #fff;
+}
+
+.table-calendar .muted {
+    background: #fff;
+    font-size: 0;
+}
+
+.table-calendar .btn {
+    padding: 0 5px;
+}
+
+.table-calendar .btn:active,
+.table-calendar .btn.active {
+    box-shadow: none;
+}
+
+@media (max-width: 1199px) {
+
+    button[data-calendar-toggle="lodging_calendar"] .text {
+        display: none;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    button[data-calendar-toggle="lodging_calendar"] {
+        display: none;
+    }
+
+}
+
+/*********************************************************************************************************/
+
+
+/*
+ * Calendar legend
+ */
+
+.tt-cal-legend {
+    clear: botH;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.tt-cal-legend-hide .tt-cal-legend{
+    display: none;
+}
+
+.tt-cal-legend .tt-cal-bgrnd-busy:before, .tt-cal-bgrnd-busy {
+    background: #d5d5d5;
+}
+
+.tt-cal-legend .tt-cal-bgrnd-freeGo:before, .tt-cal-bgrnd-freeGo {
+    background: #288c1d;
+}
+
+.tt-cal-legend .tt-cal-bgrnd-free:before, .tt-cal-bgrnd-free {
+    background: #95c966;
+}
+
+.tt-cal-legend .tt-cal-bgrnd-busy,
+.tt-cal-legend .tt-cal-bgrnd-freeGo,
+.tt-cal-legend .tt-cal-bgrnd-free {
+    background-color: transparent;
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.tt-cal-legend > div:before {
+    display: inline-block;
+    content: '';
+    height: 20px;
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+    width: 40px;
+}
+
+@media screen and (max-width: 567px) {
+
+    .tt-cal-legend .tt-cal-bgrnd-busy,
+    .tt-cal-legend .tt-cal-bgrnd-freeGo,
+    .tt-cal-legend .tt-cal-bgrnd-free {
+        display: block;
+    }
+
+}
+
+
+/*********************************************************************************************************/
+
+/*.col-md-4 {*/
+    /*width: 33.333333333333%;*/
+    /*float: left;*/
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
+/*}*/
+
+.col-md-6 {
+    width: 50%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}

@@ -1,3 +1,7 @@
+html, .pure-g, .pure-g * {
+    font-family: 'Noto Sans', sans-serif;
+}
+
 body {
     margin: 0;
 }
