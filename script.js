@@ -1,3 +1,4 @@
 import './fun';
 import './menu';
-import './calendar';
+
+export { show_calendar } from './calendar';

@@ -4,6 +4,7 @@ module.exports = {
     },
     output: {
         filename: "[name].js",
+        library: [ 'ScriptBundle' ],
         path: require('path').resolve(__dirname, '.')
     },
     module: {
