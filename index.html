@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="bower_components/pure/grids-responsive-min.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
 
-    <link rel="stylesheet/less" href="colors_fonts_shadows.less"/>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="page-style.css"/>
+    <link rel="stylesheet/less" href="colors_fonts_shadows.less"/>
 
     <link rel="stylesheet" href="fonts/fonts.css"/>
     <link rel="stylesheet" href="calendar.css"/>
@@ -32,7 +33,7 @@
 <body>
 <div id="center">
 
-    <header onclick="document.location.href='#index.html'">
+    <header onclick="document.location.href='#index'">
         <h1><span>Tga Christoffel, Sur</span><span>Willkommen</span><span>Bainvis</span></h1>
     </header>
 
@@ -40,19 +41,19 @@
         <div class="pure-u-1">
             <div class="pure-menu pure-menu-horizontal tucked-vertical-menu-can-transform">
 
-                <a href="#haus.html" class="pure-menu-item pure-menu-link">Haus</a>
+                <a href="#haus" class="pure-menu-item pure-menu-link">Haus</a>
 
                 <ul class="pure-menu-list">
 
-                    <li class="pure-menu-item"><a href="#preise.html" class="pure-menu-link">Preise</a></li>
-                    <li class="pure-menu-item"><a href="#anfahrt.html" class="pure-menu-link">Anfahrt</a></li>
-                    <li class="pure-menu-item"><a href="#aktivitaeten.html" class="pure-menu-link">Aktivitäten</a></li>
+                    <li class="pure-menu-item"><a href="#preise" class="pure-menu-link">Preise</a></li>
+                    <li class="pure-menu-item"><a href="#anfahrt" class="pure-menu-link">Anfahrt</a></li>
+                    <li class="pure-menu-item"><a href="#aktivitaeten" class="pure-menu-link">Aktivitäten</a></li>
                 </ul>
 
                 <ul class="pure-menu-list right-aligned">
 
-                    <li class="pure-menu-item"><a href="#reservation.html" class="pure-menu-link">Reservation</a></li>
-                    <li class="pure-menu-item"><a href="#belegungs-kalender.html" onclick="ScriptBundle.show_calendar();" class="pure-menu-link">Belegungs-Kalender</a></li>
+                    <li class="pure-menu-item"><a href="#reservation" class="pure-menu-link">Reservation</a></li>
+                    <li class="pure-menu-item"><a href="#belegungs-kalender" onclick="ScriptBundle.show_calendar();" class="pure-menu-link">Belegungs-Kalender</a></li>
                 </ul>
 
                 <a href="#" class="tucked-vertical-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
@@ -61,24 +62,166 @@
         </div>
     </nav>
 
-    <section id="section1">
-        Das Haus Tga Christoffel ...
+    <section id="index" class="current">
+
+        <h3>Home</h3>
+
+        <p> Unser Haus Tga Christoffel steht im oberen Teil des kleinen Dorfes Sur, im Kanton Graubünden, auf 1600 m ü. M.
+
+            Viele verschiedene Wanderwege führen vom Haus aus zum Hochmoor der <a href="http://www.schatzinselalpflix.ch./">Alp Flix</a>.
+
+            Sur liegt im <a href="http://www.parc-ela.ch/">Naturpark Ela</a>.
+
+            Das Wander- und Erholungsgebiet rund um Bivio und Savognin lädt in allen Jahreszeiten zu vielfältigen Familien Ferien ein.
+
+        <p> Das grosse Haus kann gemütlich von 2 Personen bewohnt oder freudig mit bis zu 7 Personen geteilt werden.
+
     </section>
-    <section>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In erat mauris, faucibus quis pharetra sit amet, pretium ac libero. Etiam vehicula eleifend bibendum. Morbi gravida metus ut sapien condimentum sodales mollis augue sodales. Vestibulum quis quam at sem placerat aliquet. Curabitur a felis at sapien ullamcorper fermentum. Mauris molestie arcu et lectus iaculis sit amet eleifend eros posuere. Fusce nec porta orci.
+    <section id="haus">
+
+        <h3>Haus</h3>
+
+        <p> Tga Christoffel wurde vor ungefähr 150 Jahren von unseren Urgrosseltern gebaut und von ihnen bewohnt. In den 60er Jahreren renovierten unsere Grosseltern das Haus sanft und seither dient es uns als Ferienhaus.
+
+        <p> Das Haus verfügt über eine zentrale Heizung und warmes Wasser.
+
+        <p> Die Zimmer verteilen sich auf 2 Stockwerke.
+            <br>Im <u>EG</u> befinden sich eine einfache Küche sowie eine kleine und eine grosse Stube.
+            <br>Im <u>OG</u> gibt es drei Schlafräume, WC-Dusche und ein separtates WC.
+
+        <p> - Grundrissplan EG und OG als pdf
+
+        <p> Ein Gartensitzplatz vor und hinter dem Haus laden ein zum ausruhen oder spielen.
+            Etwas unterhalb vom Haus steht Ihnen ein Parkplatz zur Verfügung.
+
+        <p> Das Haus eignet sich für Ferien mit Kindern, mit befreundeten Familien oder mit Freunden.
+            Auch für 2 Personen ist das Haus gemütlich bewohnbar. Bei Belegung von nur 2 Personen profitieren Sie in der Nebensaison von einer Preisreduzierung.
+
+        <p> <b>Was Sie alles vorfinden:</b>
+            TripTrap Kindersitz, Spiele, Radio/CD Player, Schlitten
+            Fondue-und Raclette, Backofen, Herd, Kühlschrank mit Gefrierteil
+            Chuchitücher, Standart Gewürze
+
+        <p> <b>Was Sie nicht finden:</b>
+            TV, WLAN, Waschmaschine
+
     </section>
-    <section>
-        Integer vitae neque odio, a sollicitudin lorem. Aenean orci mauris, tristique luctus fermentum eu, feugiat vel massa. Fusce sem sem, egestas nec vulputate vel, pretium sit amet mi. Fusce ut nisl id risus facilisis euismod. Curabitur et elementum purus. Duis tincidunt fringilla eleifend. Morbi id lorem eu ante adipiscing feugiat. Sed congue erat in enim eleifend dignissim at in nisl. Donec tortor mauris, mollis vel pretium vitae, lacinia nec sapien. Donec erat neque, ullamcorper tincidunt iaculis sit amet, pharetra bibendum ipsum. Nunc mattis risus ac ante consequat nec pulvinar neque molestie. Etiam interdum nunc at metus lacinia non varius erat dignissim. Integer elementum, felis id facilisis vulputate, ipsum tellus venenatis dui, at blandit nibh massa in dolor. Cras a ultricies sapien. Vivamus adipiscing feugiat pharetra.
+    <section id="preise">
+
+        <h3>Preise</h3>
+
+        <p> <b>Nebensaison</b> inkl. Heizung
+            <br>Nach Ostern bis Ende Juni
+            <br>September bis 20. Dezember:
+
+        <div class="price-value">
+            95.- / Nacht
+            <br>für 2 Personen: 80.-/ Nacht
+        </div>
+
+
+        <p> <b>Hauptsaison</b> inkl. Heizung
+            <br>Ab 21. Dezember bis und mit Ostern
+            <br>Juli, August:
+
+        <div class="price-value">
+            110.- / Nacht
+        </div>
+
+        <p> <b>Nebenkosten:</b>
+
+        <div class="price-value">
+            <dl><dt>Endreinigung			<dd>120.-	(? mit Hund 130.-)
+                <dt>Bettwäsche auf Wunsch	<dd>14.- / Bett
+                                                (Schlafsäcke sind aus hygienischen Gründen nicht erlaubt.)
+                <dt>Kurtaxen			    <dd>1.50 	ab 16 Jahre
+                                                <br>0.75 	12-16 Jahre
+            </dl>
+        </div>
+
+        <p> Zeitaufwand:
+        <div class="price-value">
+            2 std (?)
+        </div>
+
     </section>
-    <!--<section>-->
-        <!--Donec consectetur pellentesque nisi sit amet elementum. Duis iaculis velit at eros dapibus vehicula. Vestibulum erat risus, rutrum ut vulputate eu, rhoncus ut dolor. Etiam pellentesque lobortis velit. Suspendisse arcu lacus, ornare in sollicitudin eget, hendrerit a neque. Donec ac justo in ante gravida mollis. Praesent scelerisque molestie risus sodales fringilla. Vivamus quis lorem in mauris pulvinar tempor. Nam in nisl vel neque commodo semper sed eu nibh. Duis cursus lectus vel odio posuere quis aliquet quam blandit. Maecenas neque nibh, sollicitudin posuere tempus adipiscing, molestie vel nibh. Mauris porttitor, lacus vitae aliquam aliquam, risus urna tempus elit, sit amet malesuada erat dolor iaculis mi. Donec quam sapien, adipiscing eget sodales vitae, blandit eu odio.-->
-    <!--</section>-->
-    <!--<section>-->
-        <!--Nullam elementum, felis vitae tempor ullamcorper, ipsum metus dapibus lorem, non molestie tellus libero et nisi. Donec lacinia massa a lacus interdum dapibus. Nulla facilisi. Nulla sollicitudin porta odio non iaculis. Donec lobortis dapibus urna, commodo condimentum magna interdum non. Quisque ultrices adipiscing ante et suscipit. Nullam quis libero leo. Donec molestie semper est, at faucibus risus pharetra non. Praesent pretium lorem nec sem aliquam rhoncus.-->
-    <!--</section>-->
-    <!--<section>-->
-        <!--Vestibulum facilisis, nulla tincidunt eleifend aliquet, tortor lorem ornare dolor, vitae scelerisque mi ante in felis. Nulla dictum interdum velit in bibendum. In varius aliquet purus et auctor. Nunc imperdiet mi sagittis magna rutrum vehicula. Nullam in lorem nibh, at faucibus tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur ullamcorper ornare est et dapibus. Vivamus sagittis nulla eget enim posuere vel blandit neque adipiscing. Sed ligula odio, ultricies vestibulum fermentum ut, malesuada ac erat. Aliquam erat volutpat.-->
-    <!--</section>-->
+    <section id="aktivitaeten">
+
+        <h3>Aktivitäten</h3>
+
+        <pre>
+Was kann ich hier machen?
+
+Familien
+
+Feuerstellen, baden im Bergsee, Bach stauen
+Forscherparcours Alp Flix für Kinder zwischen 7 und 12 Jahren www.parc-ela.ch
+Reiten, Alp Flix www.wireltern.ch/artikel/verflixt-schoen  www.agrotour.ch
+Hallenbad in Bivio
+
+Sommer
+Wandern
+unsere Lieblingswanderungen	einfach, mittel, gross
+weitere Wandertipss: www....
+Klettergarten (Bivio)
+www.savognin.ch/weitere-sommer-erlebnisse/klettern/klettertouren/klettergarten-bivio.html
+
+
+Winter
+Skitouren
+Schneeschuhtouren
+Alpin Skifahren (Bivio und Savognin) www.savognin.ch
+Schlitteln Sur, Alp Flix
+Langlauf (Alp Flix, Rona)
+
+
+
+Kultur
+unsere Lieblingsorte
+
+Mistail (karolingische Dreiapsidenkirche, um 800 n. Chr.) Tiefencastel
+Julierpasshöhe mit römischen Säulen
+Gletschemühlen, Maloja
+Septimerpass
+Ausflug nach Italien Chiavenna
+Burg Riom
+Essen im Hotel Piz Platta www.flix.ch
+Bivio (über den Kanonensattel, Schoggikichen im Hotel Post
+Caffè Raccabella, Bivio
+        </pre>
+
+    </section>
+    <section id="anfahrt">
+
+        <h3>Anfahrt</h3>
+        <pre>
+Ö.V.
+Auto, Parkplatz
+
+evt. Plan pdf oder Link zu Karte
+        </pre>
+
+    </section>
+    <section id="reservation">
+
+        <h3>Reservation</h3>
+        <pre>
+Kalender zum eintrgaen
+AGB bei Absagen...
+        </pre>
+
+    </section>
+    <section id="kontakt">
+
+        <h3>Kontakt</h3>
+        <pre>
+Adresse und Telefon, email
+        </pre>
+
+    </section>
+    <section id="belegungs-kalender">
+
+    </section>
 
     <footer>
         <div class="left">

@@ -2,7 +2,7 @@
 
 window.addEventListener("load", function() {
 
-    var menu = document.getElementById('menu');
+    const menu = document.getElementById('menu');
 
     document.getElementById('toggle').addEventListener('click', toggleMenu);
     window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', closeMenu);
@@ -39,20 +39,20 @@ window.addEventListener("load", function() {
         }
     }
 
-    var style = document.createElement('style');
+    const style = document.createElement('style');
     style.type = 'text/css';
     document.querySelector('head').appendChild(style);
     function initStyle() {
-        var h = parseInt(window.getComputedStyle(menu.firstElementChild.firstElementChild.firstElementChild, null).getPropertyValue('padding-top'), 10);
-        var ch = menu.firstElementChild.firstElementChild.firstElementChild.clientHeight;
-        var nh = (ch - h) * 5;
+        const h = parseInt(window.getComputedStyle(menu.firstElementChild.firstElementChild.firstElementChild, null).getPropertyValue('padding-top'), 10);
+        const ch = menu.firstElementChild.firstElementChild.firstElementChild.clientHeight;
+        const nh = (ch - h) * 6;
         style.appendChild(document.createTextNode('.tucked-vertical-menu-wrapper.open {height:' + nh + 'px;}'));
     }
     initStyle();
 
     if (localStorage.getItem('menu') === 'open') {
         // http://stackoverflow.com/a/6850319
-        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
         if (width > 768) {
             localStorage.setItem('menu', 'closed');
         } else {

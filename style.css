@@ -2,6 +2,10 @@ html, .pure-g, .pure-g * {
     font-family: 'Noto Sans', sans-serif;
 }
 
+pre {
+    font-family: 'Noto Sans', sans-serif;
+}
+
 body {
     margin: 0;
 }
@@ -53,6 +57,14 @@ footer div span:last-child {
 
 section {
     margin: 1em;
+}
+
+#center > section {
+    display: none;
+}
+
+#center > section.current {
+    display: inherit;
 }
 
 footer {

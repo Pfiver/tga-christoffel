@@ -1,3 +1,4 @@
+/*********************************************************************************************************/
 /* from https://shop.savognin.ch/Savognin/b3/css/ttportal-2.5.8-b3.css */
 
 /* @group LODGING CALENDAR ______________________________ */
@@ -175,23 +176,9 @@
     box-shadow: none;
 }
 
-@media (max-width: 1199px) {
-
-    button[data-calendar-toggle="lodging_calendar"] .text {
-        display: none;
-    }
-
-}
-
-@media (max-width: 767px) {
-
-    button[data-calendar-toggle="lodging_calendar"] {
-        display: none;
-    }
-
-}
 
 /*********************************************************************************************************/
+/* from https://shop.savognin.ch/Savognin/b3/css/ttportal-2.5.8-b3.css */
 
 
 /*
@@ -204,7 +191,7 @@
     margin-left: 15px;
 }
 
-.tt-cal-legend-hide .tt-cal-legend{
+.tt-cal-legend-hide .tt-cal-legend {
     display: none;
 }
 
@@ -251,18 +238,19 @@
 
 
 /*********************************************************************************************************/
-
-/*.col-md-4 {*/
-    /*width: 33.333333333333%;*/
-    /*float: left;*/
-    /*padding-left: 15px;*/
-    /*padding-right: 15px;*/
-/*}*/
+/* custom styles */
 
 .col-md-6 {
-    width: 50%;
+    height: 200px;
+    width: 300px;
     float: left;
     padding-left: 15px;
     padding-right: 15px;
     box-sizing: border-box;
+}
+
+#calendar:after {
+    content: '';
+    display: block;
+    clear: both;
 }
