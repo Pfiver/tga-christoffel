@@ -18643,7 +18643,7 @@ var _stringify = __webpack_require__(195);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-exports.show_calendar = show_calendar;
+exports.show = show;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18656,9 +18656,7 @@ var dates = ["2017-05", "2017-07", "2017-09", "2017-11", "2018-01", "2018-03"];
 
 var savognin_calendar = "http://shop.savognin.ch/Savognin/ukv/ajax/calendar/TDS00020010019636959?date=";
 
-function show_calendar() {
-
-    var section = document.getElementById("belegungs-kalender");
+function show(section) {
 
     if (section.childElementCount > 0) {
         return;
@@ -18723,8 +18721,6 @@ var _lessBrowser2 = _interopRequireDefault(_lessBrowser);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log("OK");
-
 var less = new _lessBrowser2.default(window, { onReady: false, useFileCache: true });
 
 var custom_vars = {};
@@ -18758,90 +18754,92 @@ var alternative_vars = function (colorChooser, buttons) {
     }];
 }(function () {
     return function () {
-        return mkColorChooser(this);
+        var _this = this;
+
+        custom_vars[this.var] = this.value;
+        var elm = document.createElement('span');
+        elm.style.vertAlign = 'center';
+        _reactDom2.default.render(_react2.default.createElement(_rcColorPicker2.default, {
+            color: this.value,
+            mode: 'RGB', onChange: function onChange(val) {
+                var newVal = "hsva(" + val.hsv.h + ", " + val.hsv.s + "%, " + val.hsv.v + "%, " + val.alpha / 100 + ")";
+                console.log(_this.var + ": " + newVal);
+                update(_this.var, newVal);
+            }
+        }), elm);
+        return elm;
     };
 }, function (variants) {
     return function () {
-        return mkVarDropdown(this, variants);
+        var _this2 = this;
+
+        custom_vars[this.var] = this.value;
+        var elm = document.createElement('select');
+        [this.value].concat(variants).forEach(function (val) {
+            var el = document.createElement('option');
+            el.setAttribute("value", val);
+            el.innerHTML = val;
+            elm.appendChild(el);
+        });
+        elm.onchange = function (e) {
+            return update(_this2.var, elm.options[elm.selectedIndex].value);
+        };
+        return elm;
     };
 });
 
-function update(var_, val) {
-    if (typeof var_ !== 'undefined') {
-        custom_vars[var_] = val;
-    }
-    less.modifyVars(custom_vars);
-    current_customizations.innerHTML = (0, _keys2.default)(custom_vars).map(function (k) {
-        return k + ": " + custom_vars[k] + ";";
-    }).join("\n");
-}
+var update = void 0;
+var compile = less.registerStylesheets().then(function () {
+    return less.refresh(true, custom_vars);
+});
 
-function mkColorChooser(var_) {
-    custom_vars[var_.var] = var_.value;
-    var elm = document.createElement('span');
-    elm.style.vertAlign = 'center';
-    _reactDom2.default.render(_react2.default.createElement(_rcColorPicker2.default, {
-        color: var_.value,
-        mode: 'RGB', onChange: function onChange(val) {
-            var newVal = "hsva(" + val.hsv.h + ", " + val.hsv.s + "%, " + val.hsv.v + "%, " + val.alpha / 100 + ")";
-            console.log(var_.var + ": " + newVal);
-            update(var_.var, newVal);
-        }
-    }), elm);
-    return elm;
-}
+if (false) {
 
-function mkVarDropdown(var_, variants) {
-    custom_vars[var_.var] = var_.value;
-    var elm = document.createElement('select');
-    [var_.value].concat(variants).forEach(function (val) {
-        var el = document.createElement('option');
-        el.setAttribute("value", val);
-        el.innerHTML = val;
-        elm.appendChild(el);
-    });
-    elm.onchange = function (e) {
-        return update(var_.var, elm.options[elm.selectedIndex].value);
-    };
-    return elm;
-}
+    var current_customizations = void 0;
 
-var current_customizations = void 0;
-
-document.body.appendChild(function () {
-    var elm = document.createElement('div');
-
-    alternative_vars.forEach(function (v) {
-        elm.appendChild(document.createTextNode(v.name + ": "));
-        elm.appendChild(v.control());
-        elm.appendChild(document.createElement('br'));
-    });
-
-    elm.appendChild(function () {
+    document.body.appendChild(function () {
         var elm = document.createElement('div');
-        elm.appendChild(document.createTextNode("Momentane Konfiguration: "));
-        var code = document.createElement('code');
-        code.style.display = 'inline-block';
-        code.style.verticalAlign = 'top';
-        var pre = document.createElement('pre');
-        pre.style.backgroundColor = 'lightgrey';
-        pre.style.margin = '0';
-        current_customizations = pre;
-        code.appendChild(pre);
-        elm.appendChild(code);
+
+        alternative_vars.forEach(function (v) {
+            elm.appendChild(document.createTextNode(v.name + ": "));
+            elm.appendChild(v.control());
+            elm.appendChild(document.createElement('br'));
+        });
+
+        elm.appendChild(function () {
+            var elm = document.createElement('div');
+            elm.appendChild(document.createTextNode("Momentane Konfiguration: "));
+            var code = document.createElement('code');
+            code.style.display = 'inline-block';
+            code.style.verticalAlign = 'top';
+            var pre = document.createElement('pre');
+            pre.style.backgroundColor = 'lightgrey';
+            pre.style.margin = '0';
+            current_customizations = pre;
+            code.appendChild(pre);
+            elm.appendChild(code);
+            return elm;
+        }());
+
+        elm.style.margin = '1em';
+
         return elm;
     }());
 
-    elm.style.margin = '1em';
+    update = function update(var_, val) {
+        if (typeof var_ !== 'undefined') {
+            custom_vars[var_] = val;
+        }
+        less.modifyVars(custom_vars);
+        current_customizations.innerHTML = (0, _keys2.default)(custom_vars).map(function (k) {
+            return k + ": " + custom_vars[k] + ";";
+        }).join("\n");
+    };
 
-    return elm;
-}());
-
-less.registerStylesheets().then(function () {
-    return less.refresh(true, custom_vars);
-}).then(function () {
-    return update();
-});
+    compile.then(function () {
+        return update();
+    });
+}
 
 /***/ }),
 /* 190 */
@@ -18893,7 +18891,7 @@ window.addEventListener("load", function () {
     function initStyle() {
         var h = parseInt(window.getComputedStyle(menu.firstElementChild.firstElementChild.firstElementChild, null).getPropertyValue('padding-top'), 10);
         var ch = menu.firstElementChild.firstElementChild.firstElementChild.clientHeight;
-        var nh = (ch - h) * 6;
+        var nh = (ch - h) * 7;
         style.appendChild(document.createTextNode('.tucked-vertical-menu-wrapper.open {height:' + nh + 'px;}'));
     }
     initStyle();
@@ -19341,33 +19339,49 @@ RawTask.prototype.call = function () {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.show_calendar = undefined;
-
-var _calendar = __webpack_require__(188);
-
-Object.defineProperty(exports, 'show_calendar', {
-    enumerable: true,
-    get: function get() {
-        return _calendar.show_calendar;
-    }
-});
-
 __webpack_require__(189);
 
 __webpack_require__(190);
 
+var _calendar = __webpack_require__(188);
+
+var calendar = _interopRequireWildcard(_calendar);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 !function () {
-    var current_section = document.getElementsByClassName("current")[0];
+    var current_section = void 0;
+
     window.onhashchange = function () {
-        var id = window.location.hash.substring(1);
-        current_section.classList.remove("current");
-        current_section = document.getElementById(id);
+
+        if (current_section) {
+            current_section.classList.remove("current");
+            var id_attr = current_section.getAttribute("id");
+            var _id = id_attr.substring(0, id_attr.length - 8);
+            document.querySelector('#menu [href="#' + _id + '"]').classList.remove("target");
+        }
+
+        var id = window.location.hash === '' ? 'index' : window.location.hash.substring(1);
+
+        current_section = document.getElementById(id + "-section");
         current_section.classList.add("current");
+
+        document.querySelector('#menu [href="#' + id + '"]').classList.add("target");
+
+        if (id === 'belegungskalender') {
+            calendar.show(current_section);
+        }
     };
 }();
+
+document.getElementById("center").classList.add("page-by-page");
+
+[].forEach.call(document.querySelectorAll("#center > section"), function (elm) {
+
+    elm.setAttribute("id", elm.getAttribute("id") + "-section");
+});
+
+window.onhashchange();
 
 /***/ }),
 /* 195 */
@@ -43330,3 +43344,4 @@ module.exports = g;
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map

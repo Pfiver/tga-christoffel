@@ -49,15 +49,15 @@
 
 .pure-menu-link {
     transition-duration: 0.5s;
-    padding: 1em;
+    padding: 19px;
 }
 .open .pure-menu-link {
-    padding: .5em 1em;;
+    padding: 9px 19px;
 }
 
 @media (min-width: 721px) {
     .pure-menu-link {
-        padding: 1em;
+        padding: 19px;
     }
 }
 @media (max-width: 720px) {

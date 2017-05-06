@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import ColorPicker from "rc-color-picker";
 import Less from "less/lib/less-browser";
 
-console.log("OK");
-
 const less = new Less(window, {onReady: false, useFileCache: true});
 
 const custom_vars = {};
@@ -66,81 +64,79 @@ const alternative_vars = ((colorChooser, buttons) => [
     }
 ])(
     () => function () {
-        return mkColorChooser(this);
+        custom_vars[this.var] = this.value;
+        const elm = document.createElement('span');
+        elm.style.vertAlign = 'center';
+        ReactDOM.render(React.createElement(ColorPicker, {
+            color: this.value,
+            mode: 'RGB', onChange: val => {
+                const newVal = `hsva(${val.hsv.h}, ${val.hsv.s}%, ${val.hsv.v}%, ${val.alpha/100})`;
+                console.log(`${this.var}: ${newVal}`);
+                update(this.var, newVal);
+            }
+        }), elm);
+        return elm;
     }
     , variants => function () {
-        return mkVarDropdown(this, variants);
+        custom_vars[this.var] = this.value;
+        const elm = document.createElement('select');
+        [this.value].concat(variants).forEach(val => {
+            const el = document.createElement('option');
+            el.setAttribute("value", val);
+            el.innerHTML = val;
+            elm.appendChild(el);
+        });
+        elm.onchange = e => update(this.var, elm.options[elm.selectedIndex].value);
+        return elm;
     }
 );
 
-function update(var_, val) {
-    if (typeof var_ !== 'undefined') {
-        custom_vars[var_] = val;
-    }
-    less.modifyVars(custom_vars);
-    current_customizations.innerHTML = Object.keys(custom_vars).map(function (k) {
-        return k + ": " + custom_vars[k] + ";";
-    }).join("\n");
-}
+let update;
+const compile = less.registerStylesheets()
+    .then(() => less.refresh(true, custom_vars));
 
-function mkColorChooser(var_) {
-    custom_vars[var_.var] = var_.value;
-    const elm = document.createElement('span');
-    elm.style.vertAlign = 'center';
-    ReactDOM.render(React.createElement(ColorPicker, {
-        color: var_.value,
-        mode: 'RGB', onChange: val => {
-            const newVal = `hsva(${val.hsv.h}, ${val.hsv.s}%, ${val.hsv.v}%, ${val.alpha/100})`;
-            console.log(`${var_.var}: ${newVal}`);
-            update(var_.var, newVal);
-        }
-    }), elm);
-    return elm;
-}
+if (false) {
 
-function mkVarDropdown(var_, variants) {
-    custom_vars[var_.var] = var_.value;
-    const elm = document.createElement('select');
-    [var_.value].concat(variants).forEach(val => {
-        const el = document.createElement('option');
-        el.setAttribute("value", val);
-        el.innerHTML = val;
-        elm.appendChild(el);
-    });
-    elm.onchange = e => update(var_.var, elm.options[elm.selectedIndex].value);
-    return elm;
-}
+    let current_customizations;
 
-let current_customizations;
-
-document.body.appendChild(function () {
-    const elm = document.createElement('div');
-
-    alternative_vars.forEach(function (v) {
-        elm.appendChild(document.createTextNode(v.name + ": "));
-        elm.appendChild(v.control());
-        elm.appendChild(document.createElement('br'));
-    });
-
-    elm.appendChild(function () {
+    document.body.appendChild(function () {
         const elm = document.createElement('div');
-        elm.appendChild(document.createTextNode("Momentane Konfiguration: "));
-        const code = document.createElement('code');
-        code.style.display = 'inline-block';
-        code.style.verticalAlign = 'top';
-        const pre = document.createElement('pre');
-        pre.style.backgroundColor = 'lightgrey';
-        pre.style.margin = '0';
-        current_customizations = pre;
-        code.appendChild(pre);
-        elm.appendChild(code);
+
+        alternative_vars.forEach(function (v) {
+            elm.appendChild(document.createTextNode(v.name + ": "));
+            elm.appendChild(v.control());
+            elm.appendChild(document.createElement('br'));
+        });
+
+        elm.appendChild(function () {
+            const elm = document.createElement('div');
+            elm.appendChild(document.createTextNode("Momentane Konfiguration: "));
+            const code = document.createElement('code');
+            code.style.display = 'inline-block';
+            code.style.verticalAlign = 'top';
+            const pre = document.createElement('pre');
+            pre.style.backgroundColor = 'lightgrey';
+            pre.style.margin = '0';
+            current_customizations = pre;
+            code.appendChild(pre);
+            elm.appendChild(code);
+            return elm;
+        }());
+
+        elm.style.margin = '1em';
+
         return elm;
     }());
 
-    elm.style.margin = '1em';
+    update = function(var_, val) {
+        if (typeof var_ !== 'undefined') {
+            custom_vars[var_] = val;
+        }
+        less.modifyVars(custom_vars);
+        current_customizations.innerHTML = Object.keys(custom_vars).map(function (k) {
+            return k + ": " + custom_vars[k] + ";";
+        }).join("\n");
+    };
 
-    return elm;
-}());
-
-less.registerStylesheets()
-    .then(() => less.refresh(true, custom_vars)).then(() => update());
+    compile.then(() => update());
+}

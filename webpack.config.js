@@ -7,6 +7,8 @@ module.exports = {
         library: [ 'ScriptBundle' ],
         path: require('path').resolve(__dirname, '.')
     },
+    devtool: 'source-map ',
+    // devtool: 'cheap-module-eval-source-map',
     module: {
         rules: [
             {

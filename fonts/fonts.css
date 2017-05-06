@@ -1,3 +1,17 @@
+/* abel-regular - latin */
+@font-face {
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    src: url('abel-v6-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Abel'), local('Abel-Regular'),
+    url('abel-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('abel-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('abel-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('abel-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('abel-v6-latin-regular.svg#Abel') format('svg'); /* Legacy iOS */
+}
+
 /* noto-sans-regular - latin */
 @font-face {
     font-family: 'Noto Sans';

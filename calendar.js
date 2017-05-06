@@ -6,9 +6,7 @@ let dates = ["2017-05", "2017-07", "2017-09", "2017-11", "2018-01", "2018-03"];
 
 const savognin_calendar = "http://shop.savognin.ch/Savognin/ukv/ajax/calendar/TDS00020010019636959?date=";
 
-export function show_calendar() {
-
-    const section = document.getElementById("belegungs-kalender");
+export function show(section) {
 
     if (section.childElementCount > 0) {
         return;

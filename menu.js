@@ -45,7 +45,7 @@ window.addEventListener("load", function() {
     function initStyle() {
         const h = parseInt(window.getComputedStyle(menu.firstElementChild.firstElementChild.firstElementChild, null).getPropertyValue('padding-top'), 10);
         const ch = menu.firstElementChild.firstElementChild.firstElementChild.clientHeight;
-        const nh = (ch - h) * 6;
+        const nh = (ch - h) * 7;
         style.appendChild(document.createTextNode('.tucked-vertical-menu-wrapper.open {height:' + nh + 'px;}'));
     }
     initStyle();
