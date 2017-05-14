@@ -1,17 +1,18 @@
-// paste variables
-
-@primary: hsva(43.08000183105469, 100%, 42%, 1);
-@header-text-shadow-shape: 8px 8px 8px;
-@header-text-shadow: fade(black, 50%);
-@page-shadow-shape: 0 8px 44px 4px;
-@page-shadow: fade(black, 12%);
+// primary variables
 
 //@primary: #ffffff;
 //@header-text-shadow: #000000;
 //@header-text-shadow-shape: 0 0;
 //@page-shadow: #000000;
 //@page-shadow-shape: 0 0;
-// end paste variables
+
+@primary: #daa520; // hsva(43.08000183105469, 100%, 42%, 1);
+@header-text-shadow-shape: 8px 8px 8px;
+@header-text-shadow: fade(black, 50%);
+@page-shadow-shape: 0 8px 44px 4px;
+@page-shadow: fade(black, 12%);
+
+// end primary variables
 
 @complement: difference(@primary, white);
 
@@ -22,7 +23,7 @@
 @menu: @primary;
 @menu-text: darken(@complement, 10%, relative);
 @menu-focus: lighten(@primary, 10%, relative);
-@menu-target: lighten(@primary, 50%, relative);
+@menu-target: lighten(@primary, 20%, relative);
 @menu-target-text: white;
 
 @header-text: #ce9e24;
@@ -31,13 +32,6 @@
 @footer-text: darken(@complement, 10%, relative);
 
 @light: lighten(@complement, 50%, relative);
-
-b, h3 {
-  //background-color: fade(lighten(@complement, 50%, relative), 50%);
-  //background-color: lighten(@complement, 20%, relative);
-  background-color: fade(@complement, 33%);
-  /*opacity: 0.3;*/
-}
 
 body {
   background: @background;
@@ -55,7 +49,7 @@ a {
 
 header h1 {
   color: @header-text;
-  text-shadow: @header-text-shadow-shape @header-text-shadow;
+  //text-shadow: @header-text-shadow-shape @header-text-shadow;
 }
 
 header span:not(:first-child) {
@@ -83,10 +77,7 @@ header span:not(:last-child) {
 }
 
 .tucked-vertical-menu-wrapper .pure-menu-link.target {
-  //background-color: @menu-target;
-  //font-size: 120%;
-  //text-decoration: underline;
-  background-color: @menu-focus;
+  background-color: @menu-target;
   color: @menu-target-text;
 }
 

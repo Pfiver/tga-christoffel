@@ -2,59 +2,42 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Tga Christoffel, Sur</title>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="bower_components/pure/pure-min.css" />
-    <link rel="stylesheet" href="bower_components/pure/grids-responsive-min.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
-
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="page-style.css"/>
-    <link rel="stylesheet/less" href="colors_fonts_shadows.less"/>
-
-    <link rel="stylesheet" href="fonts/fonts.css"/>
-    <link rel="stylesheet" href="calendar.css"/>
-    <link rel="stylesheet" href="menu.css"/>
-
-
-    <link rel="stylesheet" href="node_modules/rc-color-picker/dist/rc-color-picker.min.css" />
-    <style type="text/css">
-        .rc-color-picker-wrap { vertical-align: middle; }
-        .rc-color-picker-panel-wrap:nth-child(3),
-        .rc-color-picker-panel-wrap-preview { display: none; }
-        .rc-color-picker-panel-wrap > * { right: 0; }
-        .rc-color-picker-trigger {
-            height: 10px; border: 0; box-shadow: 0 0 0 1px #909090; }
-    </style>
+    <title>Tga Christoffel, Sur</title>
+    <link rel="stylesheet" href="target.css"/>
 </head>
 <body>
 <div id="center">
 
-    <header onclick="document.location.href='#index'">
-        <h1><span>Tga Christoffel, Sur</span><span>Willkommen</span><span>Bainvis</span></h1>
+    <header>
+        <h1>
+            <span>Tga Christoffel, Sur</span><span>Willkommen</span><span>Bainvis</span>
+        </h1>
     </header>
 
     <nav class="tucked-vertical-menu-wrapper pure-g" id="menu">
         <div class="pure-u-1">
             <div class="pure-menu pure-menu-horizontal tucked-vertical-menu-can-transform">
 
-                <a href="#index" class="pure-menu-item pure-menu-link"><i class="fa fa-home"></i></a>
+                <a href="#" class="pure-menu-item pure-menu-link"><i class="fa fa-home"></i></a>
 
                 <ul class="pure-menu-list">
 
+                    <li class="pure-menu-item"><a href="#todo" class="pure-menu-link">ToDo</a></li>
                     <li class="pure-menu-item"><a href="#haus" class="pure-menu-link">Haus</a></li>
                     <li class="pure-menu-item"><a href="#preise" class="pure-menu-link">Preise</a></li>
                     <li class="pure-menu-item"><a href="#anfahrt" class="pure-menu-link">Anfahrt</a></li>
-                    <li class="pure-menu-item"><a href="#aktivitaeten" class="pure-menu-link">Aktivitäten</a></li>
+                    <li class="pure-menu-item"><a href="#aktivitäten" class="pure-menu-link">Aktivitäten</a></li>
                 </ul>
 
                 <ul class="pure-menu-list right-aligned">
 
-                    <li class="pure-menu-item"><a href="#reservation" class="pure-menu-link">Kontakt und Miete</a></li>
-                    <li class="pure-menu-item"><a href="#belegungskalender" class="pure-menu-link">Belegungs-Kalender</a></li>
+                    <li class="pure-menu-item">
+                        <a href="#kontaktmiete" class="pure-menu-link">Kontakt und Miete</a></li>
+                    <li class="pure-menu-item">
+                        <a href="#belegungskalender" class="pure-menu-link">Belegungs-Kalender</a></li>
                 </ul>
 
                 <span class="tucked-vertical-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></span>
@@ -63,34 +46,71 @@
         </div>
     </nav>
 
+    <section id="todo">
+
+        <hr><ul>
+            <li> Text "Tga. Christoffel | Willkommen | Bainvis" nur aus "Home" Seite
+                 -> auf den anderen Seiten nur "Tga. Christoffel", evtl. etwas kleiner
+            <li> Verschiedene Bilder auf verschiedenen Seiten möglich machen
+            <li> Bildgallerien auf Seite "Haus" möglich machen
+            <li> Anfahrtsskizze: Restaurant Flex: "Flex" streichen
+        </ul>
+        <hr><ul>
+            <li> Preise Tabelle (Hildegard)
+            <li> Aktivitäten Texte (Hildegard)
+        </ul>
+        <hr><ul>
+            <li> 3 "Header-Bild-Themen": 3 <li> 7 Bilder für die Header im Format 940px <li> 300px (Breite <li> Höhe) (Barbara)
+            <li> AGB / Text bei "Kontakt und Miete" ("Kontakt und Reservation") (Barbara)
+        </ul>
+
+    </section>
     <section id="index">
 
-        <p> Unser Haus Tga Christoffel steht im oberen Teil des kleinen Dorfes Sur, im Kanton Graubünden, auf 1600 m ü. M.
+        <p> Unser Haus Tga Christoffel steht im oberen Teil des kleinen Dorfes Sur, im Kanton Graubünden,
+            auf 1600 m ü. M.
 
-            Viele verschiedene Wanderwege führen vom Haus aus zum Hochmoor der <a href="http://www.schatzinselalpflix.ch./">Alp Flix</a>.
+            Viele verschiedene Wanderwege führen vom Haus aus zum Hochmoor der
+            <a href="http://www.schatzinselalpflix.ch./">Alp Flix</a>.
 
             Sur liegt im <a href="http://www.parc-ela.ch/">Naturpark Ela</a>.
 
-            Das Wander- und Erholungsgebiet rund um <a href="http://www.bivio.ch/">Bivio</a> und <a href="http://www.savognin.ch/">Savognin</a>
-            lädt in allen Jahreszeiten zu vielfältigen Familienferien ein.
+            Das Wander- und Erholungsgebiet rund um <a href="http://www.bivio.ch/">Bivio</a> und <a
+            href="http://www.savognin.ch/">Savognin</a> lädt in allen Jahreszeiten zu vielfältigen Familienferien ein.
+        </p>
 
-        <p> Das grosse Haus kann gemütlich von zwei Personen bewohnt oder freudig mit bis zu sieben Personen geteilt werden.
+        <p> Das grosse Haus kann gemütlich von zwei Personen bewohnt oder freudig mit bis zu sieben Personen geteilt
+            werden.
+        </p>
 
     </section>
     <section id="haus">
 
+        <h3>Fotos</h3>
+
+        <div id="light" class="light">
+
+            <p> This is the lightbox content.
+
+            <p> <a href="#" onclick="document.getElementById('light').classList.add('white_content');document.getElementById('black_overlay').style.display='block';return false;">Bild 1</a>
+
+            <p> <a href="#" onclick="document.getElementById('light').classList.remove('white_content');document.getElementById('black_overlay').style.display='none';return false;">Close</a>
+
+        </div>
+
         <p> Tga Christoffel wurde vor ungefähr 150 Jahren von unseren Urgrosseltern gebaut und von ihnen bewohnt.
             In den 60er Jahreren renovierten unsere Grosseltern das Haus sanft und seither dient es uns als Ferienhaus.
 
-        <p> Das Haus verfügt über eine zentrale Heizung und warmes Wasser. Die Zimmer verteilen sich auf zwei Stockwerke.
-            Im <b>Erdgeschoss</b> befinden sich eine einfache Küche sowie eine kleine und eine grosse Stube.
-            Im <b>Obergeschoss</b> gibt es drei Schlafräume, WC-Dusche und ein separtates WC.
+        <p> Das Haus verfügt über eine zentrale Heizung und warmes Wasser. Die Zimmer verteilen sich auf zwei
+            Stockwerke. Im <b>Erdgeschoss</b> befinden sich eine einfache Küche sowie eine kleine und eine grosse
+            Stube. Im <b>Obergeschoss</b> gibt es drei Schlafräume, WC-Dusche und ein separtates WC.
 
         <p> Ein <b>Gartensitzplatz</b> vor und hinter dem Haus laden ein zum Ausruhen oder Spielen.
             Etwas unterhalb vom Haus steht Ihnen ein <b>Parkplatz</b> zur Verfügung.
 
         <p> Das Haus eignet sich für Ferien mit Kindern, mit befreundeten Familien oder mit Freunden.
-            Auch für zwei Personen ist das Haus gemütlich bewohnbar und Sie profitieren in der Nebensaison von einer Preisreduzierung.
+            Auch für zwei Personen ist das Haus gemütlich bewohnbar und Sie profitieren in der Nebensaison von einer
+            Preisreduzierung.
 
         <p> <b>Was Sie alles vorfinden:</b>
             TripTrap Kindersitz, Spiele, Radio/CD Player, Schlitten
@@ -99,10 +119,6 @@
 
         <p> <b>Was Sie nicht finden:</b>
             TV, WLAN, Waschmaschine
-
-        <h3>Fotos</h3>
-
-        <p>[GALLERIEN MIT EINZELBILDERN, INKL. GRUNDRISS "FOTO"]</p>
 
     </section>
     <section id="preise">
@@ -145,63 +161,71 @@
             <p>Die Heizkosten sind im Mietpreis inbegriffen.
 
     </section>
-    <section id="aktivitaeten">
+    <section id="aktivitäten">
 
         Was kann ich hier machen?
 
         <h3>Familien</h3>
 
-        <li>Feuerstellen, baden im Bergsee, Bach stauen
-        <li>Forscherparcours Alp Flix für Kinder zwischen 7 und 12 Jahren www.parc-ela.ch
-        <li>Reiten, Alp Flix www.wireltern.ch/artikel/verflixt-schoen  www.agrotour.ch
-        <li>Hallenbad in Bivio
+        <ul>
+            <li>Feuerstellen, baden im Bergsee, Bach stauen
+            <li>Forscherparcours Alp Flix für Kinder zwischen 7 und 12 Jahren www.parc-ela.ch
+            <li>Reiten, Alp Flix www.wireltern.ch/artikel/verflixt-schoen  www.agrotour.ch
+            <li>Hallenbad in Bivio
+        </ul>
 
 
         <h3>Sommer</h3>
 
-        <li>Wandern
-        <li>unsere Lieblingswanderungen	einfach, mittel, gross
-        <li>weitere Wandertipss: www....
-        <li>Klettergarten (Bivio)
-        <li>www.savognin.ch/weitere-sommer-erlebnisse/klettern/klettertouren/klettergarten-bivio.html
-
+        <ul>
+            <li>Wandern
+            <li>unsere Lieblingswanderungen	einfach, mittel, gross
+            <li>weitere Wandertipss: www....
+            <li>Klettergarten (Bivio)
+            <li>www.savognin.ch/weitere-sommer-erlebnisse/klettern/klettertouren/klettergarten-bivio.html
+        </ul>
 
         <h3>Winter</h3>
 
-        <li>Skitouren
-        <li>Schneeschuhtouren
-        <li>Alpin Skifahren (Bivio und Savognin) www.savognin.ch
-        <li>Schlitteln Sur, Alp Flix
-        <li>Langlauf (Alp Flix, Rona)
+        <ul>
+            <li>Skitouren
+            <li>Schneeschuhtouren
+            <li>Alpin Skifahren (Bivio und Savognin) www.savognin.ch
+            <li>Schlitteln Sur, Alp Flix
+            <li>Langlauf (Alp Flix, Rona)
+        </ul>
 
 
         <h3>Kultur</h3>
 
-        <li>unsere Lieblingsorte
-        <li>Mistail (karolingische Dreiapsidenkirche, um 800 n. Chr.) Tiefencastel
-        <li>Julierpasshöhe mit römischen Säulen
-        <li>Gletschemühlen, Maloja
-        <li>Septimerpass
-        <li>Ausflug nach Italien Chiavenna
-        <li>Burg Riom
-        <li>Essen im Hotel Piz Platta www.flix.ch
-        <li>Bivio (über den Kanonensattel, Schoggikichen im Hotel Post
-        <li>Caffè Roccabella, Bivio
+        <ul>
+            <li>unsere Lieblingsorte
+            <li>Mistail (karolingische Dreiapsidenkirche, um 800 n. Chr.) Tiefencastel
+            <li>Julierpasshöhe mit römischen Säulen
+            <li>Gletschemühlen, Maloja
+            <li>Septimerpass
+            <li>Ausflug nach Italien Chiavenna
+            <li>Burg Riom
+            <li>Essen im Hotel Piz Platta www.flix.ch
+            <li>Bivio (über den Kanonensattel, Schoggikichen im Hotel Post
+            <li>Caffè Roccabella, Bivio
+        </ul>
 
     </section>
     <section id="anfahrt">
 
-<h3>Bahn und Bus</h3> Am besten nehmen sie ...
+        <h3>Bahn und Bus</h3> Am besten nehmen sie ...
 
-<h3>Auto und Parkplatz</h3> Am besten fahren sie ...
+        <h3>Auto und Parkplatz</h3> Am besten fahren sie ...
 
-        <ul style="list-style-type: none; padding: 0;">
-            <li><a href="Situationsplan.pdf"><i class="fa fa-file-pdf-o"></i> Anfahrtsskizze und Situationsplan</a></li>
-            <li><a href="http://www.google.com/map"><i class="fa fa-external-link"></i> Standort auf Google Maps</a></li>
-        </ul>
+        <p>
+            <a href="Situationsplan.pdf" style="white-space: nowrap;">
+                    <i class="fa fa-file-pdf-o"></i>&nbsp;Anfahrtsskizze und Situationsplan</a>
+            <a href="http://www.google.com/map" style="margin-left: 1em; white-space: nowrap;">
+                    <i class="fa fa-external-link"></i> Standort auf Google Maps</a>
 
     </section>
-    <section id="reservation">
+    <section id="kontaktmiete">
 
         <p> Im Belegungs-Kalender erfahren sie, wann die Wohnung frei ist.
             Für die Reservation wenden sie sich an:
@@ -232,8 +256,7 @@
     </footer>
 
 </div>
-
-<script src="bundle.js"></script>
-
+<div id="black_overlay"></div>
+<script src="target.js"></script>
 </body>
 </html>

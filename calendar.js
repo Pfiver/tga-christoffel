@@ -36,7 +36,6 @@ export function show(section) {
     request.send(null);
 }
 
-
 function getElementsByXpath (doc, expr) {
     return doc.evaluate(expr, doc, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
 }
