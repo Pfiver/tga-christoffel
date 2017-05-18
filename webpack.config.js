@@ -5,19 +5,19 @@ const ClosureCompilerPlugin = require("webpack-closure-compiler");
 module.exports = {
 
     entry: {
-        target: [
+        site: [
             "./script.js",
             "./style.less"
         ]
     },
 
     output: {
-        filename: "[name].js",
-        library: [ 'ScriptBundle' ],
-        path: require('path').resolve(__dirname, '.')
+        filename: "script.js",
+        library: [ "ScriptBundle" ],
+        path: require("path").resolve(__dirname, "target")
     },
 
-    devtool: 'source-map ' || 'cheap-module-eval-source-map',
+    devtool: "source-map" || "cheap-module-eval-source-map",
 
     module: {
         rules: [
@@ -25,10 +25,10 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use:  [{
-                        loader: 'babel-loader',
+                        loader: "babel-loader",
                         options: {
                             presets: [
-                                ['env', {
+                                ["env", {
                                     debug: true,
                                     targets: {
                                         // browsers: ["last 2 versions", "> 1%"]
@@ -61,7 +61,7 @@ module.exports = {
                                     // minimize: { discardComments: { removeAll: true } },
                                 }
                             },
-                            "./custom-css-loader",
+                            // "./custom-css-loader",
                             {
                                 loader: "less-loader",
                                 options: {
@@ -82,22 +82,22 @@ module.exports = {
     plugins: [
 
         new ExtractTextPlugin({
-            filename: "[name].css"
+            filename: "style.css"
         }),
 
         // breaks source-maps for some reason
         // new ClosureCompilerPlugin({
         //     compiler: {
-        //     //     language_in: 'ECMASCRIPT6',
-        //     //     language_out: 'ECMASCRIPT5',
-        //     //     compilation_level: 'ADVANCED'
+        //     //     language_in: "ECMASCRIPT6",
+        //     //     language_out: "ECMASCRIPT5",
+        //     //     compilation_level: "ADVANCED"
         //     },
         //     // concurrency: 3,
         // }),
 
-        // new (require('webpack')).DefinePlugin({
-        //     'process.env': {
-        //         'NODE_ENV': JSON.stringify('production')
+        // new (require("webpack")).DefinePlugin({
+        //     "process.env": {
+        //         "NODE_ENV": JSON.stringify("production")
         //     }
         // }),
     ]

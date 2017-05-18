@@ -2,4 +2,6 @@ import "./menu";
 import "./calendar";
 import "./navigation";
 
-// import "./bundle.less";
+import * as pswp from "./photoswipe";
+
+pswp.initPhotoSwipeFromDOM("#house-gallery");

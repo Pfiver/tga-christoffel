@@ -5,7 +5,17 @@ let current_link,
 
 (window.onpopstate = event => {
 
-    const hash = event.state || "#";
+    let hash = event.state;
+
+    if (!hash) {
+        if (window.location.hash) {
+            hash = window.location.hash;
+            window.setTimeout(function () { window.scrollTo(0, 0); }, 0);
+        }
+        else {
+            hash = "#";
+        }
+    }
 
     if (current_link) {
         current_link.classList.remove("target");
@@ -23,7 +33,7 @@ let current_link,
         calendar.show(current_section);
     }
 })(
-    {state: window.location.hash === "" ? "#" : window.location.hash});
+    {state: window.location.hash === "" ? "#" : window.location.hash.replace(/&.*$/, "") });
 
 document.getElementById("center").classList.add("page-by-page");
 
@@ -36,4 +46,4 @@ document.getElementById("center").classList.add("page-by-page");
     return false;
 });
 
-if (location.hash) { window.setTimeout(function() { window.scrollTo(0, 0); }, 0); }
+if (window.location.hash) { window.setTimeout(function() { window.scrollTo(0, 0); }, 0); }
