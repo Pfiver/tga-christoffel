@@ -29,7 +29,7 @@
                     <li class="pure-menu-item"><a href="#haus" class="pure-menu-link">Haus</a></li>
                     <li class="pure-menu-item"><a href="#preise" class="pure-menu-link">Preise</a></li>
                     <li class="pure-menu-item"><a href="#anfahrt" class="pure-menu-link">Anfahrt</a></li>
-                    <li class="pure-menu-item"><a href="#aktivitäten" class="pure-menu-link">Aktivitäten</a></li>
+                    <li class="pure-menu-item"><a href="#aktivitaeten" class="pure-menu-link">Aktivitäten</a></li>
                 </ul>
 
                 <ul class="pure-menu-list right-aligned">
@@ -49,10 +49,9 @@
     <section id="todo">
 
         <hr><ul>
+            <li> Verschiedene Bilder auf verschiedenen Seiten
             <li> Text "Tga. Christoffel | Willkommen | Bainvis" nur aus "Home" Seite
-                 -> auf den anderen Seiten nur "Tga. Christoffel", evtl. etwas kleiner
-            <li> Verschiedene Bilder auf verschiedenen Seiten möglich machen
-            <li> Bildgallerien auf Seite "Haus" möglich machen
+                -> auf den anderen Seiten nur "Tga. Christoffel", evtl. etwas kleiner
             <li> Anfahrtsskizze: Restaurant Flex: "Flex" streichen
         </ul>
         <hr><ul>
@@ -86,17 +85,13 @@
     </section>
     <section id="haus">
 
-        <h3>Fotos</h3>
-
         <div id="house-gallery">
-            {% images path: photos %}
-            <figure>
-                <img src="{{image.path}}" alt="Die Legende zum Bild."/>
-                <figcaption>Die Legende zum Bild.</figcaption>
-            </figure>
-            {% endimages %}
+        {% images config: gallery %}
+            <a href="../{{image.original.path}}">
+                <img src="{{image.resized.x200.path}}" alt="{{image.basename}}"/>
+            </a>
+        {% endimages %}
         </div>
-
 
         <p> Tga Christoffel wurde vor ungefähr 150 Jahren von unseren Urgrosseltern gebaut und von ihnen bewohnt.
             In den 60er Jahreren renovierten unsere Grosseltern das Haus sanft und seither dient es uns als Ferienhaus.
@@ -161,7 +156,7 @@
             <p>Die Heizkosten sind im Mietpreis inbegriffen.
 
     </section>
-    <section id="aktivitäten">
+    <section id="aktivitaeten">
 
         Was kann ich hier machen?
 
@@ -169,8 +164,8 @@
 
         <ul>
             <li>Feuerstellen, baden im Bergsee, Bach stauen
-            <li>Forscherparcours Alp Flix für Kinder zwischen 7 und 12 Jahren www.parc-ela.ch
-            <li>Reiten, Alp Flix www.wireltern.ch/artikel/verflixt-schoen  www.agrotour.ch
+            <li><a href="http://www.parc-ela.ch/">Forscherparcours Alp Flix</a> für Kinder zwischen 7 und 12 Jahren
+            <li><a href="https://www.agrotour.ch/pferde/ranch.html">Reiten, Alp Flix (Cotti Agricultura)</a> (<a href="http://www.wireltern.ch/artikel/verflixt-schoen"><i>Wir Eltern</i> Artikel dazu</a>)
             <li>Hallenbad in Bivio
         </ul>
 
@@ -180,9 +175,8 @@
         <ul>
             <li>Wandern
             <li>unsere Lieblingswanderungen	einfach, mittel, gross
-            <li>weitere Wandertipss: www....
-            <li>Klettergarten (Bivio)
-            <li>www.savognin.ch/weitere-sommer-erlebnisse/klettern/klettertouren/klettergarten-bivio.html
+            <li><a href="http://www.savognin.ch/weitere-sommer-erlebnisse/klettern/klettertouren/klettergarten-bivio.html">Klettergarten Bivio</a>
+            <li>weitere Wandertips: www....
         </ul>
 
         <h3>Winter</h3>
@@ -190,7 +184,7 @@
         <ul>
             <li>Skitouren
             <li>Schneeschuhtouren
-            <li>Alpin Skifahren (Bivio und Savognin) www.savognin.ch
+            <li><a href="http://www.savognin.ch/">Alpin Skifahren (Bivio und Savognin)</a>
             <li>Schlitteln Sur, Alp Flix
             <li>Langlauf (Alp Flix, Rona)
         </ul>
@@ -206,7 +200,7 @@
             <li>Septimerpass
             <li>Ausflug nach Italien Chiavenna
             <li>Burg Riom
-            <li>Essen im Hotel Piz Platta www.flix.ch
+            <li>Essen im <a href="http://www.flix.ch/">Hotel Piz Platta</a>
             <li>Bivio (über den Kanonensattel, Schoggikichen im Hotel Post
             <li>Caffè Roccabella, Bivio
         </ul>
@@ -275,11 +269,8 @@
                 <div class="pswp__counter"></div>
 
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
                 <button class="pswp__button pswp__button--share" title="Share"></button>
-
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
                 <div class="pswp__preloader">
@@ -291,8 +282,7 @@
                 </div>
             </div>
 
-
-            <!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> -->
+            <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div>
 
             <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
                 <div class="pswp__share-tooltip">

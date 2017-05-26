@@ -1,23 +1,12 @@
 source: .
-destination: target
 exclude: [ "*" ]
+destination: target
+keep_files: [ renditions ]
+
 include: [ index.html ]
 
-#gems: [ jekyll-responsive-image ]
-responsive_image:
-
-  base_path: target
-
-  sizes: [ { width: 200 }, { width: 1000 } ]
-
-  dimensions: [ 200, 1000 ]
-
-  # Parameters available are:
-  #   %{dirname}     Directory of the file relative to `base_path` (assets/sub/dir/some-file.jpg => sub/dir)
-  #   %{basename}    Basename of the file (assets/some-file.jpg => some-file.jpg)
-  #   %{filename}    Basename without the extension (assets/some-file.jpg => some-file)
-  #   %{extension}   Extension of the file (assets/some-file.jpg => jpg)
-  #   %{width}       Width of the resized image
-  #   %{height}      Height of the resized image
-  #
-  output_path_format: photos/%{filename}-%{width}x%{height}.%{extension}
+image_tag:
+  gallery:
+    path: photos/wetransfer-5f74c7
+    geometries: [ x200, x1000 ]
+    output_path_format: renditions/%{filepath}-%{width}x%{height}.%{ext}

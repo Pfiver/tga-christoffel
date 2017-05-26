@@ -2,7 +2,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const ClosureCompilerPlugin = require("webpack-closure-compiler");
 
-module.exports = {
+module.exports = [{
 
     entry: {
         site: [
@@ -22,30 +22,34 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.json$/,
+                use: 'json-loader'
+            },
+            {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use:  [{
-                        loader: "babel-loader",
-                        options: {
-                            presets: [
-                                ["env", {
-                                    debug: true,
-                                    targets: {
-                                        // browsers: ["last 2 versions", "> 1%"]
-                                        // as of 2017-04-14, gives:
-                                        "chrome": 49,
-                                        "edge": 14,
-                                        "firefox": 51,
-                                        "ie": 10,
-                                        "ios": 10,
-                                        "safari": 10
-                                    }
-                                }]
-                            ],
-                            plugins: ['transform-runtime'],
-                            // cacheDirectory: true
-                        },
-                    }]
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            ["env", {
+                                debug: true,
+                                targets: {
+                                    // browsers: ["last 2 versions", "> 1%"]
+                                    // as of 2017-04-14, gives:
+                                    "chrome": 49,
+                                    "edge": 14,
+                                    "firefox": 51,
+                                    "ie": 10,
+                                    "ios": 10,
+                                    "safari": 10
+                                }
+                            }]
+                        ],
+                        plugins: ['transform-runtime'],
+                        // cacheDirectory: true
+                    },
+                }]
             },
             {
                 test: /\.less$/,
@@ -101,4 +105,43 @@ module.exports = {
         //     }
         // }),
     ]
-};
+// },{
+//
+//     entry: {
+//         site: [
+//             "./index.html",
+//         ]
+//     },
+//
+//     output: {
+//         filename: "index.html",
+//         path: require("path").resolve(__dirname, "target")
+//     },
+//
+//     devtool: "source-map" || "cheap-module-eval-source-map",
+//
+//     module: {
+//         rules: [
+//             {
+//                 test: /\.html$/,
+//                 use: ExtractTextPlugin.extract({
+//                     use: [
+//                         {
+//                             loader: 'html-loader',
+//                             options: {
+//                                 // minimize: true
+//                                 interpolate: true
+//                             }
+//                         }
+//                     ]
+//                 })
+//             },
+//         ]
+//     },
+//     plugins: [
+//
+//         new ExtractTextPlugin({
+//             filename: "index.html"
+//         }),
+//     ]
+}];

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html {
+            color: white;
+            background: black;
+        }
+        #links, #console {
+            padding: 1em;
+        }
+        a {
+            color: inherit;
+        }
+        #console {
+            word-wrap: break-word;
+            font-family: Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+<div id="links">
+    <a href="history.html">History</a>
+    <a href="history.html#">History #</a>
+    <a href="history.html#hash">History #hash</a>
+    <a href="https://www.patrickpfeifer.net/">Out</a>
+</div>
+<div id="console">
+</div>
+<script>
+    !function () {
+        let console = document.getElementById("console");
+
+        window.onpopstate = e => {
+
+            let state = e.state;
+
+            if (!state) {
+                state = "my fallback 'onpopstate' state object";
+                window.history.replaceState(state, state, window.location.href);
+
+                console.appendChild(document.createTextNode("(no onpopstate state - fixed it)"));
+                console.appendChild(document.createElement("br"));
+            }
+
+            console.appendChild(document.createTextNode("onpopstate state: " + state));
+            console.appendChild(document.createElement("br"));
+        };
+
+        let state = window.history.state;
+
+        if (!state) {
+            state = "my fallback 'initial' state object";
+            window.history.replaceState(state, state, window.location.href);
+
+            console.appendChild(document.createTextNode("(no initial state - fixed it)"));
+            console.appendChild(document.createElement("br"));
+        }
+
+        console.appendChild(document.createTextNode("initial state: " + state));
+        console.appendChild(document.createElement("br"));
+    }();
+</script>
+</body>
+</html>

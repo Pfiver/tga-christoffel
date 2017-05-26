@@ -1,26 +1,41 @@
-require_relative 'utils'
-require_relative 'resize_handler'
+require 'rmagick'
 
 module JekyllImagesTag
-  class ImageProcessor
-    include JekyllImagesTag::Utils
-
-    def process(image_path, config)
-      absolute_image_path = File.expand_path(image_path.to_s, config[:site_source])
-
-      raise SyntaxError.new("Invalid image path specified: #{image_path}") unless File.file?(absolute_image_path)
-
-      resize_handler = ResizeHandler.new
-      img = Magick::Image::read(absolute_image_path).first
-
-      {
-        original: image_hash(config, image_path, img.columns, img.rows),
-        resized: resize_handler.resize_image(img, config),
+  module ImageProcessor
+    def process(path, config)
+      ext = File.extname(path)
+      input_path = File.expand_path(path.to_s, config[:site].source)
+      raise SyntaxError.new("Invalid image path specified: #{path}") unless File.file?(input_path)
+      Jekyll.logger.info "Processing #{input_path}"
+      img = Magick::Image::read(input_path).first
+      original = {
+          path: path,
+          width: img.columns,
+          height: img.rows,
       }
-    end
-
-    def self.process(image_path, config)
-      self.new.process(image_path, config)
+      resized = []
+      config[:geometries].each do |geometry|
+        img.change_geometry!(geometry) {|cols, rows, i|
+          output_path = Pathname.new(config[:output_path_format] % {
+              filepath: path[0..-ext.length], width: cols, height: rows, ext: ext[1..-1]}).to_s
+          resized.push({
+             path: output_path,
+             width: cols,
+             height: rows
+          })
+          output_path = File.expand_path(output_path.to_s, config[:site].dest)
+          Jekyll.logger.info "Generating #{output_path}"
+          output_dir = File.dirname(output_path)
+          unless Dir.exist?(output_dir)
+            Jekyll.logger.info "Creating output directory #{output_dir}"
+            FileUtils.mkdir_p(output_dir)
+          end
+          i.resize(cols, rows).write(output_path)
+        }
+      end
+      img.destroy!
+      { basename: File.basename(path, ext),
+        original: original, resized: resized }
     end
   end
 end
