@@ -105,43 +105,4 @@ module.exports = [{
         //     }
         // }),
     ]
-// },{
-//
-//     entry: {
-//         site: [
-//             "./index.html",
-//         ]
-//     },
-//
-//     output: {
-//         filename: "index.html",
-//         path: require("path").resolve(__dirname, "target")
-//     },
-//
-//     devtool: "source-map" || "cheap-module-eval-source-map",
-//
-//     module: {
-//         rules: [
-//             {
-//                 test: /\.html$/,
-//                 use: ExtractTextPlugin.extract({
-//                     use: [
-//                         {
-//                             loader: 'html-loader',
-//                             options: {
-//                                 // minimize: true
-//                                 interpolate: true
-//                             }
-//                         }
-//                     ]
-//                 })
-//             },
-//         ]
-//     },
-//     plugins: [
-//
-//         new ExtractTextPlugin({
-//             filename: "index.html"
-//         }),
-//     ]
 }];

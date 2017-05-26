@@ -23,12 +23,12 @@ module ImageProcessor
         }
         output_path = File.expand_path(output_path.to_s, "target")
         unless File.file? output_path
-          STDERR.puts "Generating #{output_path}"
           output_dir = File.dirname(output_path)
           unless Dir.exist?(output_dir)
             STDERR.puts "Creating output directory #{output_dir}"
             FileUtils.mkdir_p(output_dir)
           end
+          STDERR.puts "Generating #{output_path}"
           i.resize(cols, rows).write(output_path)
         end
       }
