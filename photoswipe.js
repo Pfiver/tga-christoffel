@@ -73,7 +73,7 @@ export const initPhotoSwipeFromDOM = function (gallerySelector) {
             galleryUID: galleryElement.getAttribute('data-pswp-uid'),
             getThumbBoundsFn: function (index) {
                 // See Options->getThumbBoundsFn section of docs for more info
-                var thumbnail = galleryElements[0].children[index],
+                var thumbnail = galleryElements[0].children[index].children[0],
                     pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
                     rect = thumbnail.getBoundingClientRect();
                 // console.log(thumbnail, rect);

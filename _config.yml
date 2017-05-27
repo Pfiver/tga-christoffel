@@ -9,4 +9,4 @@ image_tag:
   gallery:
     path: photos/wetransfer-5f74c7
     geometries: [ x200, x1000 ]
-    output_path_format: renditions/%{filepath}-%{width}x%{height}.%{ext}
+    output_path_format: "%{filepath}-%{width}x%{height}.%{ext}"
