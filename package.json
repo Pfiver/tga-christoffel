@@ -1,7 +1,11 @@
 {
   "private": true,
-  "dependencies": {
-    "asciidoctor.js": "^1.5.5-5",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
     "css-loader": "^0.28.1",
     "extract-loader": "^0.1.0",
     "extract-text-webpack-plugin": "^2.1.0",
@@ -11,17 +15,10 @@
     "json-loader": "^0.5.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
-    "opal": "^0.6.4",
     "photoswipe": "^4.1.2",
     "purecss": "^0.6.2",
     "resolve-url-loader": "^2.0.2",
-    "style-loader": "^0.17.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^6.4.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
+    "style-loader": "^0.17.0",
     "webpack": "^2.4.1",
     "webpack-closure-compiler": "^2.1.4"
   },

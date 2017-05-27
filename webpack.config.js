@@ -7,7 +7,8 @@ module.exports = [{
     entry: {
         site: [
             "./script.js",
-            "./style.less"
+            "./style.less",
+            "file-loader?name=[path][name].[ext]!./calendar-data.xml"
         ]
     },
 
@@ -22,8 +23,26 @@ module.exports = [{
     module: {
         rules: [
             {
+                test: /\.(eot|svg|ttf|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[path][name].[ext]"
+                    }
+                }
+            },
+            {
+                test: /\.(gif|jpg|png)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[path][name].[ext]"
+                    }
+                }
+            },
+            {
                 test: /\.json$/,
-                use: 'json-loader'
+                use: "json-loader"
             },
             {
                 test: /\.js$/,
@@ -58,8 +77,8 @@ module.exports = [{
                             {
                                 loader: "css-loader",
                                 options: {
-                                    url: false,
-                                    import: false,
+                                    // url: false,
+                                    // import: false,
                                     minimize: false,
                                     sourceMap: false,
                                     // minimize: { discardComments: { removeAll: true } },
