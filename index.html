@@ -87,7 +87,7 @@
 
         <div id="house-gallery">
         {% images config: gallery %}
-            <a href="../{{image.original.path}}">
+            <a href="{{image.original.path}}">
                 <img src="{{image.resized.x200.path}}" alt="{{image.basename}}"/>
             </a>
         {% endimages %}

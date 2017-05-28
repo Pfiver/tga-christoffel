@@ -6,11 +6,11 @@ require_relative 'image_processor'
 
 module LiquidImages
   class Block < Liquid::Block
-    include ImageProcessor
+    include ImageProcessor, LiquidImages
     def initialize(tag_name, markup, tokens)
       super
       @attributes = symbolize_keys(Hash[markup.scan(Liquid::TagAttributes)])
-      @config = symbolize_keys((YAML.load_file '_config.yml')["image_tag"][@attributes[:config]])
+      @config = symbolize_keys(YAML.load_file('_config.yml')["image_tag"][@attributes[:config]])
     end
     def render(context)
       result = []
@@ -34,13 +34,9 @@ module LiquidImages
       end
       result
     end
-    def symbolize_keys(hash)
-      JSON.parse JSON.dump(hash), symbolize_names: true
-    end
-    def stringify_keys(hash)
-      JSON.parse JSON.dump(hash), symbolize_names: false
-    end
   end
+  def symbolize_keys(hash) JSON.parse JSON.dump(hash), symbolize_names: true end
+  def stringify_keys(hash) JSON.parse JSON.dump(hash), symbolize_names: false end
 end
 
 Liquid::Template.register_tag 'images', LiquidImages::Block

@@ -4,4 +4,4 @@ all:
 	rm -rf target
 	ruby tools/process_headers.rb
 	ruby tools/render_templates.rb
-	node ./node_modules/webpack/bin/webpack
+	node -r ./node_modules/babel-register ./node_modules/webpack/bin/webpack
