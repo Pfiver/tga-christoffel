@@ -1,5 +1,6 @@
 import { default as path } from "path";
-import { ConcatSource } from "webpack";
+import { ConcatSource, SourceMapDevToolPlugin } from "webpack";
+import { default as ClosureCompilerPlugin } from "webpack-closure-compiler";
 
 const dir = rel_path => path.resolve(__dirname, rel_path);
 
@@ -8,14 +9,12 @@ const files = [
     "./Situationsplan.pdf"
 ];
 
-const ClosureCompilerPlugin = require("webpack-closure-compiler");
-
 const jsConfig = {
 
     entry: "./script.js",
     output: { path: dir("target"), filename: "script.js" },
 
-    // devtool: "source-map" || "cheap-module-eval-source-map",
+    // devtool: "inline-source-map" || "cheap-module-eval-source-map",
 
     module: {
         rules: [
@@ -73,6 +72,12 @@ const jsConfig = {
             },
             // concurrency: 3,
         }),
+
+        // new SourceMapDevToolPlugin({
+        //     sourceRoot: "../",
+        //     filename: "script.js.map",
+        //     moduleFilenameTemplate: info => info.absoluteResourcePath.substring(__dirname.length+1),
+        // })
     ]
 };
 
@@ -88,7 +93,7 @@ const cssConfig = {
     entry: "./style.less",
     output: { path: dir("target"), filename: "n/a" },
 
-    // devtool: "source-map" || "cheap-module-eval-source-map",
+    // devtool: "inline-source-map" || "cheap-module-eval-source-map",
 
     module: {
         rules: [

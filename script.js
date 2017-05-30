@@ -2,6 +2,6 @@ import "./menu";
 import "./calendar";
 import "./navigation";
 
-import * as pswp from "./photoswipe";
+import * as gallery from "./gallery";
 
-pswp.initPhotoSwipeFromDOM("#house-gallery");
+gallery.initPhotoSwipeFromDOM("#house-gallery");

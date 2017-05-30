@@ -1,24 +1,37 @@
 #!/usr/bin/env ruby
 
-require 'pathname'
 require 'fileutils'
 
 require 'rmagick'
 
-path = "photos/headers/header-1-1.jpg"
+w = 940; h = 300
+input_dir = "photos/headers"
+output_dir = File.join("target", input_dir)
 
-img = Magick::Image::read(path).first
-ext = File.extname(path)
-output_path = File.expand_path(path, "target")
-output_dir = File.dirname(output_path)
-unless File.file? output_path
-  unless Dir.exist?(output_dir)
-    STDERR.puts "Creating output directory #{output_dir}"
-    FileUtils.mkdir_p(output_dir)
+unless Dir.exist? output_dir
+  STDERR.puts "Creating output directory #{output_dir}"
+  FileUtils.mkdir_p output_dir
+end
+
+Dir.glob(File.join(input_dir, "**/*")).select { |path| File.file? path }.each do |path|
+
+  img = Magick::Image::read(path).first
+
+  output_path = File.join("target", path)
+
+  img.change_geometry("#{w}x#{h}^") do |cols, rows, i|
+
+    unless File.file? output_path
+
+      STDERR.puts "Generating #{output_path}: first scaling to #{cols}x#{rows}, then cropping to #{w}x#{h}"
+
+      i.scale(cols, rows).crop(Magick::CenterGravity, 940, 300)
+          .write(output_path) { self.interlace = Magick::PlaneInterlace }
+    end
+
+    classname = File.basename(path, File.extname(path))
+    puts ".#{classname} { background-image: url(\"#{path}\"); }"
   end
-  STDERR.puts "Generating #{output_path}"
-  img.change_geometry("940x300^") do |cols, rows, i|
-    STDERR.puts " (scaling to #{cols}x#{rows}, then cropping to 940x300)"
-    i.scale(cols, rows).crop(Magick::CenterGravity, 940, 300).write(output_path) { self.interlace = Magick::PlaneInterlace }
-  end
+
+  img.destroy!
 end
