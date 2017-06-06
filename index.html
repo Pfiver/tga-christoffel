@@ -25,19 +25,17 @@
 
                 <ul class="pure-menu-list">
 
-                    <li class="pure-menu-item"><a href="#todo" class="pure-menu-link">ToDo</a></li>
                     <li class="pure-menu-item"><a href="#haus" class="pure-menu-link">Haus</a></li>
                     <li class="pure-menu-item"><a href="#preise" class="pure-menu-link">Preise</a></li>
-                    <li class="pure-menu-item"><a href="#anfahrt" class="pure-menu-link">Anfahrt</a></li>
-                    <li class="pure-menu-item"><a href="#aktivitaeten" class="pure-menu-link">Aktivitäten</a></li>
+                    <li class="pure-menu-item"><a href="#anreise" class="pure-menu-link">Anreise</a></li>
                 </ul>
 
                 <ul class="pure-menu-list right-aligned">
 
-                    <li class="pure-menu-item">
-                        <a href="#kontaktmiete" class="pure-menu-link">Kontakt und Miete</a></li>
-                    <li class="pure-menu-item">
-                        <a href="#belegungskalender" class="pure-menu-link">Belegungs-Kalender</a></li>
+                    <li class="pure-menu-item"><a href="#aktivitaeten" class="pure-menu-link">Aktivitäten</a></li>
+                    <li class="pure-menu-item"><a href="#kontaktmiete" class="pure-menu-link">Kontakt und Miete</a></li>
+                    <li class="pure-menu-item"><a href="#belegungskalender" class="pure-menu-link">Belegungs-Kalender</a></li>
+                    <li class="pure-menu-item"><a href="#todo" class="pure-menu-link"></a></li>
                 </ul>
 
                 <span class="tucked-vertical-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></span>
@@ -48,42 +46,35 @@
 
     <section id="todo">
 
-        <hr><ul>
+        <ul>
+            <li> AGB PDF erstellen
             <li> Anfahrtsskizze: Restaurant Flex: "Flex" streichen
         </ul>
-        <hr><ul>
-            <li> Preise Tabelle (Hildegard)
-            <li> Aktivitäten Texte (Hildegard)
-        </ul>
-        <hr><ul>
-            <li> 3 "Header-Bild-Themen": 3 <li> 7 Bilder für die Header im Format 940px <li> 300px (Breite <li> Höhe) (Barbara)
-            <li> AGB / Text bei "Kontakt und Miete" ("Kontakt und Reservation") (Barbara)
+        <ul>
+            <li> Mobile experience prüfen
+            <li> Evtl. Header Bilder preloaden
+            <li> Evtl. Gallerie Bilder verkleinern
+            <li> Farbgebung und Stil des Belegungs-Klaender
         </ul>
 
     </section>
     <section id="index">
 
-        <p> Unser Haus Tga Christoffel steht im oberen Teil des kleinen Dorfes Sur, im Kanton Graubünden,
-            auf 1600 m ü. M.
+        <p> Tga Christoffel steht im oberen Teil des kleinen Dorfes Sur GR auf 1600 m ü. M. Viele verschiedene
+            Wanderwege führen vom Haus aus zum Hochmoor der <a href="http://www.schatzinselalpflix.ch./">Alp Flix</a>.
 
-            Viele verschiedene Wanderwege führen vom Haus aus zum Hochmoor der
-            <a href="http://www.schatzinselalpflix.ch./">Alp Flix</a>.
-
-            Sur liegt im <a href="http://www.parc-ela.ch/">Naturpark Ela</a>.
-
-            Das Wander- und Erholungsgebiet rund um <a href="http://www.bivio.ch/">Bivio</a> und <a
-            href="http://www.savognin.ch/">Savognin</a> lädt in allen Jahreszeiten zu vielfältigen Familienferien ein.
-        </p>
+            Sur liegt im <a href="http://www.parc-ela.ch/">Naturpark Ela</a>. Das Wander- und Erholungsgebiet rund um
+            <a href="http://www.bivio.ch/">Bivio</a> und <a href="http://www.savognin.ch/">Savognin</a> lädt in allen
+            Jahreszeiten zu vielfältigen Ferien ein.
 
         <p> Das grosse Haus kann gemütlich von zwei Personen bewohnt oder freudig mit bis zu sieben Personen geteilt
-            werden.
-        </p>
+            werden. Kinder freuen sich beim Besteigen des Kachelofens und am hausnahen Bach.
 
     </section>
     <section id="haus">
 
         <div id="house-gallery">
-        {% images config: gallery %}
+        {% images config: haus_gallery %}
             <a href="{{image.original.path}}">
                 <img src="{{image.resized.x200.path}}" alt="{{image.basename}}"/>
             </a>
@@ -91,66 +82,131 @@
         </div>
 
         <p> Tga Christoffel wurde vor ungefähr 150 Jahren von unseren Urgrosseltern gebaut und von ihnen bewohnt.
-            In den 60er Jahreren renovierten unsere Grosseltern das Haus sanft und seither dient es uns als Ferienhaus.
+            Die Grosseltern renovierten es sanft in den 60er Jahren und seither dient es als Ferienhaus.
 
-        <p> Das Haus verfügt über eine zentrale Heizung und warmes Wasser. Die Zimmer verteilen sich auf zwei
-            Stockwerke. Im <b>Erdgeschoss</b> befinden sich eine einfache Küche sowie eine kleine und eine grosse
-            Stube. Im <b>Obergeschoss</b> gibt es drei Schlafräume, WC-Dusche und ein separtates WC.
+            Das Haus eignet sich für Ferien mit Kindern, mit befreundeten Familien oder mit Freunden. Auch für 2
+            Personen ist das Haus gemütlich bewohnbar. Bei Belegung von nur 2 Personen profitieren Sie in der
+            Nebensaison von einer Preisreduzierung.
 
-        <p> Ein <b>Gartensitzplatz</b> vor und hinter dem Haus laden ein zum Ausruhen oder Spielen.
-            Etwas unterhalb vom Haus steht Ihnen ein <b>Parkplatz</b> zur Verfügung.
+        <p> Informationen
+            <ul>
+                <li> zentrale <b>Heizung</b> und warmes Wasser
+                <li> <b>Haustiere</b> auf Anfrage erlaubt
+                <li> Nichtraucher-Unterkunft
+                <li> Zugang zum Haus über Kiesweg, Haus nicht rollstuhlgängig
+                <li> <b>Gartensitzplatz</b> vor und hinter dem Haus
+                <li> <b>Parkplatz</b> etwas unterhalb vom Haus steht kostenlos zur Verfügung
+                <li> <b>Bettwäsche</b> auf Wunsch vorhanden
+            </ul>
 
-        <p> Das Haus eignet sich für Ferien mit Kindern, mit befreundeten Familien oder mit Freunden.
-            Auch für zwei Personen ist das Haus gemütlich bewohnbar und Sie profitieren in der Nebensaison von einer
-            Preisreduzierung.
+        <p>
+            <b>Die Zimmer</b> verteilen sich auf 2 Stockwerke.<br>
+            Im Erdgeschoss befinden sich eine einfache Küche sowie eine kleine und eine grosse Stube.<br>
+            Im Obergeschoss befindet sich das Bad mit Dusche und WC, eine separate Toillette sowie drei Schlafräume.<br>
 
-        <p> <b>Was Sie alles vorfinden:</b>
+            <dl>
+                <dt> Murmelihöhli
+                <dd> 2 Betten / 1Schrank / 1 kleiner Tisch
+
+                <dt> Stägelizimmer (Durchgangszimmer)
+                <dd> 3 Betten / 1 Schrank / 1 Kommode
+
+                <dt> Adlerhorst
+                <dd> 1 Kajüttenbett, nur für Kinder geeignet / 1 französisches Bett, 160 cm / 1 Schrank / 1 Kommode
+            </dl>
+
+        <p>
+            <b>Was Sie im Haus alles vorfinden:</b><br>
+            Kochherd, Backofen, Kühlschrank mit Gefrierabteil, Küchentücher, Standard Gewürze, diverse Grössen Mocca-Espresso Kaffeekocher, Fondue-Rechaud und Caquelon
             TripTrap Kindersitz, Spiele, Radio/CD Player, Schlitten
-            Fondue-und Raclette, Backofen, Herd, Kühlschrank mit Gefrierteil
-            Chuchitücher, Standart Gewürze
 
-        <p> <b>Was Sie nicht finden:</b>
+        <p>
+            <b>Was Sie nicht finden:</b><br>
             TV, WLAN, Waschmaschine
 
     </section>
     <section id="preise">
 
-        <p> <b>Nebensaison</b>
-            <p>Nach Ostern bis Ende Juni
-            <br>September bis 20. Dezember:
+        <table>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <b>Hauptsaison 2017</b><br>
+                    1.1. bis 29.4.<br>
+                    1.7. bis 26.8.<br>
+                    23.12. bis 31.12.<br>
+                </td>
+                <td>
+                    <b>Nebensaison 2017</b><br>
+                    29.4. bis 27.6.<br>
+                    26.8. bis 23.12<br>
+                </td>
+            </tr>
+            <tr><td>3-7 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 95.00 pro Nacht</td>
+            </tr>
+            <tr><td>3-7 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 665.00 pro Woche</td>
+            </tr>
+            <tr><td>1-2 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 80.00 pro Nacht</td>
+            </tr>
+            <tr><td>1-2 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 560.00 pro Woche</td>
+            </tr>
+        </table>
+        <br>
+        
+        <table>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <b>Hauptsaison 2018</b><br>
+                    1.1 bis 14.4.<br>
+                    30.6. bis 25.8.<br>
+                    22.12. bis 31.12.<br>
+                </td>
+                <td>
+                    <b>Nebensaison 2018</b><br>
+                    14.4. bis 30.6.<br>
+                    25.8. bis 22.12.<br>
+                </td>
+            </tr>
+            <tr><td>3-7 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 95.00 pro Nacht</td>
+            </tr>
+            <tr><td>3-7 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 665.00 pro Woche</td>
+            </tr>
+            <tr><td>1-2 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 80.00 pro Nacht</td>
+            </tr>
+            <tr><td>1-2 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 560.00 pro Woche</td>
+            </tr>
+        </table>
 
-            <p class="price-value">
-                95.- / Nacht
-                <br>für 2 Personen: 80.-/ Nacht
-            </p>
+        <dl>
+            <dt> <b>Im Mietpreis inbegriffen:</b>
+            <dd> Heizung, Strom, Wasser, 1 Parkplatz
 
-        <p> <b>Hauptsaison</b>
-            <p>Ab 21. Dezember bis und mit Ostern
-            <br>Juli, August:
+            <dt> <b>Im Mietpreis nicht inbegriffen und fakultativ:</b>
+            <dd> <dl>
+                     <dt>Bettwäsche
+                     <dd>Fr. 14.- pro Bett,
+                         kann auch mitgebracht werden.
+                         Schlafsäcke sind aus hygienischen Gründen nicht erlaubt.
+                 </dl>
 
-            <p class="price-value">
-                110.- / Nacht
-            </p>
+            <dt> <b>Im Mietpreis nicht inbegriffen und obligatorisch:</b>
+            <dd>
 
-        <p> <b>Nebenkosten</b>
+                 <dl>
+                     <dt>Endreinigung
+                     <dd>Fr. 120.-
 
-            <p>Endreinigung:
-            <p class="price-value">
-                120.-	(? mit Hund 130.-)
-            </p>
+                     <dt>Hundezuschlag
+                     <dd>Fr. 10.-
 
-            <p>Bettwäsche auf Wunsch:
-            <p class="price-value">
-                14.- / Bett (Schlafsäcke sind aus hygienischen Gründen nicht erlaubt.)
-            </p>
-
-            <p>Kurtaxen:
-            <p class="price-value">
-                1.50 	ab 16 Jahre
-                <br>0.75 	12-16 Jahre
-            </p>
-
-            <p>Die Heizkosten sind im Mietpreis inbegriffen.
+                     <dt>Kurtaxen (pro Person pro Nacht)
+                     <dd>Fr. 1.50 (ab 16 Jahren)<br>
+                         Fr. 0.75 (12-16 Jahre)
+                 </dl>
+        </dl>
 
     </section>
     <section id="aktivitaeten">
@@ -203,36 +259,52 @@
         </ul>
 
     </section>
-    <section id="anfahrt">
+    <section id="anreise">
 
-        <h3>Bahn und Bus</h3> Am besten nehmen sie ...
+        <h3>Bahn und Bus</h3>
+        <p> Ab Chur mit der RhB nach Tiefencastel und dann mit dem Postauto nach Sur (Haltestelle Sur, Postautoplatz)<br>
+            <b>oder</b> ab Chur mit dem Postauto nach Sur (Haltestelle Sur, Postautoplatz).
 
-        <h3>Auto und Parkplatz</h3> Am besten fahren sie ...
+        <h3>Auto</h3>
+        <p> Via Chur – Thusis – Tiefencastel – Savognin – Sur
 
-        <p>
-            <a href="Situationsplan.pdf" style="white-space: nowrap;">
+        <h3>Parkplatz</h3>
+        <p> Der Parkplatz Nr. 9 vis à vis von der Kirche gehört zum Haus.
+            Weitere Parkplätze siehe Plan (gebührenpflichtig).
+
+        <p> <a href="Situationsplan.pdf" style="white-space: nowrap;">
                     <i class="fa fa-file-pdf-o"></i>&nbsp;Anfahrtsskizze und Situationsplan</a>
-            <a href="http://www.google.com/map" style="margin-left: 1em; white-space: nowrap;">
-                    <i class="fa fa-external-link"></i> Standort auf Google Maps</a>
+
+            <a href="https://www.google.ch/maps/place/Tgacrest+68,+7456+Sur/@46.5237422,9.6305204,17z/data=!3m1!4b1!4m5!3m4!1s0x478485885422cc19:0x16441e6054f12435!8m2!3d46.5237422!4d9.6327091"
+               target="_blank" style="margin-left: 1em; white-space: nowrap;"><i class="fa fa-external-link"></i> Standort auf Google Maps</a>
 
     </section>
     <section id="kontaktmiete">
 
-        <p> Im Belegungs-Kalender erfahren sie, wann die Wohnung frei ist.
-            Für die Reservation wenden sie sich an:
+        <p> Im Belegungs-Kalender erfahren Sie, wann das Haus frei ist. Für die Reservation wenden Sie sich an:
 
         <p style="padding-left: 1em;">
-            Barbara Gschwind
-            <br>
-            Schädrütistrasse 52
-            <br>
-            6006 Luzern
-            <br>
-            <a href="mailto:ferien@tga-christoffel.ch">ferien@tga-christoffel.ch</a>
-            <br>
+            Barbara Gschwind<br>
+            Schädrütistrasse 52<br>
+            6006 Luzern<br>
+            <a href="mailto:ferien@tga-christoffel.ch">ferien@tga-christoffel.ch</a><br>
             <a href="tel:+41 41 210 33 66">+41 (0)41 210 33 66</a>
 
         <p> Wenn sie gebucht haben....
+
+            <a href="Tga-Christoffel_AGB.pdf" style="white-space: nowrap;">
+            <i class="fa fa-file-pdf-o"></i> [AGB als Pdf erstellen]
+            </a>
+
+        <p> Vertragsbedingungen<br>
+            <br>
+            Der Mieter verpflichtet sich zur Bezahlung der im Vertrag festgehaltenen Mietkosten.
+            Die Überweisung erfolgt nach dem Aufenthalt innerhalb von 30 Tagen.
+            Der Mieter notiert die endgültigen Kosten auf dem Abrechnungsformular,
+                das dem Mietvertrag beigefügt ist und sendet dieses an den Vermieter zurück.
+            Reist der Mieter verspätet oder verfrüht ab, schuldet er den gesamten vereinbarten Mietpreis.
+            Es wird dem Mieter empfohlen, für solche Fälle eine Reise-Annullationsversicherung abzuschliessen.
+            Schneemangel oder ungünstige Wetterverhältnisse berechtigen ebenfalls nicht zu einem kostenlosen Rücktritt vom Vertrag.
 
     </section>
     <section id="belegungskalender">

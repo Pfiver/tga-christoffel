@@ -1,4 +1,4 @@
-import {default as gallery_data} from "./target/gallery.json";
+import {default as gallery_data} from "./target/haus_gallery.json";
 import {default as PhotoSwipe} from "./node_modules/photoswipe/dist/photoswipe";
 import {default as PhotoSwipeUI_Default} from "./node_modules/photoswipe/dist/photoswipe-ui-default";
 

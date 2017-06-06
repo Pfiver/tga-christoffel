@@ -6,7 +6,7 @@ keep_files: [ renditions ]
 include: [ index.html ]
 
 image_tag:
-  gallery:
-    path: photos/wetransfer-5f74c7
+  haus_gallery:
+    path: photos/haus-gallery
     geometries: [ x200, x1000 ]
     output_path_format: "%{filepath}-%{width}x%{height}.%{ext}"

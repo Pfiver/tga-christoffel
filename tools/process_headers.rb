@@ -30,7 +30,7 @@ Dir.glob(File.join(input_dir, "**/*")).select { |path| File.file? path }.each do
     end
 
     classname = File.basename(path, File.extname(path))
-    puts ".#{classname} { background-image: url(\"#{path}\"); }"
+    puts ".#{classname} { background-image: url(\"../#{path}\"); }"
   end
 
   img.destroy!
