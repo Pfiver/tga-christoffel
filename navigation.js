@@ -1,7 +1,7 @@
 import * as calendar from "./calendar";
 import * as headers from "./headers";
 
-let current_link,
+let current_menu_item,
     current_section;
 
 window.onpopstate = event => {
@@ -9,11 +9,11 @@ window.onpopstate = event => {
     const hash = event.state || "#";
     const section = hash.substring(1) || "index";
 
-    if (current_link) {
-        current_link.classList.remove("target");
+    if (current_menu_item) {
+        current_menu_item.classList.remove("target");
     }
-    current_link = document.querySelector(`#menu [href="${hash}"]`);
-    current_link.classList.add("target");
+    current_menu_item = document.querySelector(`.pure-menu [href="${hash}"]`).parentNode;
+    current_menu_item.classList.add("target");
 
     if (current_section) {
         current_section.classList.remove("current");
@@ -30,7 +30,7 @@ window.onpopstate = event => {
 
 document.getElementById("center").classList.add("page-by-page");
 
-[].forEach.call(document.querySelectorAll("#menu a"), a => a.onclick = a.onkeyup = event => {
+[].forEach.call(document.querySelectorAll(".pure-menu a"), a => a.onclick = a.onkeyup = event => {
     if (event.type === "click" || (event.type === "keyup" && event.which === 13)) {
         const hash = event.currentTarget.getAttribute("href");
         window.history.pushState(hash, hash, hash);

@@ -17,44 +17,29 @@
         </h1>
     </header>
 
-    <nav class="tucked-vertical-menu-wrapper pure-g" id="menu">
-        <div class="pure-u-1">
-            <div class="pure-menu pure-menu-horizontal tucked-vertical-menu-can-transform">
+    <nav class="pure-menu">
 
-                <a href="#" class="pure-menu-item pure-menu-link"><i class="fa fa-home"></i></a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#"><i class="fa fa-home"></i></a></li>
+            <li class="pure-menu-item"><a href="#haus">Haus</a></li>
+            <li class="pure-menu-item"><a href="#preise">Preise</a></li>
+            <li class="pure-menu-item"><a href="#anreise">Anreise</a></li>
+        </ul>
 
-                <ul class="pure-menu-list">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#aktivitaeten">Aktivitäten</a></li>
+            <li class="pure-menu-item"><a href="#kontaktmiete">Kontakt und Miete</a></li>
+            <li class="pure-menu-item"><a href="#belegungskalender">Belegungs-Kalender</a></li>
+        </ul>
 
-                    <li class="pure-menu-item"><a href="#haus" class="pure-menu-link">Haus</a></li>
-                    <li class="pure-menu-item"><a href="#preise" class="pure-menu-link">Preise</a></li>
-                    <li class="pure-menu-item"><a href="#anreise" class="pure-menu-link">Anreise</a></li>
-                </ul>
-
-                <ul class="pure-menu-list right-aligned">
-
-                    <li class="pure-menu-item"><a href="#aktivitaeten" class="pure-menu-link">Aktivitäten</a></li>
-                    <li class="pure-menu-item"><a href="#kontaktmiete" class="pure-menu-link">Kontakt und Miete</a></li>
-                    <li class="pure-menu-item"><a href="#belegungskalender" class="pure-menu-link">Belegungs-Kalender</a></li>
-                    <li class="pure-menu-item"><a href="#todo" class="pure-menu-link"></a></li>
-                </ul>
-
-                <span class="tucked-vertical-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></span>
-
-            </div>
-        </div>
     </nav>
 
     <section id="todo">
 
         <ul>
-            <li> AGB PDF erstellen
-            <li> Anfahrtsskizze: Restaurant Flex: "Flex" streichen
-        </ul>
-        <ul>
-            <li> Mobile experience prüfen
-            <li> Evtl. Header Bilder preloaden
-            <li> Evtl. Gallerie Bilder verkleinern
-            <li> Farbgebung und Stil des Belegungs-Klaender
+            <li> evtl. Mobile experience optimieren
+            <li> evtl. Header Bilder Ladevorgang optimieren
+            <li> evtl. Gallerie Bilder Ladevorgang optimieren
         </ul>
 
     </section>
@@ -101,8 +86,12 @@
 
         <p>
             <b>Die Zimmer</b> verteilen sich auf 2 Stockwerke.<br>
-            Im Erdgeschoss befinden sich eine einfache Küche sowie eine kleine und eine grosse Stube.<br>
-            Im Obergeschoss befindet sich das Bad mit Dusche und WC, eine separate Toillette sowie drei Schlafräume.<br>
+
+            Im Erdgeschoss befinden sich
+                eine einfache Küche sowie eine kleine und eine grosse Stube.<br>
+
+            Im Obergeschoss befindet sich
+                das Bad mit Dusche und WC, eine separate Toillette sowie drei Schlafräume.<br>
 
             <dl>
                 <dt> Murmelihöhli
@@ -117,7 +106,8 @@
 
         <p>
             <b>Was Sie im Haus alles vorfinden:</b><br>
-            Kochherd, Backofen, Kühlschrank mit Gefrierabteil, Küchentücher, Standard Gewürze, diverse Grössen Mocca-Espresso Kaffeekocher, Fondue-Rechaud und Caquelon
+            Kochherd, Backofen, Kühlschrank mit Gefrierabteil, Küchentücher, Standard Gewürze,
+            diverse Grössen Mocca-Espresso Kaffeekocher, Fondue-Rechaud und Caquelon
             TripTrap Kindersitz, Spiele, Radio/CD Player, Schlitten
 
         <p>
@@ -218,7 +208,8 @@
         <ul>
             <li>Feuerstellen, baden im Bergsee, Bach stauen
             <li><a href="http://www.parc-ela.ch/">Forscherparcours Alp Flix</a> für Kinder zwischen 7 und 12 Jahren
-            <li><a href="https://www.agrotour.ch/pferde/ranch.html">Reiten, Alp Flix (Cotti Agricultura)</a> (<a href="http://www.wireltern.ch/artikel/verflixt-schoen"><i>Wir Eltern</i> Artikel dazu</a>)
+            <li><a href="https://www.agrotour.ch/pferde/ranch.html">Reiten, Alp Flix (Cotti Agricultura)</a> (<a
+                href="http://www.wireltern.ch/artikel/verflixt-schoen"><i>Wir Eltern</i> Artikel dazu</a>)
             <li>Hallenbad in Bivio
         </ul>
 
@@ -228,7 +219,10 @@
         <ul>
             <li>Wandern
             <li>unsere Lieblingswanderungen	einfach, mittel, gross
-            <li><a href="http://www.savognin.ch/weitere-sommer-erlebnisse/klettern/klettertouren/klettergarten-bivio.html">Klettergarten Bivio</a>
+            {% assign url = "" |
+               append: "http://www.savognin.ch/" |
+               append: "weitere-sommer-erlebnisse/klettern/klettertouren/klettergarten-bivio.html" %}
+            <li><a href="{{ url }}">Klettergarten Bivio</a>
             <li>weitere Wandertips: www....
         </ul>
 
@@ -262,7 +256,8 @@
     <section id="anreise">
 
         <h3>Bahn und Bus</h3>
-        <p> Ab Chur mit der RhB nach Tiefencastel und dann mit dem Postauto nach Sur (Haltestelle Sur, Postautoplatz)<br>
+        <p> Ab Chur mit der RhB nach Tiefencastel und dann mit dem Postauto nach Sur (Haltestelle Sur, Postautoplatz)
+            <br>
             <b>oder</b> ab Chur mit dem Postauto nach Sur (Haltestelle Sur, Postautoplatz).
 
         <h3>Auto</h3>
@@ -275,8 +270,11 @@
         <p> <a href="Situationsplan.pdf" style="white-space: nowrap;">
                 <i class="fa fa-file-pdf-o"></i>&nbsp;Anfahrtsskizze und Situationsplan</a>
 
-            <a href="https://www.google.ch/maps/place/Tgacrest+68,+7456+Sur/@46.5237422,9.6305204,17z/data=!3m1!4b1!4m5!3m4!1s0x478485885422cc19:0x16441e6054f12435!8m2!3d46.5237422!4d9.6327091"
-               target="_blank" style="margin-left: 1em; white-space: nowrap;"><i class="fa fa-external-link"></i> Standort auf Google Maps</a>
+            {% assign url = "" |
+               append: "https://www.google.ch/maps/place/Tgacrest+68,+7456+Sur/@46.5237422,9.6305204,17z/" |
+               append: "data=!3m1!4b1!4m5!3m4!1s0x478485885422cc19:0x16441e6054f12435!8m2!3d46.5237422!4d9.6327091" %}
+            <a href="{{ url }}" style="white-space: nowrap; margin-left: 1em;" target="_blank">
+                <i class="fa fa-external-link"></i>&nbsp;Standort auf Google Maps</a>
 
     </section>
     <section id="kontaktmiete">
@@ -291,7 +289,7 @@
             <a href="tel:+41 41 210 33 66">+41 (0)41 210 33 66</a>
 
         <p> <a href="Vertragsbedingungen%202017.pdf" style="white-space: nowrap;">
-                <i class="fa fa-file-pdf-o"></i> Vertragsbedingungen</a>
+                <i class="fa fa-file-pdf-o"></i>&nbsp;Vertragsbedingungen</a>
 
     </section>
     <section id="belegungskalender">
@@ -307,57 +305,7 @@
 
 </div>
 
-<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="pswp__bg"></div>
-
-    <div class="pswp__scroll-wrap">
-
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip">
-                    <a href="#" class="pswp__share--facebook"></a>
-                    <a href="#" class="pswp__share--twitter"></a>
-                    <a href="#" class="pswp__share--pinterest"></a>
-                    <a href="#" download class="pswp__share--download"></a>
-                </div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% include "photoswipe" %}
 
 <script src="script.js"></script>
 </body>

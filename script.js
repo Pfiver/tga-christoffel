@@ -1,4 +1,3 @@
-import "./menu";
 import "./calendar";
 import "./navigation";
 

@@ -1,77 +1,25 @@
 /* based on http://purecss.io/layouts/tucked-menu-vertical/ */
 
-.animated.tucked-vertical-menu-wrapper {
-            transition: height 0.5s;
-    -webkit-transition: height 0.5s;
+.pure-menu .pure-menu-list,
+.pure-menu .pure-menu-item {
+    display: inline-block;
 }
 
-.tucked-vertical-menu-toggle {
-    width: 3em;
-    height: 3em;
-    position: absolute;
-    top: 0.5em;
-    right: 0;
-    display: none;
-}
-
-.tucked-vertical-menu-toggle .bar {
+.pure-menu .pure-menu-item a {
     display: block;
-    width: 20px;
-    height: 2px;
-    border-radius: 100px;
-    position: absolute;
-    top: 18px;
-    right: 7px;
-}
-.animated .tucked-vertical-menu-toggle .bar {
-            transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-}
-
-.tucked-vertical-menu-toggle.x .bar {
-            transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-}
-
-.tucked-vertical-menu-toggle .bar:first-child {
-            transform: translateY(-6px);
-    -webkit-transform: translateY(-6px);
-}
-
-.tucked-vertical-menu-toggle.x .bar:first-child {
-            transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-}
-
-.tucked-vertical-menu-wrapper .pure-menu-horizontal {
-    white-space: normal;
-}
-
-.pure-menu-link {
-    transition-duration: 0.5s;
     padding: 19px;
-}
-.open .pure-menu-link {
-    padding: 9px 19px;
+    transition: padding 0.5s;
+    -webkit-transition: padding 0.5s;
 }
 
-@media (min-width: 721px) {
-    .pure-menu-link {
-        padding: 19px;
-    }
-}
 @media (max-width: 720px) {
 
-    .tucked-vertical-menu-toggle {
+    .pure-menu .pure-menu-list,
+    .pure-menu .pure-menu-item {
         display: block;
     }
 
-    .tucked-vertical-menu-wrapper {
-        height: 3em;
-        overflow: hidden;
-    }
-
-    .tucked-vertical-menu-wrapper .pure-menu-horizontal .pure-menu-list {
-        display: none;
+    .pure-menu .pure-menu-item a {
+        padding: 9px 19px;
     }
 }

@@ -62,25 +62,24 @@ header:not(.header-1-1) h1 span {
   border: 0;
 }
 
-.tucked-vertical-menu-wrapper {
+nav {
   background-color: @menu;
 }
 
-.tucked-vertical-menu-wrapper a {
-  color: @menu-text;
-}
-
-.tucked-vertical-menu-toggle .bar {
-  background-color: @complement;
-}
-
-.tucked-vertical-menu-wrapper .pure-menu-link:hover,
-.tucked-vertical-menu-wrapper .pure-menu-link:focus {
+nav .pure-menu-item:hover,
+nav .pure-menu-item:focus {
   background-color: @menu-focus;
 }
 
-.tucked-vertical-menu-wrapper .pure-menu-link.target {
+nav .pure-menu-item.target {
   background-color: @menu-target;
+}
+
+nav .pure-menu-item a {
+  color: @menu-text;
+}
+
+nav .pure-menu-item.target a {
   color: @menu-target-text;
 }
 
