@@ -6,15 +6,19 @@ const dir = rel_path => path.resolve(__dirname, rel_path);
 
 const files = [
     "./calendar-data.xml",
-    "./Situationsplan.pdf"
+    "./Situationsplan.pdf",
+    "./Vertragsbedingungen 2017.pdf"
 ];
+
+// noinspection PointlessBooleanExpressionJS
+const devtool = false && "source-map" || "inline-source-map" || "cheap-module-eval-source-map";
 
 const jsConfig = {
 
     entry: "./script.js",
     output: { path: dir("target"), filename: "script.js" },
 
-    // devtool: "inline-source-map" || "cheap-module-eval-source-map",
+    devtool: devtool,
 
     module: {
         rules: [
@@ -93,7 +97,7 @@ const cssConfig = {
     entry: "./style.less",
     output: { path: dir("target"), filename: "n/a" },
 
-    // devtool: "inline-source-map" || "cheap-module-eval-source-map",
+    devtool: devtool,
 
     module: {
         rules: [
