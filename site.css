@@ -34,11 +34,13 @@ header h1 {
     left: 0.5em;
 }
 
-header:not(.header-1-1) {
-    font-size: 50%;
+header:not([class^="header-1"]) {
+    font-size: 68%;
 }
-
-header:not(.header-1-1) span:not(.main) {
+header:not([class^="header-1"]) h1 span {
+    border: 0;
+}
+header:not([class^="header-1"]) span:not(.main) {
     display: none;
 }
 
