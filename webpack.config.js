@@ -12,7 +12,7 @@ const files = [
 const sitedir = dir("target/site");
 
 // noinspection PointlessBooleanExpressionJS
-const devtool = false && ("source-map" || "inline-source-map" || "cheap-module-eval-source-map");
+const devtool = false; // "source-map" || "inline-source-map" || "cheap-module-eval-source-map";
 
 const jsConfig = {
 
@@ -121,7 +121,7 @@ const cssConfig = {
                         loader: "less-loader",
                         options: {
                             compress: false,
-                            // sourceMap: true,
+                            sourceMap: true,
                             // sourceMap: {
                             //     outputSourceFiles: true,
                             //     sourceMapFileInline: true
