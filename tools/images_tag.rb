@@ -10,7 +10,7 @@ module LiquidImages
     def initialize(tag_name, markup, tokens)
       super
       @attributes = symbolize_keys(Hash[markup.scan(Liquid::TagAttributes)])
-      @config = symbolize_keys(YAML.load_file('_config.yml')["image_tag"][@attributes[:config]])
+      @config = symbolize_keys(YAML.load_file('gallery_config.yml')["image_tag"][@attributes[:config]])
     end
     def render(context)
       result = []

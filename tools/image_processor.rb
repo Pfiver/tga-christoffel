@@ -13,7 +13,7 @@ module ImageProcessor
     ext = File.extname(ascii_path)
     out = { basename: File.basename(ascii_path, ext),
             original: { path: ascii_path, width: img.columns, height: img.rows }, resized: {} }
-    output_path = File.expand_path(ascii_path, "target")
+    output_path = File.expand_path(ascii_path, "target/site")
     output_dir = File.dirname(output_path)
     unless File.file? output_path
       unless Dir.exist?(output_dir)
@@ -28,7 +28,7 @@ module ImageProcessor
         rendition_path = Pathname.new(config[:output_path_format] % {
              filepath: ascii_path[0..-ext.length-1], width: cols, height: rows, ext: ext[1..-1]})
         out[:resized][geometry] = { path: rendition_path, width: cols, height: rows }
-        output_path = File.expand_path(rendition_path, "target")
+        output_path = File.expand_path(rendition_path, "target/site")
         unless File.file? output_path
           STDERR.puts "Generating #{output_path}"
           i.resize(cols, rows).write(output_path) { self.interlace = Magick::PlaneInterlace }

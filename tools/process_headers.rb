@@ -6,7 +6,7 @@ require 'rmagick'
 
 w = 940; h = 300
 input_dir = "photos/headers"
-output_dir = File.join("target", input_dir)
+output_dir = File.join("target/site", input_dir)
 
 unless Dir.exist? output_dir
   STDERR.puts "Creating output directory #{output_dir}"
@@ -17,7 +17,7 @@ Dir.glob(File.join(input_dir, "**/*")).select { |path| File.file? path }.each do
 
   img = Magick::Image::read(path).first
 
-  output_path = File.join("target", path)
+  output_path = File.join("target/site", path)
 
   img.change_geometry("#{w}x#{h}^") do |cols, rows, i|
 

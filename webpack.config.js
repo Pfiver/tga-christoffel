@@ -5,18 +5,19 @@ import { default as ClosureCompilerPlugin } from "webpack-closure-compiler";
 const dir = rel_path => path.resolve(__dirname, rel_path);
 
 const files = [
-    "./calendar-data.xml",
     "./Situationsplan.pdf",
     "./Vertragsbedingungen 2017.pdf"
 ];
 
+const sitedir = dir("target/site");
+
 // noinspection PointlessBooleanExpressionJS
-const devtool = false && "source-map" || "inline-source-map" || "cheap-module-eval-source-map";
+const devtool = false && ("source-map" || "inline-source-map" || "cheap-module-eval-source-map");
 
 const jsConfig = {
 
     entry: "./script.js",
-    output: { path: dir("target"), filename: "script.js" },
+    output: { path: sitedir, filename: "script.js" },
 
     devtool: devtool,
 
@@ -95,7 +96,7 @@ const suppressChunkAssets = {
 const cssConfig = {
 
     entry: "./style.less",
-    output: { path: dir("target"), filename: "n/a" },
+    output: { path: sitedir, filename: "n/a" },
 
     devtool: devtool,
 
@@ -120,7 +121,7 @@ const cssConfig = {
                         loader: "less-loader",
                         options: {
                             compress: false,
-                            sourceMap: true,
+                            // sourceMap: true,
                             // sourceMap: {
                             //     outputSourceFiles: true,
                             //     sourceMapFileInline: true
@@ -169,9 +170,27 @@ const cssConfig = {
 
 const filesConfig = {
     entry: files,
-    output: { path: dir("target"), filename: "n/a" },
-    module: { rules: [{ use: "file-loader?name=[path][name].[ext]" }]},
+    output: { path: sitedir, filename: "n/a" },
+    module: { rules: [{ use: "file-loader?name=[name].[ext]" }]},
     plugins: [ suppressChunkAssets ]
 };
 
-module.exports = [ jsConfig, cssConfig, filesConfig ];
+const htmlConfig = {
+    entry: "./target/index.html",
+    output: { path: sitedir, filename: "n/a" },
+    module: { rules: [
+        { use: [
+                "file-loader?name=[name].[ext]",
+                {
+                    loader: "htmlmin-loader",
+                    options: {
+                        maxLineLength: 500,
+                    }
+                }
+            ]
+        }
+    ]},
+    plugins: [ suppressChunkAssets ]
+};
+
+module.exports = [ jsConfig, cssConfig, filesConfig, htmlConfig ];

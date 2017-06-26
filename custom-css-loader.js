@@ -40,7 +40,7 @@ module.exports.default = function(css) {
 
     cssnano.process(css, { discardComments: { removeAll: true } }).then(result =>
 
-        csspretty.process(result.css, {stringifier: line_breaking_stringifier}).then(result =>
+        csspretty.process(result.css, { stringifier: line_breaking_stringifier }).then(result =>
 
             loaderCallback(null, result.css)
         )

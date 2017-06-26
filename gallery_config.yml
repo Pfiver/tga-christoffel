@@ -1,10 +1,3 @@
-source: .
-exclude: [ "*" ]
-destination: target
-keep_files: [ renditions ]
-
-include: [ index.html ]
-
 image_tag:
   haus_gallery:
     path: photos/haus-gallery
