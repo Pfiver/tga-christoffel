@@ -47,7 +47,7 @@ function getDates() {
     const y = new Date().getYear() + 1900;
     const m0 = new Date().getMonth();
     const dates = [];
-    for (let m = m0; m < m0 + 6; m++) {
+    for (let m = m0; m < m0 + 12; m += 2) {
         dates.push(new Date(Date.UTC(y, m, 1)).toISOString().substring(0, 7));
     }
     return dates;
