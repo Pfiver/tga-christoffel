@@ -371,7 +371,7 @@
 }
 
 #belegungskalender {
-    margin: 0;
+    margin: 1em 0;
 }
 
 #belegungskalender .tp-calendar-legend:before {
