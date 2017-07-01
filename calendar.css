@@ -1,222 +1,326 @@
 /*********************************************************************************************************/
-/* from https://shop.savognin.ch/Savognin/b3/css/ttportal-2.5.8-b3.css */
+/* from https://shop.savognin.ch/default/ng/css/tp-taurus.css */
 
-/* @group LODGING CALENDAR ______________________________ */
-/* @lastmodified 2014-08-13 */
-/* @author ast */
-
-.table-calendar {
-    margin-bottom: 0;
+/* @group grid variables -------------------------------- */
+/* @group css mixins ------------------------------------ */
+/* @group calendar base definitions --------------------- */
+.tp-calendar {
+    position: relative;
+}
+@media screen and (max-width: 567px) {
+    .tp-calendar > div:not(.tp-calendar) {
+        margin-left: -14px;
+        margin-right: -14px;
+    }
+}
+.tp-calendar table {
+    border: none;
     width: 100%;
 }
-
-.table-calendar td {
-    font-size: 12px;
-    line-height: 1.3;
-    text-align: center;
-    width: 14.2%;
+.tp-calendar thead {
+    background-color: #fff;
 }
-
-.table-calendar thead > tr > th,
-.table-calendar thead > tr > td,
-.table-calendar tbody > tr > th,
-.table-calendar tbody > tr > td,
-.table-calendar tfoot > tr > th,
-.table-calendar tfoot > tr > td {
-    border: 1px solid #fff;
-    line-height: 20px;
-    margin: 0;
-    padding: 0.1em 0.4em;
-    vertical-align: top;
-    width: 14.2857%;
-}
-
-.datepicker-days .table-condensed thead > tr > th,
-.datepicker-days .table-condensed thead > tr > td,
-.datepicker-days .table-condensed tbody > tr > th,
-.datepicker-days .table-condensed tbody > tr > td,
-.datepicker-days .table-condensed tfoot > tr > th,
-.datepicker-days .table-condensed tfoot > tr > td {
-    border: 1px solid #fff;
-    line-height: 20px;
-    margin: 0;
-    padding: 0.1em 0.4em;
-    vertical-align: top;
-    width: 14.2857%;
-}
-
-.table-calendar .prev-month .day, .table-calendar .next-month .day {
-    color: #bbb;
-}
-
-.table-calendar td .day {
-    display: block;
-    float: right;
-    font-size: 85%;
-    font-weight: normal;
-    margin: 0;
-}
-
-.table-calendar td.free, .table-condensed td.free {
-    background: #95c966;
-    color: #fff;
-}
-
-.table-calendar td.freeGo, .table-condensed td.freeGo {
-    background: #288c1d;
-    color: #fff;
-}
-
-.table-calendar td.busy, .table-condensed td.busy {
+.tp-calendar tbody {
     background: #d5d5d5;
-    color: #fff;
+    /*
+    td strong {
+      color: #fff;
+      font-size: 14px;
+    }
+    */
 }
-
-.table-calendar td.onDemand, .table-condensed td.onDemand {
-    background: #95c966;
+.tp-calendar td,
+.tp-calendar th {
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    border-left-color: #fff;
     color: #fff;
-}
-
-.table-calendar td.onDemandGo, .table-condensed td.onDemandGo {
-    background: #288c1d;
-    color: #fff;
-}
-
-.table-calendar td.free-busy, .table-condensed td.free-busy {
-    color: #fff;
-    background: #95c966; /* Old browsers, IE6-8 fallback */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-    background: -moz-linear-gradient(-45deg, #95c966 50%, #d5d5d5 50%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#95c966), color-stop(50%,#d5d5d5)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg, #95c966 50%,#d5d5d5 50%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg, #95c966 50%,#d5d5d5 50%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg, #95c966 50%,#d5d5d5 50%); /* IE10+ */
-    background: linear-gradient(135deg, #95c966 50%,#d5d5d5 50%); /* W3C */
-}
-
-.table-calendar td.free-busy-arrival, .table-condensed td.free-busy-arrival {
-    color: #fff;
-    background: #288c1d; /* Old browsers, IE6-8 fallback */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-    background: -moz-linear-gradient(-45deg, #288c1d 50%, #d5d5d5 50%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#288c1d), color-stop(50%,#d5d5d5)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg, #288c1d 50%,#d5d5d5 50%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg, #288c1d 50%,#d5d5d5 50%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg, #288c1d 50%,#d5d5d5 50%); /* IE10+ */
-    background: linear-gradient(135deg, #288c1d 50%,#d5d5d5 50%); /* W3C */
-}
-
-.table-calendar td.busy-free, .table-condensed td.busy-free {
-    color: #fff;
-    background: #d5d5d5; /* Old browsers, IE6-8 fallback */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-    background: -moz-linear-gradient(-45deg, #d5d5d5 50%, #95c966 50%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#d5d5d5), color-stop(50%,#95c966)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg, #d5d5d5 50%,#95c966 50%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg, #d5d5d5 50%,#95c966 50%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg, #d5d5d5 50%,#95c966 50%); /* IE10+ */
-    background: linear-gradient(135deg, #d5d5d5 50%,#95c966 50%); /* W3C */
-}
-
-.table-calendar td.busy-free-arrival, .table-condensed td.busy-free-arrival {
-    color: #fff;
-    background: #d5d5d5; /* Old browsers, IE6-8 fallback */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Q1ZDVkNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI4OGMxZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-    background: -moz-linear-gradient(-45deg, #d5d5d5 50%, #288c1d 50%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#d5d5d5), color-stop(50%,#288c1d)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg, #d5d5d5 50%,#288c1d 50%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg, #d5d5d5 50%,#288c1d 50%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg, #d5d5d5 50%,#288c1d 50%); /* IE10+ */
-    background: linear-gradient(135deg, #d5d5d5 50%,#288c1d 50%); /* W3C */
-}
-
-.table-calendar tbody td {
-    /*background: #d5d5d5;*/
-    color: #fff;
+    font-size: 12px;
     font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    width: 14.2857%;
 }
-
-.table-calendar tbody td strong {
-    color: #fff;
-    font-size: 14px;
+@media screen and (max-width: 567px) {
+    .tp-calendar td,
+    .tp-calendar th {
+        padding: 1px 0;
+    }
 }
-
-.js .table-calendar .freeGo,
-.js .table-calendar .free {
+@media screen and (min-width: 568px) {
+    .tp-calendar td,
+    .tp-calendar th {
+        padding: 1px 5px;
+    }
+}
+.tp-calendar th {
+    color: #000;
+    text-align: center;
+}
+.tp-calendar + .tp-calendar {
+    margin-top: 15px;
+}
+.tp-calendar .tp-calendar-legend .tp-calendar-free:before,
+.tp-calendar .tp-calendar-free {
+    background: #95c966;
+}
+.tp-calendar .tp-calendar-legend .tp-calendar-freego:before,
+.tp-calendar .tp-calendar-legend .tp-calendar-freeGo:before,
+.tp-calendar .tp-calendar-freego,
+.tp-calendar .tp-calendar-freeGo {
+    background: #288c1d;
+}
+.tp-calendar .tp-calendar-legend .tp-calendar-busy:before,
+.tp-calendar .tp-calendar-busy {
+    background: #d5d5d5;
+}
+.tp-calendar .tp-calendar-onDemand {
+    background: #95c966;
+}
+.tp-calendar .tp-calendar-onDemandGo {
+    background: #288c1d;
+}
+.tp-calendar .tp-calendar-free-busy {
+    background: #95c966;
+    background: linear-gradient(135deg, #95c966 50%, #d5d5d5 50%);
+}
+.tp-calendar .tp-calendar-free-busy-arrival {
+    background: #288c1d;
+    background: linear-gradient(135deg, #288c1d 50%, #d5d5d5 50%);
+}
+.tp-calendar .tp-calendar-busy-free {
+    background: #95c966;
+    background: linear-gradient(135deg, #d5d5d5 50%, #95c966 50%);
+}
+.tp-calendar .tp-calendar-busy-free-arrival {
+    background: #d5d5d5;
+    background: linear-gradient(135deg, #d5d5d5 50%, #288c1d 50%);
+}
+.tp-calendar .tp-calendar-free-arrival {
+    background: #288c1d;
+}
+.tp-calendar .tp-calendar-btn {
+    display: block;
+    font-size: 150%;
+    width: 100%;
+}
+.tp-calendar [class*="tp-icon-angle-"]:before {
+    margin: 0;
+    width: auto;
+}
+.tp-calendar-bestprice {
+    margin-bottom: -14px;
+    table-layout: fixed;
+}
+.tp-calendar-bestprice [data-offer] {
     cursor: pointer;
 }
-
-.js .table-calendar .free:hover,
-.js .table-calendar .free:focus,
-.js .table-calendar .freeGo:hover,
-.js .table-calendar .freeGo:focus{
+.tp-calendar-bestprice [data-offer]:hover {
     outline: 1px dotted #333;
 }
-
-.table-calendar.table-bordered > thead > tr > th,
-.table-calendar.table-bordered > tbody > tr > th,
-.table-calendar.table-bordered > tfoot > tr > th,
-.table-calendar.table-bordered > thead > tr > td,
-.table-calendar.table-bordered > tbody > tr > td,
-.table-calendar.table-bordered > tfoot > tr > td {
-    border-color: #fff;
-}
-
-.table-calendar .muted {
+.tp-calendar-bestprice tbody {
     background: #fff;
-    font-size: 0;
 }
-
-.table-calendar .btn {
-    padding: 0 5px;
+.tp-calendar-bestprice td {
+    background-color: #e6e6e6;
+    border: 1px solid #ddd;
+    font-weight: 400;
+    padding: 4px;
+    text-align: left;
+    vertical-align: top;
 }
-
-.table-calendar .btn:active,
-.table-calendar .btn.active {
-    box-shadow: none;
+.tp-calendar-bestprice td.tp-calendar-bestprice-free:not(.tp-calendar-bestprice-offer) {
+    background-color: #ffffff;
 }
-
-
-/*********************************************************************************************************/
-/* from https://shop.savognin.ch/Savognin/b3/css/ttportal-2.5.8-b3.css */
-
-
+.tp-calendar-bestprice th,
+.tp-calendar-bestprice td {
+    overflow: hidden;
+}
+.tp-calendar-bestprice th:nth-child(7),
+.tp-calendar-bestprice td:nth-child(7) {
+    border-right-width: 0;
+}
+@media screen and (min-width: 568px) {
+    .tp-calendar-bestprice {
+        margin-left: -7px;
+        margin-right: -8px;
+    }
+}
+@media screen and (max-width: 567px) {
+    .tp-calendar-bestprice tr,
+    .tp-calendar-bestprice td {
+        display: block;
+        width: 100% !important;
+    }
+    .tp-calendar-bestprice th,
+    .tp-calendar-bestprice td {
+        border-bottom-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+    }
+    .tp-calendar-bestprice-empty {
+        display: none !important;
+    }
+}
+.tp-calendar-bestprice-head {
+    padding-bottom: 10px;
+    text-align: center;
+}
+.tp-calendar-bestprice-head select {
+    min-width: 140px;
+    width: 28.5%;
+}
+.tp-calendar-bestprice-body thead th {
+    border-bottom: 1px solid #ddd;
+}
+@media screen and (max-width: 567px) {
+    .tp-calendar-bestprice-body {
+        border-top: 1px solid #ddd;
+        max-height: 250px;
+        overflow: auto;
+    }
+    .tp-calendar-bestprice-body > table {
+        margin-top: -1px;
+    }
+}
+.tp-calendar-bestprice-offer span {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: #fff !important;
+}
+.tp-calendar-bestprice-label {
+    font-weight: 600;
+    line-height: 1;
+    padding-top: 4px;
+}
+@media screen and (min-width:768px) and (max-width:1199px) {
+    .tp-calendar-bestprice-label {
+        max-width: 45px;
+    }
+}
+@media screen and (min-width: 568px) {
+    .tp-calendar-bestprice-label {
+        float: left;
+    }
+}
+@media screen and (max-width: 567px) {
+    .tp-calendar-bestprice-label {
+        float: right;
+    }
+}
+@media screen and (min-width: 568px) {
+    .tp-calendar-bestprice-weekday {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 567px) {
+    .tp-calendar-bestprice-weekday {
+        display: block;
+        font-weight: 400;
+    }
+}
+.tp-calendar-bestprice-day {
+    font-size: 12px;
+}
+@media screen and (min-width: 568px) {
+    .tp-calendar-bestprice-day {
+        float: right;
+    }
+}
+@media screen and (max-width: 567px) {
+    .tp-calendar-bestprice-day {
+        float: left;
+        font-weight: 600;
+        min-height: 60px;
+        width: 50px;
+    }
+}
+.tp-calendar-bestprice-nights {
+    display: block;
+}
+@media screen and (min-width: 568px) {
+    .tp-calendar-bestprice-nights {
+        clear: both;
+        padding-top: 7px;
+    }
+}
+.tp-calendar-bestprice .tp-calendar-btn {
+    float: left;
+    max-width: 40px;
+}
+.tp-calendar-bestprice .tp-calendar-btn[class*=right] {
+    float: right;
+}
+.tp-calendar-bestprice + .tp-calendar-bestprice-nodates {
+    margin-top: 14px;
+}
+@media screen and (min-width: 992px) {
+    .tp-calendar .pure-u-1:first-child thead tr:first-child th:last-child .tp-calendar-btn,
+    .tp-calendar .pure-u-1:nth-child(2) thead tr:first-child th:first-child .tp-calendar-btn {
+        display: none !important;
+    }
+}
 /*
- * Calendar legend
- */
-
-.tt-cal-legend {
-    clear: botH;
-    margin-top: 20px;
-    margin-left: 15px;
+.datepicker-days .tp-calendar thead > tr > th,
+.datepicker-days .tp-calendar thead > tr > td,
+.datepicker-days .tp-calendar tbody > tr > th,
+.datepicker-days .tp-calendar tbody > tr > td,
+.datepicker-days .tp-calendar tfoot > tr > th,
+.datepicker-days .tp-calendar tfoot > tr > td {
+    border: 1px solid #fff;
+    line-height: 20px;
+    margin: 0;
+    padding: 0.1em 0.4em;
+    vertical-align: top;
+    width: 14.2857%;
+}*/
+/*
+.tp-calendar .prev-month .day,
+.tp-calendar .next-month .day {
+	color: #bbb;
 }
 
-.tt-cal-legend-hide .tt-cal-legend {
-    display: none;
+.tp-calendar td .day {
+	display: block;
+	float: right;
+	font-size: 85%;
+	font-weight: normal;
+	margin: 0;
 }
-
-.tt-cal-legend .tt-cal-bgrnd-busy:before, .tt-cal-bgrnd-busy {
-    background: #d5d5d5;
+*/
+.js .tp-calendar-btn,
+.js td.tp-calendar-busy-free-arrival,
+.js td.tp-calendar-freego,
+.js td.tp-calendar-freeGo {
+    cursor: pointer;
 }
-
-.tt-cal-legend .tt-cal-bgrnd-freeGo:before, .tt-cal-bgrnd-freeGo {
-    background: #288c1d;
+.js .tp-calendar-btn:hover,
+.js .tp-calendar-btn:focus,
+.js td.tp-calendar-freego:hover,
+.js td.tp-calendar-freego:focus,
+.js td.tp-calendar-freeGo:hover,
+.js td.tp-calendar-freeGo:focus,
+.js td.tp-calendar-free-arrival:hover,
+.js td.tp-calendar-free-arrival:focus,
+.js td.tp-calendar-busy-free-arrival:hover,
+.js td.tp-calendar-busy-free-arrival:focus {
+    outline: 1px dotted #333;
 }
-
-.tt-cal-legend .tt-cal-bgrnd-free:before, .tt-cal-bgrnd-free {
-    background: #95c966;
+/* @group calendar legend definitions ------------------- */
+.tp-calendar-legend {
+    margin-top: 5px;
 }
-
-.tt-cal-legend .tt-cal-bgrnd-busy,
-.tt-cal-legend .tt-cal-bgrnd-freeGo,
-.tt-cal-legend .tt-cal-bgrnd-free {
+.tp-calendar-legend .tp-calendar-busy,
+.tp-calendar-legend .tp-calendar-freego,
+.tp-calendar-legend .tp-calendar-freeGo,
+.tp-calendar-legend .tp-calendar-free {
     background-color: transparent;
     display: inline-block;
     margin-top: 5px;
     margin-right: 10px;
 }
-
-.tt-cal-legend > div:before {
+.tp-calendar-legend > div:before {
     display: inline-block;
     content: '';
     height: 20px;
@@ -225,31 +329,58 @@
     top: 4px;
     width: 40px;
 }
-
 @media screen and (max-width: 567px) {
-
-    .tt-cal-legend .tt-cal-bgrnd-busy,
-    .tt-cal-legend .tt-cal-bgrnd-freeGo,
-    .tt-cal-legend .tt-cal-bgrnd-free {
+    .tp-calendar-legend .tp-calendar-busy,
+    .tp-calendar-legend .tp-calendar-freego,
+    .tp-calendar-legend .tp-calendar-freeGo,
+    .tp-calendar-legend .tp-calendar-free {
         display: block;
     }
-
 }
-
+.tp-calendar-legend-hide .tp-calendar-legend {
+    display: none;
+}
 
 /*********************************************************************************************************/
 /* custom styles */
 
-.col-md-6 {
+#belegungskalender .tp-calendar td,
+#belegungskalender .tp-calendar th {
+    font-size: 12pt;
+}
+
+#belegungskalender tbody td,
+#belegungskalender tbody th {
+    font-weight: normal;
+}
+
+#belegungskalender .pure-g {
+    display: block;
+}
+
+#belegungskalender .pure-u-lg-1-2 {
     height: 200px;
-    width: 300px;
+    width: 270px;
     float: left;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin: 0 1em;
     box-sizing: border-box;
 }
 
-#calendar:after {
+#belegungskalender .tp-calendar-legend {
+    margin: 5px 1em;
+}
+
+#belegungskalender {
+    margin: 0;
+}
+
+#belegungskalender .tp-calendar-legend:before {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#belegungskalender:after {
     content: '';
     display: block;
     clear: both;

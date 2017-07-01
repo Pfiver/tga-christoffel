@@ -5,6 +5,7 @@ import { default as ClosureCompilerPlugin } from "webpack-closure-compiler";
 const dir = rel_path => path.resolve(__dirname, rel_path);
 
 const files = [
+    "./calendar-data.xml",
     "./Situationsplan.pdf",
     "./Vertragsbedingungen 2017.pdf"
 ];

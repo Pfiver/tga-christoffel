@@ -19,17 +19,17 @@ export function show(section) {
             const results = getElementsByXpath(this.responseXML, "//query/results/result");
             for (let result = results.iterateNext(); result; result = results.iterateNext()) {
                 div = document.createElement("div");
-                div.setAttribute("class", "tt-cal-legend-hide");
+                div.classList.add("tp-calendar", "tp-calendar-legend-hide");
                 div.innerHTML = result.innerHTML;
                 div.innerHTML = div.innerText;
                 section.appendChild(div);
             }
-            div.removeAttribute("class");
+            div.classList.remove("tp-calendar-legend-hide");
         }
     };
 
-    // request.open('GET', "calendar-data.xml", true);
-    request.open('GET', getQueryUrl(), true);
+    request.open('GET', "calendar-data.xml", true);
+    // request.open('GET', getQueryUrl(), true);
     request.send(null);
 }
 
