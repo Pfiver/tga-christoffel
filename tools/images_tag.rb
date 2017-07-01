@@ -17,7 +17,7 @@ module LiquidImages
       data_path = "target/#{@attributes[:config]}.json"
       if File.file? data_path
         context.stack do
-          (JSON.parse File.read data_path).each do |data|
+          (JSON.parse File.read data_path).sort_by {|data| data["original"]["path"] }.each do |data|
             context['image'] = data
             result.push render_all(@nodelist, context)
           end
@@ -25,7 +25,7 @@ module LiquidImages
       else
         data = []
         context.stack do
-          Dir.glob(File.join(@config[:path], "**/*")).select { |path| File.file? path }.each do |path|
+          Dir.glob(File.join(@config[:path], "**/*")).select { |path| File.file? path }.sort.each do |path|
             data.push(context['image'] = stringify_keys(process(path, @config)))
             result.push render_all(@nodelist, context)
           end
