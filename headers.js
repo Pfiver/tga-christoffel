@@ -25,18 +25,17 @@ export function go(section) {
 
 function getSeason() {
 
-    const v = Math.floor(getMinutes() % 3);
+    const m = new Date().getMonth() + 1;
 
-    return v === 0 ? "1" : v === 1 ? "2" : "3";
+    if ([3, 4, 5, 6, 7, 8].indexOf(m)) return "1";
+    if ([9, 10, 11].indexOf(m)) return "2";
+    if ([12, 1, 2].indexOf(m)) return "3";
+
+    throw new Error("What month is it actually ???");
 }
 function getVariant() {
 
-    const v = Math.floor(getMinutes() % 2);
+    const d = new Date().getDay();
 
-    return v === 0 ? "a" : "b";
-}
-
-function getMinutes() {
-
-    return Math.floor((new Date().getTime() / 1000 / 60) % 60);
+    return (d % 2) === 0 ? "a" : "b";
 }
