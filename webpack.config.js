@@ -4,6 +4,8 @@ import { default as ClosureCompilerPlugin } from "webpack-closure-compiler";
 
 const dir = rel_path => path.resolve(__dirname, rel_path);
 
+const dev = false;
+
 const files = [
     "./calendar-data.xml",
     "./Situationsplan.pdf",
@@ -13,7 +15,7 @@ const files = [
 const sitedir = dir("target/site");
 
 // noinspection PointlessBooleanExpressionJS
-const devtool = false; // "source-map" || "inline-source-map" || "cheap-module-eval-source-map";
+const devtool = dev ? "source-map" || "inline-source-map" || "cheap-module-eval-source-map" : false;
 
 const jsConfig = {
 
@@ -30,7 +32,7 @@ const jsConfig = {
             },
             {
                 test: /\.js$/,
-                include: dir("node_modules"),
+                include: dev ? [] : dir("node_modules"),
                 use:  [{
                     loader: "babel-loader",
                     options: {
@@ -68,7 +70,7 @@ const jsConfig = {
             },
         ]
     },
-    plugins: [
+    plugins: dev ? [] : [
 
         new ClosureCompilerPlugin({
             compiler: {
@@ -105,7 +107,7 @@ const cssConfig = {
         rules: [
             {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({use:[
+                use: ExtractTextPlugin.extract({use: dev ? [
                 // use: [
                     {
                         loader: "css-loader",
@@ -117,7 +119,6 @@ const cssConfig = {
                             // minimize: { discardComments: { removeAll: true } },
                         }
                     },
-                    "./custom-css-loader",
                     {
                         loader: "less-loader",
                         options: {
@@ -129,16 +130,17 @@ const cssConfig = {
                             // },
                         }
                     }
-                ]})
+                ] : [ "css-loader", "./custom-css-loader", "less-loader" ]})
                 // ]
             },
             {
                 test: /\.(eot|svg|ttf|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 use: {
-                    loader: "url-loader",
-                    options: {
+                    loader: dev ? "file-loader" : "url-loader",
+                    options: dev ? {
+                        name: "[path][name].[ext]"
+                    } : {
                         limit: 10000
-                        // name: "[path][name].[ext]"
                     }
                 }
             },
@@ -146,10 +148,11 @@ const cssConfig = {
                 test: /\.(gif|jpg|png)$/,
                 exclude: dir("photos"),
                 use: {
-                    loader: "url-loader",
-                    options: {
+                    loader: dev ? "file-loader" : "url-loader",
+                    options: dev ? {
+                        name: "[path][name].[ext]"
+                    } : {
                         limit: 10000
-                        // name: "[path][name].[ext]"
                     }
                 }
             },
@@ -180,16 +183,16 @@ const htmlConfig = {
     entry: "./target/index.html",
     output: { path: sitedir, filename: "n/a" },
     module: { rules: [
-        { use: [
-                "file-loader?name=[name].[ext]",
-                {
-                    loader: "htmlmin-loader",
-                    options: {
-                        maxLineLength: 500,
-                    }
+        { use: dev ?
+            "file-loader?name=[name].[ext]" : [
+            "file-loader?name=[name].[ext]",
+            {
+                loader: "htmlmin-loader",
+                options: {
+                    maxLineLength: 500,
                 }
-            ]
-        }
+            }
+        ]}
     ]},
     plugins: [ suppressChunkAssets ]
 };
