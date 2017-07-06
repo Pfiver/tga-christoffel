@@ -344,44 +344,29 @@
 /*********************************************************************************************************/
 /* custom styles */
 
+#belegungskalender .tp-calendar {
+    text-align: justify;
+}
+
+#belegungskalender .tp-calendar > div {
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+}
+#belegungskalender .tp-calendar > div.tp-calendar-legend {
+    white-space: nowrap;
+}
+#belegungskalender .tp-calendar > div:not([class*="tp-calendar-legend"]) {
+    height: 200px;
+    width: 270px;
+}
+
 #belegungskalender .tp-calendar td,
 #belegungskalender .tp-calendar th {
     font-size: 12pt;
 }
 
-#belegungskalender tbody td,
-#belegungskalender tbody th {
+#belegungskalender .tp-calendar tbody td,
+#belegungskalender .tp-calendar tbody th {
     font-weight: normal;
-}
-
-#belegungskalender .pure-g {
-    display: block;
-}
-
-#belegungskalender .pure-u-lg-1-2 {
-    height: 200px;
-    width: 270px;
-    float: left;
-    margin: 0 1em;
-    box-sizing: border-box;
-}
-
-#belegungskalender .tp-calendar-legend {
-    margin: 5px 1em;
-}
-
-#belegungskalender {
-    margin: 1em 0;
-}
-
-#belegungskalender .tp-calendar-legend:before {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-#belegungskalender:after {
-    content: '';
-    display: block;
-    clear: both;
 }

@@ -1,15 +1,33 @@
 /* based on http://purecss.io/layouts/tucked-menu-vertical/ */
 
-.pure-menu .pure-menu-list,
-.pure-menu .pure-menu-item {
-    display: inline-block;
+nav {
+    background-color: @menu;
+}
+
+nav .pure-menu-item:hover,
+nav .pure-menu-item:focus {
+    background-color: @menu-focus;
+}
+
+nav .pure-menu-item.target {
+    background-color: @menu-target;
 }
 
 .pure-menu .pure-menu-item a {
     display: block;
     padding: 19px;
+    color: @menu-text;
     transition: padding 0.5s;
     -webkit-transition: padding 0.5s;
+}
+
+nav .pure-menu-item.target a {
+    color: @menu-target-text;
+}
+
+.pure-menu .pure-menu-list,
+.pure-menu .pure-menu-item {
+    display: inline-block;
 }
 
 @media (max-width: 720px) {

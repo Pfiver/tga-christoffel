@@ -62,8 +62,8 @@
             Die Grosseltern renovierten es sanft in den 60er Jahren und seither dient es als Ferienhaus.
 
             Das Haus eignet sich für Ferien mit Kindern, mit befreundeten Familien oder mit Freunden. Auch für 2
-            Personen ist das Haus gemütlich bewohnbar. Bei Belegung von nur 2 Personen profitieren Sie in der
-            Nebensaison von einer Preisreduzierung.
+            Personen ist das Haus gemütlich bewohnbar. Bei Belegung mit nur 2 Personen profitieren Sie in der
+            Nebensaison von einer Preisreduktion.
 
         <div id="house-gallery">
         {% images config: haus_gallery %}
@@ -117,76 +117,44 @@
     </section>
     <section id="preise">
 
+        <p>Im Mietpreis inbegriffen sind Heizung, Strom, Wasser und 1 Parkplatz.
+
+        {% capture surcharges %}
+            <b>Kurtaxen</b><br>
+            Fr. 1.50 Erwachsene<br>
+            Fr. 0.75 Kinder, 12-16 J<br>
+            <b>Reinigung</b> Fr. 120.-<br>
+            Hundezuschlag Fr. 10.-<br>
+            <b>Bettwäsche</b> auf Wunsch Fr. 14.- / Bett
+        {% endcapture %}
+
+        {% capture xcharges %}<td class="x-horizontal" rowspan="4">{{ surcharges }}</td>{% endcapture %}
+        {% capture ycharges %}<tr class="x-vertical"><td colspan="3">{{ surcharges }}</td></tr>{% endcapture %}
+
         <table>
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <b>Hauptsaison 2017</b><br>
-                    1.1. bis 29.4.<br>
-                    1.7. bis 26.8.<br>
-                    23.12. bis 31.12.<br>
-                </td>
-                <td>
-                    <b>Nebensaison 2017</b><br>
-                    29.4. bis 27.6.<br>
-                    26.8. bis 23.12<br>
-                </td>
+            <tr><td></td>
+            <td><b>Haupt&shy;saison 2017</b><br>  1.1. bis  29.4.<br>  1.7. bis  26.8.<br>23.12. bis 31.12.<br></td>
+            <td><b>Neben&shy;saison 2017</b><br> 29.4. bis  27.6.<br> 26.8. bis 23.12.<br>                 <br></td>
             </tr>
-            <tr><td>3-7 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 95.00 pro Nacht</td>
-            </tr>
-            <tr><td>3-7 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 665.00 pro Woche</td>
-            </tr>
-            <tr><td>1-2 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 80.00 pro Nacht</td>
-            </tr>
-            <tr><td>1-2 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 560.00 pro Woche</td>
-            </tr>
+            <tr><td>3-7 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 95.00 pro Nacht</td>{{ xcharges }}</tr>
+            <tr><td>3-7 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 665.00 pro Woche</td></tr>
+            <tr><td>1-2 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 80.00 pro Nacht</td></tr>
+            <tr><td>1-2 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 560.00 pro Woche</td></tr>
+            {{ ycharges }}
         </table>
         <br>
         
         <table>
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <b>Hauptsaison 2018</b><br>
-                    1.1 bis 14.4.<br>
-                    30.6. bis 25.8.<br>
-                    22.12. bis 31.12.<br>
-                </td>
-                <td>
-                    <b>Nebensaison 2018</b><br>
-                    14.4. bis 30.6.<br>
-                    25.8. bis 22.12.<br>
-                </td>
+            <tr><td></td>
+            <td><b>Haupt&shy;saison 2018</b><br>  1.1. bis  14.4.<br> 30.6. bis  25.8.<br>22.12. bis 31.12.<br></td>
+            <td><b>Neben&shy;saison 2018</b><br> 14.4. bis  30.6.<br> 25.8. bis 22.12.<br>                 <br></td>
             </tr>
-            <tr><td>3-7 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 95.00 pro Nacht</td>
-            </tr>
-            <tr><td>3-7 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 665.00 pro Woche</td>
-            </tr>
-            <tr><td>1-2 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 80.00 pro Nacht</td>
-            </tr>
-            <tr><td>1-2 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 560.00 pro Woche</td>
-            </tr>
+            <tr><td>3-7 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 95.00 pro Nacht</td>{{ xcharges }}</tr>
+            <tr><td>3-7 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 665.00 pro Woche</td></tr>
+            <tr><td>1-2 Personen</td><td>Fr. 110.00 pro Nacht</td><td>Fr. 80.00 pro Nacht</td></tr>
+            <tr><td>1-2 Personen</td><td>Fr. 770.00 pro Woche</td><td>Fr. 560.00 pro Woche</td></tr>
+            {{ ycharges }}
         </table>
-
-        <p> <b>Im Mietpreis inbegriffen:</b>
-            <br>
-            Heizung, Strom, Wasser, 1 Parkplatz
-
-        <p> <b>Im Mietpreis nicht inbegriffen und fakultativ:</b>
-            <br>
-            Bettwäsche: Fr. 14.- pro Bett, kann auch mitgebracht werden.
-            <br>
-            Schlafsäcke sind aus hygienischen Gründen nicht erlaubt.
-
-        <p> <b>Im Mietpreis nicht inbegriffen und obligatorisch:</b>
-            <br>
-            Endreinigung: Fr. 120.-
-            <br>
-            Hundezuschlag: Fr. 10.-
-            <br>
-            Kurtaxen (pro Person pro Nacht): Fr. 1.50 (ab 16 Jahren) / Fr. 0.75 (12-16 Jahre)
 
     </section>
     <section id="aktivitaeten">
@@ -296,7 +264,9 @@
             <span><a href="mailto:ferien@tga-christoffel.ch">ferien@tga-christoffel.ch</a></span
             ><span><a href="tel:+41 41 210 33 66">+41 (0)41 210 33 66</a></span>
         </div>
-        <div class="right">© Geschwister Gschwind</div>
+        <div class="right">
+            <span>© Geschwister Gschwind</span>
+        </div>
     </footer>
 
 </div>

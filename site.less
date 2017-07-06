@@ -4,6 +4,7 @@ html {
 
 body {
     margin: 0;
+    background: @background;
 }
 
 body, .pure-g, .pure-g [class*=pure-u] {
@@ -11,6 +12,7 @@ body, .pure-g, .pure-g [class*=pure-u] {
 }
 
 a {
+    color: @link-text;
     text-decoration: none;
 }
 
@@ -18,6 +20,10 @@ a {
     max-width: 940px;
     margin: 1em auto;
     background: white;
+
+    -webkit-box-shadow: @page-shadow-shape @page-shadow;
+    -moz-box-shadow: @page-shadow-shape @page-shadow;
+    box-shadow: @page-shadow-shape @page-shadow;
 }
 
 header {
@@ -29,9 +35,27 @@ header {
 
 header h1 {
     font-weight: normal;
+    color: @header-text;
     position: absolute;
     bottom: 0;
-    left: 0.5em;
+    left: 0;
+}
+
+header h1 span {
+    float: left;
+    margin-left: 0.5em;
+}
+
+header h1 span:not(:first-child) {
+    padding-left: 0.5em;
+    border-left: 2px solid @header-text;
+}
+
+header.header-1-3 h1 {
+    color: @header-text-white;
+}
+header.header-1-3 span:not(:first-child) {
+    border-left: 2px solid @header-text-white;
 }
 
 header:not([class^="header-1"]) {
@@ -44,23 +68,13 @@ header:not([class^="header-1"]) span:not(.main) {
     display: none;
 }
 
-header span,
+header h1 span,
 footer div span {
-    padding: 0 0.5em;
+    white-space: nowrap;
 }
 
 footer div {
     margin: 0.5em 0;
-}
-
-header span:first-child,
-footer div span:first-child {
-    padding: 0 0.5em 0 0;
-}
-
-header span:last-child,
-footer div span:last-child {
-    padding: 0 0 0 0.5em;
 }
 
 section {
@@ -80,8 +94,10 @@ section h3 {
 }
 
 footer {
-    padding: 0.5em 1em;
+    padding: 0.5em;
     position: relative;
+    color: @footer-text;
+    background: @footer;
 }
 
 footer .left {
@@ -90,6 +106,21 @@ footer .left {
 
 footer .right {
     float: right;
+}
+
+footer div span {
+    float: left;
+    margin-left: 0.5em;
+}
+
+footer div span:last-child {
+    padding-right: 0.5em;
+}
+
+footer div span:not(:first-child) {
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+    border-left: 1px solid @footer-text;
 }
 
 footer:after {

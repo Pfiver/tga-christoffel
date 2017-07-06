@@ -1,5 +1,7 @@
-.price-value {
-    margin-left: 3rem;
+@media (max-width: 480px) {
+    #house-gallery img {
+        max-width: 267px;
+    }
 }
 
 #preise td {
@@ -13,4 +15,16 @@
 
 #preise table, #preise th, #preise td {
     border: 1px solid black;
+}
+
+@media (min-width: 721px) {
+    .x-vertical {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .x-horizontal {
+        display: none;
+    }
 }
