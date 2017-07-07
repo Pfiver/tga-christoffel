@@ -59,10 +59,10 @@ export const initPhotoSwipeFromDOM = function (gallerySelector) {
             options,
             items;
         items = gallery_data.map(photo => ({
-            msrc: photo.resized.x1000.path,
             src: photo.original.path,
             w: photo.original.width,
             h: photo.original.height,
+            msrc: photo.resized.x1000.path,
             m: {
                 src: photo.resized.x1000.path,
                 w: photo.resized.x1000.width,
@@ -133,7 +133,7 @@ export const initPhotoSwipeFromDOM = function (gallerySelector) {
             var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
             dpiRatio = Math.min(dpiRatio, 2.5);
             realViewportWidth = gallery.viewportSize.x * dpiRatio;
-            if (realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200) {
+            if (realViewportWidth >= 1200 || screen.width > 1200) {
                 if (!useLargeImages) {
                     useLargeImages = true;
                     imageSrcWillChange = true;

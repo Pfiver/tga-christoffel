@@ -31,5 +31,5 @@ done
 #echo "urls: ${urls[*]}" >&2
 yql "${urls[@]}" |
     xmlstarlet sel -D -t -e "calendar-data" -n \
-        -m "/yql/html/body/div[last()]/div[1]/div" -c "." -n \
-        -b -m "/yql/html[last()]/body/div[last()]/div[2]" -c "." -n
+        -m "/results/result/html/body/div[last()]/div[1]/div" -c "." -n \
+        -b -m "/results/result/html[last()]/body/div[last()]/div[2]" -c "." -n
