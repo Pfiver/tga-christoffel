@@ -32,4 +32,4 @@ done
 yql "${urls[@]}" |
     xmlstarlet sel -D -t -e "calendar-data" -n \
         -m "/results/result/html/body/div[last()]/div[1]/div" -c "." -n \
-        -b -m "/results/result/html[last()]/body/div[last()]/div[2]" -c "." -n
+        -b -m "/results/result[last()]/html/body/div[last()]/div[2]" -c "." -n
