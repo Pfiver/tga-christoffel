@@ -1,6 +1,6 @@
 export function show(section) {
 
-    if (section.childElementCount > 0) {
+    if (section.querySelector(".tp-calendar")) {
         return;
     }
 
