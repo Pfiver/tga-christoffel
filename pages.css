@@ -1,3 +1,7 @@
+.section-heading {
+    display: none;
+}
+
 @media (max-width: 480px) {
     #house-gallery img {
         max-width: 267px;

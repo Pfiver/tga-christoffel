@@ -14,7 +14,7 @@ yql() {
         xmlstarlet sel -D -t -e "results" -n -m "/query/results/result" -e "result" -v "." -n | xmlstarlet unesc
 }
 urlencode() {
-    python -c 'import sys,urllib;print urllib.quote(sys.argv[1]);' "$*"
+    python -c 'import sys,urllib; print urllib.quote(sys.argv[1]);' "$*"
 }
 
 rand=$(yql "\"$house_url\"" |
