@@ -7,10 +7,13 @@ yql_env="store://datatables.org/alltableswithkeys"
 house_url="https://shop.savognin.ch/Savognin/ukv/house/TDS00020010019636954"
 calendar_url="https://shop.savognin.ch/Savognin/ukv/ajax/calendar/TDS00020010019636959?date=\$date&rand=\$rand"
 
+tmpdata=$(mktemp)
+trap "rm $tmpdata" EXIT
+
 yql() {
     local query=$(IFS=, quoted_urls="$*" eval urlencode "\"$yql_query\"") env=$(urlencode "$yql_env")
 #    echo "yql query: $query" >&2
-    eval curl -s "\"$yql_url\"" | # tee /dev/stderr |
+    eval curl -s "\"$yql_url\"" | tee $tmpdata |
         xmlstarlet sel -D -t -e "results" -n -m "/query/results/result" -e "result" -v "." -n | xmlstarlet unesc
 }
 urlencode() {
@@ -27,9 +30,21 @@ do
     eval "urls+=(\"\\\"$calendar_url\\\"\")"
 done
 
+cd $(dirname "$0")
+
 #echo "rand: $rand" >&2
 #echo "urls: ${urls[*]}" >&2
 yql "${urls[@]}" |
     xmlstarlet sel -D -t -e "calendar-data" -n \
         -m "/results/result/html/body/div[last()]/div[1]/div" -c "." -n \
-        -b -m "/results/result[last()]/html/body/div[last()]/div[2]" -c "." -n
+        -b -m "/results/result[last()]/html/body/div[last()]/div[2]" -c "." -n > target/site/calendar-data.xml
+
+n_months=$(xmlstarlet sel -t \
+            -v 'count(/calendar-data/*[not(contains(@class, "legend"))])' < target/site/calendar-data.xml)
+
+[ $n_months -eq 12 ] || {
+    exec >&2
+    echo "$0: only got $n_months months data for some reason -- raw data follows"
+    cat $tmpdata
+    exit 1
+}
