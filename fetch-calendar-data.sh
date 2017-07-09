@@ -41,10 +41,4 @@ yql "${urls[@]}" |
 
 n_months=$(xmlstarlet sel -t \
             -v 'count(/calendar-data/*[not(contains(@class, "legend"))])' < target/site/calendar-data.xml)
-
-[ $n_months -eq 12 ] || {
-    exec >&2
-    echo "$0: only got $n_months months data for some reason -- raw data follows"
-    cat $tmpdata
-    exit 1
-}
+[ $n_months -eq 12 ] || echo "$0: WARNING: only got $n_months months data for some reason -- raw data follows" >&2
