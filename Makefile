@@ -6,7 +6,7 @@ all:
 	ruby tools/render_templates.rb
 	ruby tools/process_headers.rb > target/headers.css
 	node -r ./node_modules/babel-register ./node_modules/webpack/bin/webpack
-	bash fetch-calendar-data.sh > target/site/calendar-data.xml
+	bash fetch-calendar-data.sh
 
 # transfering fotos: $ rsync -av --delete photos/headers photos/haus-gallery $nexus:var/www/www.tga-christoffel.ch/iterativ/photos
 #

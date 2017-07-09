@@ -9,7 +9,8 @@ const dev = false;
 const files = [
     "./calendar-data.xml",
     "./Situationsplan.pdf",
-    "./Vertragsbedingungen 2017.pdf"
+    "./Vertragsbedingungen 2017.pdf",
+    "./google8454a08892c4577a.html"
 ];
 
 const sitedir = dir("target/site");
