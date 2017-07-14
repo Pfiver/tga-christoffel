@@ -7,6 +7,7 @@ const dir = rel_path => path.resolve(__dirname, rel_path);
 const dev = false;
 
 const files = [
+    "./sitemap.xml",
     "./calendar-data.xml",
     "./Situationsplan.pdf",
     "./Vertragsbedingungen 2017.pdf",
