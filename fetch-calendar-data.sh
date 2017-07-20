@@ -34,11 +34,31 @@ cd $(dirname "$0")
 
 #echo "rand: $rand" >&2
 #echo "urls: ${urls[*]}" >&2
-yql "${urls[@]}" |
-    xmlstarlet sel -D -t -e "calendar-data" -n \
-        -m "/results/result/html/body/div[last()]/div[1]/div" -c "." -n \
-        -b -m "/results/result[last()]/html/body/div[last()]/div[2]" -c "." -n > target/site/calendar-data.xml
 
-n_months=$(xmlstarlet sel -t \
-            -v 'count(/calendar-data/*[not(contains(@class, "legend"))])' < target/site/calendar-data.xml)
-[ $n_months -eq 12 ] || echo "$0: WARNING: only got $n_months months data for some reason -- raw data follows" >&2
+n_retries=3
+
+while true
+do
+    yql "${urls[@]}" |
+        xmlstarlet sel -D -t -e "calendar-data" -n \
+            -m "/results/result/html/body/div[last()]/div[1]/div" -c "." -n \
+            -b -m "/results/result[last()]/html/body/div[last()]/div[2]" -c "." -n > target/site/calendar-data.xml
+
+    n_months=$(xmlstarlet sel -t \
+                -v 'count(/calendar-data/*[not(contains(@class, "legend"))])' < target/site/calendar-data.xml)
+
+    if [ $n_months -eq 12 ]
+    then
+        break
+    else
+        echo -n echo "$0: WARNING: only got $n_months months data for some reason"
+        if let --n_retries
+        then
+            test $n_retries -gt 1 && s=s || s=
+            echo " -- retrying $n_retries more time$s" >&2
+        else
+            echo " -- giving up" >&2
+            exit 1
+        fi
+    fi
+done
