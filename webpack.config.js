@@ -192,6 +192,7 @@ const htmlConfig = {
                 loader: "htmlmin-loader",
                 options: {
                     maxLineLength: 500,
+                    removeComments: false
                 }
             }
         ]}
