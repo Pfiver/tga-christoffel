@@ -16,18 +16,24 @@ yql() {
     eval curl -s "\"$yql_url\"" | tee $tmpdata |
         xmlstarlet sel -D -t -e "results" -n -m "/query/results/result" -e "result" -v "." -n | xmlstarlet unesc
 }
+get() {
+    curl -s -H'Cookie: tt=t' "$@" | tr -d '\r' | xmlstarlet -q fo --html --recover --dropdtd --omit-decl
+}
+
 urlencode() {
     python -c 'import sys,urllib; print urllib.quote(sys.argv[1]);' "$*"
 }
 
-rand=$(yql "\"$house_url\"" |
+#rand=$(yql "\"$house_url\"" |
+rand=$(get "$house_url" |
             xmlstarlet sel -t -v "//span/@data-tp-calendar-rand")
 
 urls=()
 for ((i=0;i<12;i+=2))
 do
     date=$(date +%Y-%m -dnow+${i}months)
-    eval "urls+=(\"\\\"$calendar_url\\\"\")"
+#    eval "urls+=(\"\\\"$calendar_url\\\"\")"
+    eval "urls+=(\"$calendar_url\")"
 done
 
 cd $(dirname "$0")
@@ -39,10 +45,14 @@ n_retries=3
 
 while true
 do
-    yql "${urls[@]}" |
+#    yql "${urls[@]}" |
+#        xmlstarlet sel -D -t -e "calendar-data" -n \
+#            -m "/results/result/html/body/div[last()]/div[1]/div" -c "." -n \
+#            -b -m "/results/result[last()]/html/body/div[last()]/div[2]" -c "." -n > target/site/calendar-data.xml
+    get "${urls[@]}" |
         xmlstarlet sel -D -t -e "calendar-data" -n \
-            -m "/results/result/html/body/div[last()]/div[1]/div" -c "." -n \
-            -b -m "/results/result[last()]/html/body/div[last()]/div[2]" -c "." -n > target/site/calendar-data.xml
+            -m "/html/body/div/div[1]/div" -c "." -n \
+            -b -m "/html/body/div[last()]/div[2]"  -c "." -n > target/site/calendar-data.xml
 
     n_months=$(xmlstarlet sel -t \
                 -v 'count(/calendar-data/*[not(contains(@class, "legend"))])' < target/site/calendar-data.xml)
