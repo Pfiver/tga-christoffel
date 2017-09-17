@@ -17,7 +17,11 @@ yql() {
         xmlstarlet sel -D -t -e "results" -n -m "/query/results/result" -e "result" -v "." -n | xmlstarlet unesc
 }
 get() {
-    curl -s -H'Cookie: tt=t' "$@" | tr -d '\r' | xmlstarlet -q fo --html --recover --dropdtd --omit-decl
+    {
+        echo '<!doctype html><meta charset="utf-8"/>'
+        curl -s -H'Cookie: tt=t' "$@" | tr -d '\r'
+    } |
+        xmlstarlet -q fo --html --recover --dropdtd --omit-decl
 }
 
 urlencode() {
