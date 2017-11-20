@@ -61,19 +61,20 @@ do
     n_months=$(xmlstarlet sel -t \
                 -v 'count(/calendar-data/*[not(contains(@class, "legend"))])' < target/site/calendar-data.xml)
 
-    if [ $n_months -ne 12 ]
+    if [[ "$n_months" -ne 12 ]]
     then
-        echo -n "$0: WARNING: only got $n_months months data for some reason"
+        [[ "$n_months" =~ ^[0-9]+$ ]] && n_months+=" months" || n_months="<garbage>"
+        echo -n "$0: WARNING: only got $n_months data for some reason"
         if let --n_retries
         then
-            test $n_retries -gt 1 && s=s || s=
+            [[ $n_retries -gt 1 ]] && s=s || s=
             echo " -- retrying $n_retries more time$s" >&2
         else
             echo " -- giving up" >&2
             exit 1
         fi
     else
-        if [ $n_retries -ne 3 ]
+        if [[ $n_retries -ne 3 ]]
         then
             echo "$0: INFO: got $n_months months data now -- all is well" >&2
         fi
