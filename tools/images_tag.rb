@@ -19,7 +19,7 @@ module LiquidImages
         context.stack do
           (JSON.parse File.read data_path).sort_by {|data| data["original"]["path"] }.each do |data|
             context['image'] = data
-            result.push render_all(@nodelist, context)
+            result.push super(context)
           end
         end
       else
@@ -27,7 +27,7 @@ module LiquidImages
         context.stack do
           Dir.glob(File.join(@config[:path], "**/*")).select { |path| File.file? path }.sort.each do |path|
             data.push(context['image'] = stringify_keys(process(path, @config)))
-            result.push render_all(@nodelist, context)
+            result.push super(context)
           end
         end
         File.write data_path, JSON.pretty_generate(data)
