@@ -27,9 +27,9 @@ function getSeason() {
 
     const m = new Date().getMonth() + 1;
 
-    if ([3, 4, 5, 6, 7, 8].indexOf(m)) return "1";
-    if ([9, 10, 11].indexOf(m)) return "2";
-    if ([12, 1, 2].indexOf(m)) return "3";
+    if ([3, 4, 5, 6, 7, 8].indexOf(m) >= 0) return "1";
+    if ([9, 10, 11].indexOf(m) >= 0) return "2";
+    if ([12, 1, 2].indexOf(m) >= 0) return "3";
 
     throw new Error("What month is it actually ???");
 }
