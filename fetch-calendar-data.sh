@@ -35,7 +35,7 @@ rand=$(get "$house_url" |
 urls=()
 for ((i=0;i<12;i+=2))
 do
-    date=$(date +%Y-%m -dnow+${i}months)
+    date=$(perl -e "use Time::Piece; print localtime->add_months($i)->strftime('%Y-%m');")
 #    eval "urls+=(\"\\\"$calendar_url\\\"\")"
     eval "urls+=(\"$calendar_url\")"
 done
