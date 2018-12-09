@@ -25,8 +25,8 @@ Dir.glob(File.join(input_dir, "**/*")).select { |path| File.file? path }.each do
 
       STDERR.puts "Generating #{output_path}: first scaling to #{cols}x#{rows}, then cropping to #{w}x#{h}"
 
-      i.scale(cols, rows).crop(Magick::CenterGravity, 940, 300)
-          .write(output_path) { self.interlace = Magick::PlaneInterlace }
+      i.scale(cols, rows).crop(Magick::CenterGravity, w, h)
+          .write(output_path) { self.quality = 75; self.interlace = Magick::PlaneInterlace }
     end
 
     classname = File.basename(path, File.extname(path))
