@@ -8,7 +8,7 @@ const dev = false;
 
 const files = [
     "./sitemap.xml",
-    "./calendar-data.xml",
+    "./calendar-data.json",
     "./Situationsplan.pdf",
     "./Vertragsbedingungen 2017.pdf",
     "./google8454a08892c4577a.html"

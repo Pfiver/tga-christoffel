@@ -1,0 +1,49 @@
+<div class="tp-calendar">
+
+    {{#months}}
+        <div class="pure-u-1 pure-u-lg-1-2 ">
+            <table class="pure-table pure-table-bordered">
+                <thead>
+                <tr>
+                    <th>
+                        <span class=""></span>
+                    </th>
+                    <th colspan="5">{{monthName}}</th>
+                    <th>
+                        <span class=""></span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Mo</th>
+                    <th>Di</th>
+                    <th>Mi</th>
+                    <th>Do</th>
+                    <th>Fr</th>
+                    <th>Sa</th>
+                    <th>So</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {{#weeks}}
+                    <tr>
+
+                        {{#days}}
+                            <td class="{{dayClasses}}" title="{{dayTitle}}">
+                                <span>{{dayNumber}}</span>
+                            </td>
+                        {{/days}}
+
+                    </tr>
+                {{/weeks}}
+
+                </tbody>
+            </table>
+        </div>
+    {{/months}}
+
+    <div class="tp-calendar-legend">
+        <div class="tp-calendar-freeGo">frei</div>
+        <div class="tp-calendar-busy">belegt</div>
+    </div>
+</div>
