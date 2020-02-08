@@ -1,9 +1,9 @@
 SHELL:=/bin/bash
 
 all:
+	rm -rf target
 	npm ci --no-optional
 	#gem install --user-install -g
-	rm -rf target
 	ruby tools/render_templates.rb
 	ruby tools/process_headers.rb > target/headers.css
 	node -r ./node_modules/babel-register ./node_modules/webpack/bin/webpack
