@@ -2,7 +2,7 @@ SHELL:=/bin/bash
 
 all:
 	rm -rf target
-	npm ci --no-optional
+	npm install #ci --no-optional
 	#gem install --user-install -g
 	ruby tools/render_templates.rb
 	ruby tools/process_headers.rb > target/headers.css
