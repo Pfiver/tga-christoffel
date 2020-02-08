@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cd "$(dirname "$0")" || exit 1
-
 # Alt: https://shop.savognin.ch/Savognin/ukv/house/TDS00020010019636954
 # Neu: https://savognin.graubuenden.ch/de/node/20583#/unterkuenfte/CH1/c0195db2-2db6-47d5-9453-414a27e7d694/tga-christoffel
 
@@ -13,4 +11,4 @@ to_date=$(perl -e "use Time::Piece; print localtime->add_months(11)->strftime('%
 #api_params="fields=availabilityCalendar(fromDate:\"$from_date\",toDate:\"$to_date\")\\{date,available,canArrive,canDepart,minStay,maxStay,stayInterval\\}"
 api_params="fields=availabilityCalendar(fromDate:\"$from_date\",toDate:\"$to_date\")\\{date,available\\}"
 
-curl -s "$api_base?$api_params" > target/site/calendar-data.json
+curl -s "$api_base?$api_params"
