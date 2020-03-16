@@ -13,4 +13,5 @@ api_params="fields=availabilityCalendar(fromDate:\"$from_date\",toDate:\"$to_dat
 
 api_params="$api_params&spId=c0195db2-2db6-47d5-9453-414a27e7d694"
 
-curl -gs "$api_base?$api_params"
+curl -gs "$api_base?$api_params" |
+  python -c 'import sys,json; data=json.load(sys.stdin); json.dump(data, sys.stdout) if data["availabilityCalendar"][0]["available"] in [0,1] else sys.stderr.write("something went wrong\n")'
