@@ -69,7 +69,7 @@ export function show(section) {
 
             let endDate = new Date();
             endDate.setDate(0); // last day of previous month
-            endDate.setMonth(endDate.getMonth() + 9); // previous + 9 months
+            endDate.setMonth(endDate.getMonth() + 12); // previous + n months
 
             for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
 
