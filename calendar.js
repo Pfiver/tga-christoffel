@@ -59,14 +59,28 @@ export function show(section) {
             let targetElement = document.createElement("div");
             section.appendChild(targetElement);
 
-            const calendarData = { months: [] };
-            let prevDayAvailable = response.availabilityCalendar[0].available;
+            const freeDays = response[0].free;
 
-            response.availabilityCalendar.forEach(dayData => {
-                const date = new Date(dayData.date);
+            const calendarData = { months: [] };
+            let prevDayAvailable = false;
+
+            let startDate = new Date();
+            startDate.setDate(1); // first day of month
+
+            let endDate = new Date();
+            endDate.setDate(0); // last day of previous month
+            endDate.setMonth(endDate.getMonth() + 9); // previous + 9 months
+
+            for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
+
+                const dayNr = date.getDate();
                 const monthNr = date.getMonth();
                 const yearNr = date.getFullYear();
-                const dayOfWeek = (((date.getDay() - 1) % 7) + 7) % 7; // sunday-first to monday-first
+
+                const freeDay = (yearNr % 100) * 10000 + (monthNr + 1) * 100 + dayNr;
+                const available = freeDays.includes(freeDay);
+
+                const dayOfWeek = (date.getDay() + 6) % 7; // sunday-first to monday-first
 
                 let month = calendarData.months[calendarData.months.length-1];
                 if (date.getDate() === 1) {
@@ -83,6 +97,7 @@ export function show(section) {
                     }
                     calendarData.months.push(month);
                 }
+
                 let week = month.weeks[month.weeks.length-1];
                 if (dayOfWeek === 0 && week.days) {
                     week = { days: [] };
@@ -90,14 +105,14 @@ export function show(section) {
                 }
 
                 const day = {
-                    dayClasses: getDayClass(dayData.available, prevDayAvailable),
-                    dayTitle: DAY_TITLES[dayData.available ? 'free' : 'busy'],
+                    dayClasses: getDayClass(available, prevDayAvailable),
+                    dayTitle: DAY_TITLES[available ? 'free' : 'busy'],
                     dayNumber: date.getDate()
                 };
                 week.days.push(day);
 
-                prevDayAvailable = dayData.available;
-            });
+                prevDayAvailable = available;
+            }
 
             targetElement.outerHTML = calendar_template.render(calendarData);
         })

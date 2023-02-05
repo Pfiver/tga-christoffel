@@ -21,17 +21,17 @@ module ImageProcessor
         FileUtils.mkdir_p(output_dir)
       end
       STDERR.puts "Generating #{output_path}"
-      img.write (output_path) { self.quality = 75; self.interlace = Magick::PlaneInterlace }
+      img.write(output_path) { |img| img.quality = 75; img.interlace = Magick::PlaneInterlace }
     end
     config[:geometries].each do |geometry|
-      img.change_geometry(geometry) {|cols, rows, i|
+      img.change_geometry(geometry) {|cols, rows, img|
         rendition_path = Pathname.new(config[:output_path_format] % {
              filepath: ascii_path[0..-ext.length-1], width: cols, height: rows, ext: ext[1..-1]})
         out[:resized][geometry] = { path: rendition_path, width: cols, height: rows }
         output_path = File.expand_path(rendition_path, "target/site")
         unless File.file? output_path
           STDERR.puts "Generating #{output_path}"
-          i.resize(cols, rows).write(output_path) { self.quality = 75; self.interlace = Magick::PlaneInterlace }
+          img.resize(cols, rows).write(output_path) { |img| img.quality = 75; img.interlace = Magick::PlaneInterlace }
         end
       }
     end

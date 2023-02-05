@@ -32,7 +32,7 @@ module LiquidImages
         end
         File.write data_path, JSON.pretty_generate(data)
       end
-      result
+      result.join
     end
   end
   def symbolize_keys(hash) JSON.parse JSON.dump(hash), symbolize_names: true end

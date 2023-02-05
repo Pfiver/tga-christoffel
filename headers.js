@@ -20,7 +20,6 @@ export function go(section) {
         classnam += getVariant();
     }
     header.className = classnam;
-    console.log("header: " + classnam);
 }
 
 function getSeason() {

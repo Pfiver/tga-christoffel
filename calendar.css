@@ -1,17 +1,6 @@
-/*********************************************************************************************************/
-/* from https://shop.savognin.ch/default/ng/css/tp-taurus.css */
-
-/* @group grid variables -------------------------------- */
-/* @group css mixins ------------------------------------ */
-/* @group calendar base definitions --------------------- */
 .tp-calendar {
     position: relative;
-}
-@media screen and (max-width: 567px) {
-    .tp-calendar > div:not(.tp-calendar) {
-        margin-left: -14px;
-        margin-right: -14px;
-    }
+    text-align: justify;
 }
 .tp-calendar table {
     border: none;
@@ -22,12 +11,6 @@
 }
 .tp-calendar tbody {
     background: #d5d5d5;
-    /*
-    td strong {
-      color: #fff;
-      font-size: 14px;
-    }
-    */
 }
 .tp-calendar td,
 .tp-calendar th {
@@ -42,17 +25,9 @@
     vertical-align: middle;
     width: 14.2857%;
 }
-@media screen and (max-width: 567px) {
-    .tp-calendar td,
-    .tp-calendar th {
-        padding: 1px 0;
-    }
-}
-@media screen and (min-width: 568px) {
-    .tp-calendar td,
-    .tp-calendar th {
-        padding: 1px 5px;
-    }
+.tp-calendar td,
+.tp-calendar th {
+    padding: 1px 5px;
 }
 .tp-calendar th {
     color: #000;
@@ -61,14 +36,33 @@
 .tp-calendar + .tp-calendar {
     margin-top: 15px;
 }
+
+.tp-calendar > div {
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+}
+.tp-calendar > div:not(.tp-calendar-legend) {
+    height: 200px;
+    width: 270px;
+}
+.tp-calendar > div.tp-calendar-legend {
+    white-space: nowrap;
+}
+.tp-calendar td,
+.tp-calendar th {
+    font-size: 12pt;
+}
+.tp-calendar tbody td,
+.tp-calendar tbody th {
+    font-weight: normal;
+}
+
 .tp-calendar .tp-calendar-legend .tp-calendar-free:before,
 .tp-calendar .tp-calendar-free {
     background: #95c966;
 }
-.tp-calendar .tp-calendar-legend .tp-calendar-freego:before,
-.tp-calendar .tp-calendar-legend .tp-calendar-freeGo:before,
-.tp-calendar .tp-calendar-freego,
-.tp-calendar .tp-calendar-freeGo {
+.tp-calendar .tp-calendar-freego {
     background: #288c1d;
 }
 .tp-calendar .tp-calendar-legend .tp-calendar-busy:before,
@@ -97,228 +91,14 @@
     background: #d5d5d5;
     background: linear-gradient(135deg, #d5d5d5 50%, #288c1d 50%);
 }
+.tp-calendar .tp-calendar-legend .tp-calendar-free-arrival:before,
 .tp-calendar .tp-calendar-free-arrival {
     background: #288c1d;
 }
-.tp-calendar .tp-calendar-btn {
-    display: block;
-    font-size: 150%;
-    width: 100%;
-}
-.tp-calendar [class*="tp-icon-angle-"]:before {
-    margin: 0;
-    width: auto;
-}
-.tp-calendar-bestprice {
-    margin-bottom: -14px;
-    table-layout: fixed;
-}
-.tp-calendar-bestprice [data-offer] {
-    cursor: pointer;
-}
-.tp-calendar-bestprice [data-offer]:hover {
-    outline: 1px dotted #333;
-}
-.tp-calendar-bestprice tbody {
-    background: #fff;
-}
-.tp-calendar-bestprice td {
-    background-color: #e6e6e6;
-    border: 1px solid #ddd;
-    font-weight: 400;
-    padding: 4px;
-    text-align: left;
-    vertical-align: top;
-}
-.tp-calendar-bestprice td.tp-calendar-bestprice-free:not(.tp-calendar-bestprice-offer) {
-    background-color: #ffffff;
-}
-.tp-calendar-bestprice th,
-.tp-calendar-bestprice td {
-    overflow: hidden;
-}
-.tp-calendar-bestprice th:nth-child(7),
-.tp-calendar-bestprice td:nth-child(7) {
-    border-right-width: 0;
-}
-@media screen and (min-width: 568px) {
-    .tp-calendar-bestprice {
-        margin-left: -7px;
-        margin-right: -8px;
-    }
-}
-@media screen and (max-width: 567px) {
-    .tp-calendar-bestprice tr,
-    .tp-calendar-bestprice td {
-        display: block;
-        width: 100% !important;
-    }
-    .tp-calendar-bestprice th,
-    .tp-calendar-bestprice td {
-        border-bottom-width: 0;
-        border-left-width: 0;
-        border-right-width: 0;
-    }
-    .tp-calendar-bestprice-empty {
-        display: none !important;
-    }
-}
-.tp-calendar-bestprice-head {
-    padding-bottom: 10px;
-    text-align: center;
-}
-.tp-calendar-bestprice-head select {
-    min-width: 140px;
-    width: 28.5%;
-}
-.tp-calendar-bestprice-body thead th {
-    border-bottom: 1px solid #ddd;
-}
-@media screen and (max-width: 567px) {
-    .tp-calendar-bestprice-body {
-        border-top: 1px solid #ddd;
-        max-height: 250px;
-        overflow: auto;
-    }
-    .tp-calendar-bestprice-body > table {
-        margin-top: -1px;
-    }
-}
-.tp-calendar-bestprice-offer span {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    color: #fff !important;
-}
-.tp-calendar-bestprice-label {
-    font-weight: 600;
-    line-height: 1;
-    padding-top: 4px;
-}
-@media screen and (min-width:768px) and (max-width:1199px) {
-    .tp-calendar-bestprice-label {
-        max-width: 45px;
-    }
-}
-@media screen and (min-width: 568px) {
-    .tp-calendar-bestprice-label {
-        float: left;
-    }
-}
-@media screen and (max-width: 567px) {
-    .tp-calendar-bestprice-label {
-        float: right;
-    }
-}
-@media screen and (min-width: 568px) {
-    .tp-calendar-bestprice-weekday {
-        display: none !important;
-    }
-}
-@media screen and (max-width: 567px) {
-    .tp-calendar-bestprice-weekday {
-        display: block;
-        font-weight: 400;
-    }
-}
-.tp-calendar-bestprice-day {
-    font-size: 12px;
-}
-@media screen and (min-width: 568px) {
-    .tp-calendar-bestprice-day {
-        float: right;
-    }
-}
-@media screen and (max-width: 567px) {
-    .tp-calendar-bestprice-day {
-        float: left;
-        font-weight: 600;
-        min-height: 60px;
-        width: 50px;
-    }
-}
-.tp-calendar-bestprice-nights {
-    display: block;
-}
-@media screen and (min-width: 568px) {
-    .tp-calendar-bestprice-nights {
-        clear: both;
-        padding-top: 7px;
-    }
-}
-.tp-calendar-bestprice .tp-calendar-btn {
-    float: left;
-    max-width: 40px;
-}
-.tp-calendar-bestprice .tp-calendar-btn[class*=right] {
-    float: right;
-}
-.tp-calendar-bestprice + .tp-calendar-bestprice-nodates {
-    margin-top: 14px;
-}
-@media screen and (min-width: 992px) {
-    .tp-calendar .pure-u-1:first-child thead tr:first-child th:last-child .tp-calendar-btn,
-    .tp-calendar .pure-u-1:nth-child(2) thead tr:first-child th:first-child .tp-calendar-btn {
-        display: none !important;
-    }
-}
-/*
-.datepicker-days .tp-calendar thead > tr > th,
-.datepicker-days .tp-calendar thead > tr > td,
-.datepicker-days .tp-calendar tbody > tr > th,
-.datepicker-days .tp-calendar tbody > tr > td,
-.datepicker-days .tp-calendar tfoot > tr > th,
-.datepicker-days .tp-calendar tfoot > tr > td {
-    border: 1px solid #fff;
-    line-height: 20px;
-    margin: 0;
-    padding: 0.1em 0.4em;
-    vertical-align: top;
-    width: 14.2857%;
-}*/
-/*
-.tp-calendar .prev-month .day,
-.tp-calendar .next-month .day {
-	color: #bbb;
-}
 
-.tp-calendar td .day {
-	display: block;
-	float: right;
-	font-size: 85%;
-	font-weight: normal;
-	margin: 0;
-}
-*/
-.js .tp-calendar-btn,
-.js td.tp-calendar-busy-free-arrival,
-.js td.tp-calendar-freego,
-.js td.tp-calendar-freeGo {
-    cursor: pointer;
-}
-.js .tp-calendar-btn:hover,
-.js .tp-calendar-btn:focus,
-.js td.tp-calendar-freego:hover,
-.js td.tp-calendar-freego:focus,
-.js td.tp-calendar-freeGo:hover,
-.js td.tp-calendar-freeGo:focus,
-.js td.tp-calendar-free-arrival:hover,
-.js td.tp-calendar-free-arrival:focus,
-.js td.tp-calendar-busy-free-arrival:hover,
-.js td.tp-calendar-busy-free-arrival:focus {
-    outline: 1px dotted #333;
-}
-/* @group calendar legend definitions ------------------- */
 .tp-calendar-legend {
     margin-top: 5px;
-}
-.tp-calendar-legend .tp-calendar-busy,
-.tp-calendar-legend .tp-calendar-freego,
-.tp-calendar-legend .tp-calendar-freeGo,
-.tp-calendar-legend .tp-calendar-free {
-    background-color: transparent;
-    display: inline-block;
-    margin-top: 5px;
-    margin-right: 10px;
+    display: block;
 }
 .tp-calendar-legend > div:before {
     display: inline-block;
@@ -329,44 +109,11 @@
     top: 4px;
     width: 40px;
 }
-@media screen and (max-width: 567px) {
-    .tp-calendar-legend .tp-calendar-busy,
-    .tp-calendar-legend .tp-calendar-freego,
-    .tp-calendar-legend .tp-calendar-freeGo,
-    .tp-calendar-legend .tp-calendar-free {
-        display: block;
-    }
-}
-.tp-calendar-legend-hide .tp-calendar-legend {
-    display: none;
-}
-
-/*********************************************************************************************************/
-/* custom styles */
-
-#belegungskalender .tp-calendar {
-    text-align: justify;
-}
-
-#belegungskalender .tp-calendar > div {
+.tp-calendar-legend .tp-calendar-free,
+.tp-calendar-legend .tp-calendar-busy,
+.tp-calendar-legend .tp-calendar-free-arrival {
+    background-color: transparent;
     display: inline-block;
-    text-align: left;
-    margin: 0;
-}
-#belegungskalender .tp-calendar > div.tp-calendar-legend {
-    white-space: nowrap;
-}
-#belegungskalender .tp-calendar > div:not([class*="tp-calendar-legend"]) {
-    height: 200px;
-    width: 270px;
-}
-
-#belegungskalender .tp-calendar td,
-#belegungskalender .tp-calendar th {
-    font-size: 12pt;
-}
-
-#belegungskalender .tp-calendar tbody td,
-#belegungskalender .tp-calendar tbody th {
-    font-weight: normal;
+    margin-top: 5px;
+    margin-right: 10px;
 }
