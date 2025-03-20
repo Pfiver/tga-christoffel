@@ -9,8 +9,8 @@ const dev = false;
 const files = [
     "./sitemap.xml",
     "./calendar-data.json",
-    "./Situationsplan.pdf",
-    "./Vertragsbedingungen 2017.pdf",
+    "./Skizze_Situationsplan.pdf",
+    "./Vertragsbedingungen.pdf",
     "./google8454a08892c4577a.html"
 ];
 
