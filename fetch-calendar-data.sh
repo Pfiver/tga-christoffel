@@ -23,16 +23,27 @@ get_myswitzerland() {
 }
 
 get_deskline() {
-  ## !!! ANDERES FORMAT !!! ##
-  curl --silent -H 'DW-Source: desklineweb' -H 'DW-SessionId: Y1716036959516' \
-    --get https://webapi.deskline.net/savognin/de/accommodations/CH1/products/bb3b5913-07a0-4893-88c5-6a1d52278ea5 \
+  if [ $(uname) = Darwin ]
+  then date=gdate
+  else date=date
+  fi
+  from=$($date +%Y-%m-01)
+  to=$($date -d "$from+1year-1day" +%Y-%m-%d)
+  curl --silent -H 'DW-Source: desklineweb' -H 'DW-SessionId: E1752953508064' \
+    --get 'https://webapi.deskline.net/savognin/de/accommodations/CH1/products/bb3b5913-07a0-4893-88c5-6a1d52278ea5' \
     --data 'currency=CHF' --data 'spId=c0195db2-2db6-47d5-9453-414a27e7d694' \
-    --data-urlencode 'fields=availabilityCalendar(fromDate:"2024-3-31",toDate:"2024-7-31"){date,available,canArrive,canDepart,minStay,maxStay,stayInterval}'
+    --data-urlencode 'fields=availabilityCalendar(fromDate:"'$from'",toDate:"'$to'"){date,available,canArrive,canDepart,minStay,maxStay,stayInterval}'
 }
 
-assert_valid() {
+assert_openbooking_valid() {
      python3 -c 'import sys, json; buf = sys.stdin.read(); data = json.loads(buf); \
                  sys.stdout.write(buf) if data[0]["free"][0] < 991231 else sys.stderr.write("unsupported response data\n")'
 }
 
-get_openbooking | assert_valid
+assert_deskline_valid() {
+     python3 -c 'import sys, json; buf = sys.stdin.read(); data = json.loads(buf); \
+                 sys.stdout.write(buf) if data["availabilityCalendar"][0]["minStay"] == 1 else sys.stderr.write("unexpected response data\n")'
+}
+
+#get_openbooking | assert_openbooking_valid
+get_deskline | assert_deskline_valid

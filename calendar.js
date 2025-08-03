@@ -41,6 +41,26 @@ function getDayClass(todayAvailable, prevDayAvailable) {
             };
  */
 
+function isFreeOpenbooking(response) {
+    const freeDays = response[0].free;
+    return (yearNr, monthNr, dayNr) => {
+        const sixDigitIsoDateNr = (yearNr % 100) * 10000 + (monthNr + 1) * 100 + dayNr;
+        return freeDays.includes(sixDigitIsoDateNr);
+    };
+}
+
+function isFreeDeskline(response) {
+    const days = {};
+    response.availabilityCalendar.forEach(day => days[day.date] = day);
+    return (yearNr, monthNr, dayNr) => {
+        const year = yearNr.toString().padStart(2, "0");
+        const month = (monthNr + 1).toString().padStart(2, "0");
+        const day = dayNr.toString().padStart(2, "0");
+        const dateString = `${year}-${month}-${day}T00:00:00`;
+        return !!(days[dateString]||{}).available;
+    };
+}
+
 export function show(section) {
 
     if (section.querySelector(".tp-calendar")) {
@@ -59,7 +79,7 @@ export function show(section) {
             let targetElement = document.createElement("div");
             section.appendChild(targetElement);
 
-            const freeDays = response[0].free;
+            let isFree = isFreeDeskline(response);
 
             const calendarData = { months: [] };
             let prevDayAvailable = false;
@@ -77,8 +97,7 @@ export function show(section) {
                 const monthNr = date.getMonth();
                 const yearNr = date.getFullYear();
 
-                const freeDay = (yearNr % 100) * 10000 + (monthNr + 1) * 100 + dayNr;
-                const available = freeDays.includes(freeDay);
+                const available = isFree(yearNr, monthNr, dayNr);
 
                 const dayOfWeek = (date.getDay() + 6) % 7; // sunday-first to monday-first
 
